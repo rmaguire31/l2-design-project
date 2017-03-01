@@ -1,7 +1,11 @@
-\documentclass{article}
+\documentclass[11pt]{article}
 \usepackage{varioref}
+\usepackage{wasysym}
+\usepackage{booktabs}
+\usepackage{xspace}
 \usepackage[style=ieee,backend=bibtex]{biblatex}
 \usepackage{filecontents}
+
 \begin{filecontents}{\jobname.bib}
     @book{meyers2009mechanical,
         title={Mechanical behavior of materials},
@@ -9,7 +13,19 @@
         volume={2},
         pages={98--103},
         year={2009},
-        publisher={Cambridge University Press Cambridge}
+        publisher={Cambridge University Press},
+        location={Cambridge}
+    }
+    @techreport{maguire2016vibration,
+        title={Vibration Isolation and Attenuation Mounts},
+        author={Maguire, R S and Hollands, E O and Jones, B A H and Miller, L R 
+        and Hall, G A and Valladares-Hodder, M},
+        institution={Durham University School of Engineering and Computing 
+        Sciences},
+        year={2016},
+        month={12},
+        type={Feasibility Report},
+        location={Durham}
     }
 \end{filecontents}
 \addbibresource{\jobname.bib}
@@ -25,7 +41,7 @@ market met three primary criteria:
     \item They allowed the mounted equipment to move with four degrees of 
     freedom: three in translation and one in rotation.
     \item They used single degree of freedom systems for damping. Simpler 
-    damping mechanism were more effective at consistently attenuating 
+    damping mechanisms were more effective at consistently attenuating 
     unwanted frequency components.
     \item Vibrations were efficiently transmitted to the damping system from 
     the equipment. This was typically achieved using hard materials and limited 
@@ -54,7 +70,7 @@ when subjected to changes in mechanical stress \cite{meyers2009mechanical}.
 Hence, the amplitude of vibrations are reduced when the driving oscillations 
 are transmitted through viscoelastic materials. Typically when these materials 
 are used in footers, the vibrations are not limited to a single degree of 
-freedom, so the effectiveness of attenuations depends on the vibration 
+freedom, so the effectiveness of attenuation depends on the vibration 
 direction. This makes it difficult to model and specify a single system natural 
 frequency or damping factor.
 
@@ -65,7 +81,7 @@ linear bearing compresses a viscoelastic sleeve on the same shaft.
 \begin{figure}[h] 
     \centering
     \textbf{VISCOELASTIC DAMPING CONCEPT}
-    \caption{Viscoelastic damping mechanism.}
+    \caption{D1---Viscoelastic damping mechanism.}
     \label{fig:viscoelastic}
 \end{figure}
 
@@ -80,7 +96,7 @@ desired dynamic properties of the system.
 \begin{figure}[h] 
     \centering
     \textbf{MAGNETIC DAMPING CONCEPT}
-    \caption{Magnetic damping mechanism.}
+    \caption{D2---Magnetic damping mechanism.}
     \label{fig:magnetic}
 \end{figure}
 
@@ -94,7 +110,7 @@ successfully containing the fluid.
 \begin{figure}[h] 
     \centering
     \textbf{FLUIDIC DAMPING CONCEPT}
-    \caption{Fluidic damping mechanism.}
+    \caption{D3---Fluidic damping mechanism.}
     \label{fig:fluidic}
 \end{figure}
 
@@ -108,7 +124,7 @@ Figure~\vref{fig:concept1} details one such embodiment.
 \begin{figure}[h] 
     \centering
     \textbf{ELOISE'S LINKAGE CONCEPT}
-    \caption{Concept 1---simple linkage mechanism.}
+    \caption{C1---Simple linkage mechanism.}
     \label{fig:concept1}
 \end{figure}
 
@@ -123,7 +139,7 @@ isolation.
 \begin{figure}[h]
     \centering
     \textbf{RUSSELL'S LINKAGE CONCEPT}
-    \caption{Concept 2---layered linkage mechanism.}
+    \caption{C2---Layered linkage mechanism.}
     \label{fig:concept2}
 \end{figure}
 
@@ -138,26 +154,160 @@ sandwiched between two platforms. The upper platform was to be made of a hard
 material such as stainless steel or tungsten carbide, in order to efficiently 
 transmit vibrations through to the bearings via point contacts. The bearings 
 allowed the top platform to move with the equipment in three degrees of 
-freedom: two lateral directions lateral rotation. The bottom platform would 
+freedom: two lateral directions and lateral rotation. The bottom platform would 
 have been made of some viscoelastic material with holes for the bearings to 
-rest in. Both vertical and lateral oscillations would be damped by this 
+rest in. Both vertical and lateral oscillations would have been damped by this 
 platform and dissipated as heat.
 
-This concept has a major drawback: the damping mechanism is not confined to a 
-single degree of freedom, so would be very difficult to determine a single 
+This concept had a major drawback: the damping mechanism was not confined to a 
+single degree of freedom. It would have been challenging to determine a single 
 damping factor and resonant frequency. The isolation mechanism was an anomaly 
 in the concept generation phase, as the damping mechanism was not 
 interchangable with those in Section~\vref{sec:damping_mechanisms}.
 
-
-
 \begin{figure}[h]
     \centering
     \textbf{GEORGE'S PLATFORM CONCEPT}
-    \caption{Concept 3---viscoelastic platform concept.}
+    \caption{C3---Viscoelastic platform concept.}
     \label{fig:concept3}
 \end{figure}
+
+Isolation cones are a popular type of mount, an example is Nordost's Sort 
+Kones\textregistered. The Sort Kones are made of three parts: a post, spherical 
+bearing, and cone. The bearing rests on the top of the post and the cone sits 
+on top of the bearing, such that the cone is free to swivel and rotate. 
+However, cones seek only to isolate the mounted equipment and allow free 
+movement---they do not attenuate vibrations.
+
+Figure~\vref{fig:concept4} demonstrates how an attenuating mechanism could have 
+been incorporated into the post of an isolation cone. The spring in the 
+isolation mechanism could have been replaced with one of the damping mechanisms 
+in Figure~\ref{fig:viscoelastic} and Figure~\ref{fig:magnetic}.
+
+    
+\begin{figure}[h]
+    \centering
+    \textbf{MAT'S CONE CONCEPT}
+    \caption{C4---Damped cone concept.}
+    \label{fig:concept4}
+\end{figure}
+    
+An alternative mechanism was devised to translate horizontal and lateral 
+oscillations into oscillations of a spherical bearing along a race. 
+Figure~\vref{fig:concept5} details the geometry required to achieve this 
+translation.
+
+\begin{figure}[h]
+    \centering
+    \textbf{RUSSELL'S POINTY BOTTOM CONCEPT}
+    \caption{C5---Cone and bearing concept.}
+    \label{fig:concept5}
+\end{figure}
+
+When no force is applied to the top piece, the bearing would travel to the 
+bottom of its race. Increasing the load would cause the bearing to move up the 
+race due to the gradient of the curve on the top piece, which was greater than 
+the gradient of the race. There would be some component of the reaction force 
+acting on the bearing perpendicular to the curve which points up the the slope 
+of the race. However, the gradient of the curve decreases travelling up the 
+slope, so for a given load the component of the reaction force would also 
+decrease. Therefore, for each load, there is a different equilibrium position 
+somewhere along that race where the components of the bearing's weight and the 
+reaction force acting on the bearing in the direction of the race are equal and 
+opposite. The mechanism acts as a geometric spring with some stiffness.
+
+The frictional sheer forces in the mechanism would provide significant damping 
+due to the magnitude of the reaction forces involved. Furthermore, one of the 
+damping mechanisms in Figure~\ref{fig:viscoelastic} or 
+Figure~\ref{fig:magnetic} could be coupled to the linear motion of the 
+bearings to tune the system to a desired natural frequency and damping 
+factor---this could result in quite a large footer.
+
+A drawback of this concept is difficulty in containing the bearings, the user 
+would be free to remove the top piece, and the bearings would all come out of 
+their races. Competitors could easily see how the mechanism works and replicate 
+it for themselves.
+
+Figure~\vref{fig:concept6} details a variation of C5, whereby the bearings 
+travel outwards up the slope. This creates more space for a damping mechanism 
+for each race around the outside of the footer. A fluid could be contained in 
+the cavity in the bottom piece to damp vibrations using the mechanism described 
+in Figure~\ref{fig:fluidic}.
+
+\begin{figure}[h]
+    \centering
+    \textbf{RUSSELL'S POINTY TOP CONCEPT}
+    \caption{C6---Alternative cone and bearing concept.}
+    \label{fig:concept6}
+\end{figure}
+    
+The flexibility of the alternative cone and bearing concept C6, coupled with 
+its innovative design set the concept apart from its alternatives. In 
+\cite{maguire2016vibration}, it was shown how concept C6 with damping mechanism 
+D2 best matched the customer's expectations and engineering requirements. This 
+is the concept which informed the next stage of development and our final 
+design.
     
 \section{Detailed Design}
+
+Table~\vref{table:bom} is a bill of materials for the final design. The brand 
+name used is \emph{Isofonics}. The items listed are labelled in 
+Figure~\vref{fig:labelled-iso-section} and the appendices contain detailed 
+drawings for Isofonics parts not purchased from third parties.
+
+\begin{table}[h]
+    \centering
+    \footnotesize
+    \caption{Bill of Materials}
+    \label{table:bom}
+    \begin{tabular}{@{}clp{17em}c@{}}
+        \toprule
+        Item No. & Part No. & Description & Qty. \\
+        \midrule
+        1 & COR080-0003 & \raggedright Isofonics core piece & 1 \\
+        2 & TOP080-0004 & \raggedright Isofonics top piece & 1 \\
+        3 & 10MMTUNGSTENBALLS & \raggedright \diameter 10mm tungsten carbide 
+        ball (VXB Bearings) & 6 \\
+        4 & F669-N45SH-10 & \raggedright \diameter 10x1.5mm neodymium button 
+        magnet (first4magnets) & 12 \\
+        5 & PLD010-1004 & \raggedright Isofonics preloading back-stop & 1 \\
+        6 & RET080-0003 & \raggedright Isofonics retainer & 1 \\
+        7 & M4X20-CSK-ST & \raggedright M4x20mm T20 c'sunk screw with 
+        partial thread (westfieldfastenings) & 6 \\
+        8 & PLD080-0003 & \raggedright Isofonics preloading crown & 1 \\
+        9 & M4X20-CSK-H & \raggedright M4x20mm H2.5 c'sunk screw with 
+        partial thread (westfieldfastenings) & 1 \\
+        10 & RET080-1002 & \raggedright Isofonics retainer bottom & 1 \\
+        11 & USR080-0001 & \raggedright Isofonics removable spike & 1 \\
+        12 & USR080-1002 & \raggedright Isofonics removable base & 1 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{figure}[h]
+    \centering
+    \textbf{LABELLED ISOMETRIC SECTION VIEW}
+    \caption{Isometric section view with labelled item numbers.}
+    \label{fig:labelled-iso-section}
+\end{figure}
+
+The final design for the Isofonics footer can be split into four subsystems, 
+each of which will be described in detail:
+
+\begin{itemize}
+    \item The isolation and attenuation mechanism.
+    \item The preloading mechanism which is used to tweak the system to the 
+    supported mass. 
+    \item The retaining wall designed to contain the mechanical subsystems and 
+    dissuade from disassembly.
+    \item User replaceable parts for mounting the system.
+\end{itemize}
+
+\subsection{Isolation and Attenuation Mechanism}
+
+Items 1--4 are used in the isolation and attenuation subsystem of the Isofonics 
+footer.
+
+\printbibliography
     
 \end{document}
