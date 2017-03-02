@@ -15,11 +15,6 @@
 \usepackage[font={small}]{caption}
 \usepackage{subfig}
 \usepackage{nomencl}
-\makenomenclature
-
-
-
-
 
 \usepackage{graphicx}
 \usepackage{color}
@@ -27,25 +22,17 @@
 \usepackage{booktabs}
 \usepackage{threeparttable}
 \usepackage{fancyhdr}
-\usepackage{float} %floats are used to contain things that must be placed inside a single page
+\usepackage{float}
 
 \usepackage{varioref}
 \usepackage{textcomp}
 \usepackage{xspace}
 \usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=nonfrench,factor=1100,stretch=10,shrink=10]{microtype}
 
-
-
-
-%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-% Document Information
-%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+% Top matter.
 \author{Group 25}
 \title{Design Report}
 \date{\today}
-
-% Path to Images.
-\graphicspath{Images}
 
 % Header and footer.
 \pagestyle{fancy}
@@ -57,7 +44,6 @@
 \renewcommand{\footrulewidth}{0pt}
 
 \begin{document}
-
 
 %% Title page.
 \begin{titlepage}
@@ -73,15 +59,9 @@
     \vspace*{\fill}
 \end{titlepage}
 
-%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-% Main matter.
-%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-% SUMMARY - ELOISE
-%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-\onecolumn 
-\section{Executive Summary} 
-Microphonic effects exist in hi-fi systems wherein mechanical vibrations are 
+\section{Executive Summary}
+
+Microphonic effects exist in Hi-Fi systems wherein mechanical vibrations are 
 transformed into unwanted electrical signals, termed noise, that consequently 
 reduce sound quality. Isofonics have designed footers of aluminium and steel 
 upon which such systems are to be supported that aim to isolate and attenuate 
@@ -102,23 +82,24 @@ potential for product families of differing size, catering to an even wider
 audience, and applications within the field of optics, more specifically in the 
 optimisation of microscopes.
 
+% Nomenclature.
+\makenomenclature
+
 % Acronyms
-\nomenclature[A0]{DFM}{Design for Manufacture}
+\nomenclature[A0]{CNC}{Computer Numerical Control}
 \nomenclature[A1]{DFA}{Design for Assembly}
-\nomenclature[A2]{CNC}{Computer Numerical Control}
-\nomenclature[A3]{URS}{User Requirement Specification}
+\nomenclature[A2]{DFM}{Design for Manufacture}
+\nomenclature[A3]{EMF}{Electromotive Force}
+\nomenclature[A4]{URS}{User Requirement Specification}
 
 % Variables
-\nomenclature{test}{This is a test}
 
 \printnomenclature
 
+% Table of contents.
 \tableofcontents
 
-%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-% INTRO - ELOISE
-%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+% Main matter.
 \section{Introduction}
 Microphonics describes the phenomenon wherein internal components within an 
 electronic device transform mechanical vibrations into undesired electrical 
@@ -163,9 +144,6 @@ This report covers the initial design concepts proposed by Group 25, the
 development of a chosen design, its design for manufacture and sustainability 
 and its commercial considerations.
 
-%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-% DESIGN CONCEPTS
-%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \section{Design Concepts}
 
 During initial research it was noticed the most successful products on the 
@@ -382,7 +360,22 @@ D2 best matched the customer's expectations and engineering requirements. This
 is the concept which informed the next stage of development and our final 
 design.
 
-\section{Design Development} 
+\section{Design Development}
+
+Through an iterative process, the concept highlighted in 
+\cite{maguire2016vibration} for its promise was increasingly refined to produce 
+a final design. The key milestones in development are as follows:
+
+\begin{itemize}
+    \item The transition from curved geometry to opposing pairs of rare earth 
+    magnets to support the load of equipment.
+    \item The addition of a user-adjustable preloading mechanism to increase 
+    the range of masses that could be supported to full mass range of 
+    amplifiers: 5~\si{\kilogram}--30~\si{\kilogram}~\cite{citation needed}.
+    \item The casing required to contain the isolation mechanism were     
+    considered.
+\end{itemize}
+
 \subsection{Opposing Magnets}
 \subsubsection{Magnet Simulation}
 
@@ -415,209 +408,13 @@ Figure~\ref{figure:maxsep}.
 \end{figure}
 
 It can be seen that the flux density outside of the footer is negligible as it 
-has a value of the order $10^{-5}~\si{\tesla}$ meaning that there would be 
+has a value of the order $10^{-5}$~\si{\tesla} meaning that there would be 
 minimal to no interactions between the footer and its surroundings as nearly 
 all of the magnetic flux is contained within the core of the device.
 
 \subsection{Preloading Mechanisms}
-\subsection{Containment}
-\subsection{Dynamic Analysis}
-\subsubsection{Parametric Model} \label{sec:parametric-model}
-\subsubsection{System Tuning}
-\subsubsection{Experimentation}
-
-To model the effectiveness of the product, sample data was collected to act as 
-an input for the model; this data was used to simulate the driving force in the 
-characteristic equation previously stated (Equation \ref{eq:2ndDiff}).  In 
-order to obtain this information, an experiment was completed.
-
-A 5V signal was generated with a PicoScope (pico Technology, PicoScope 2204A) 
-and fed through an accelerometer (STMI electronics LIS344ALH); this 
-accelerometer was coupled to the top of an amplifier connected to a standard AC 
-mains power supply, nominal voltage of 240V at a frequency of 50Hz. Using the 
-pico Technology software, data from the accelerometer was captured for three 
-conditions; the amplifier turned off, the amplifier turned on, and the 
-amplifier turned on sitting on four half squash balls placed under the footers. 
-Squash balls are a rudimental method of noise damping and were tested to 
-compare this known method against the information acquired from the 
-mathematical model.
-
-The data captured came in the form of a voltage output, to determine the 
-acceleration from this information it was necessary to form a transformation 
-equation. To do so, the technical data sheet for the accelerometer was found 
-and in it there was clear conversion data which lead to the following
-
-\begin{equation} \label{eq:acceleration}
-a  =  (0.66 V - 1.65) 9.81
-\end{equation}
-
-as derived from \cite{SensorManual}
-
-Where a is the acceleration $(ms^{-2})$, V is the voltage response from the 
-accelerometer (V).
-
-With the acceleration response and the mass of the amp, the driving force from 
-the vibrations was calculated (Equation \ref{eq:Newton}) for each of the 
-conditions.
-
-Firstly, the data for the amplifier off, the control, was compared to the 
-amplifier on. Both sets of information were processed and their spectra plotted 
-as shown in Figure \ref{fig:MatGraphs1}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{Images/MatGraphs}
-    \caption{Compared Frequency Responses when Amplifier off and on}
-    \label{fig:MatGraphs1}
-\end{figure}
-
-The amp off data has a thin peak at 50Hz; this is due to the UK mains power 
-supply rated at 50Hz. Although the amplifier was turned off it was still 
-connected to the mains and therefore it is not unusual to witness a peak. With 
-the amplifier on the fundamental frequency increases in power significantly up 
-to -40dBV from -130dBV. The harmonics can be seen at 50Hz intervals although 
-the general noise of the signal remains the same. Next, the amplifier on data 
-was compared to the squash ball damped data to show how rudimental damping will 
-affect the spectra and indicates how to determine successful damping for the 
-dynamic model. The graphs are shown in Figure \ref{fig:MatGraphs2}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{Images/MatGraphs2}
-    \caption{Compared Frequency Responses with and without Squash Balls}
-    \label{fig:MatGraphs2}
-\end{figure}
-
-From the undamped spectra, it can be observed that the fundamental frequency is 
-50Hz with a peak at around -50dBV and harmonics at 50Hz intervals. There is 
-heavy noise on the spectrum which will need to be reduced to provide an 
-improved sound quality. From the simple damping the squash balls provide this 
-noise has been significantly attenuated, along with this success the harmonics 
-have consistently lower peaks whilst the fundamental frequency retaining a 
-similar power to the undamped spectrum. This provides an example of successful 
-damping which can be used as a comparison to the later mathematically damped 
-data. The aim is to further reduce the noise and lower the power of the 
-harmonics as much as possible, preferably below the noise floor which can be 
-observed to be around -130dBV.
-
-\subsubsection{Dynamic Simulation}
-
-It was determined that a dynamic model of the system would be necessary to 
-quantify the potential success of the product. This could visually display the 
-effects of the footers on attenuation of a signal from a HiFi system, and 
-hence establish whether the sound quality had been improved. 
-
-The system can be simplified to a spring mass damper system---a driving force 
-in the vertical direction $F_{dy}$ is supplied by the vibration of the HiFi 
-system and the opposing forces from the magnetic repulsion force $F_{my}(y)$ 
-and damping coefficient $c$. Considering these components, it was possible to 
-develop a second order differential equation which when solved would 
-characterise the function of the footers.
-\begin{equation} \label{eq:2ndDiff}
-    F_{dy} = my^{\prime \prime} + cy^\prime + F_{my}(y) 
-\end{equation}
-where $m$ is the mass of the system and $y$ is the displacement due to 
-vibrations.
-
-Three components were to be found to complete the model: $c$, $F_{dy}(y)$, and 
-$F_{my}(y)$. Ideally the damping coefficent for various masses would be 
-determined empirically, however, using the theoretical approach outlined in 
-Section~\ref{sec:parametric-model} the damping coefficient could be found given 
-the dynamic friction coefficient $\mu$ between the tungsten carbide bearing and 
-the stainless steel race. For these materials $0.4 < \mu < 0.6$. Substituting 
-the limits into Equation~\ref{?}, the damping coefficient was deduced to lie in 
-the range $158.7182~\si{\newton\second\per\meter} < c < 
-238.0773~\si{\newton\second\per\meter}$.
-
-The value of the magnetic repulsion force can be calculated, as outlined in 
-section XXXX using equation XXX. The repulsion force is driven by the 
-horizontal movement of the ball bearings; this motion is directly proportional 
-to the vertical displacement from vibrations.
-
-Simulink was chosen to drive the dynamic model due to the straight-forward 
-construction of differential equations it provides; it offers a visual 
-representation of the system and works hand-in-hand with MatLab allowing for 
-simple data processing. Simulink computes an iterative numerical solution and 
-outputs a corresponding time series to the MatLab workspace.
-
-The first step to modelling was to consider each element of the characteristic 
-equation and form a series of blocks to represent them. The output from MatLab 
-represented the acceleration from the accelerometer ($y^{\prime \prime}$) 
-therefore two \textquotesingle integrator\textquotesingle blocks were used in 
-series to provide branches for $y^{\prime}$ and y. Each of these branches were 
-then routed and manipulated to determine their effects on the equation.
-Figure \ref{fig:MatModel} displays the final form of the model.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\textwidth]{Images/MatModel}
-    \caption{Compared Frequency Responses with and without Squash Balls}
-    \label{fig:MatModel}
-\end{figure}
-
-\textquotesingle SimIn\textquotesingle provides the experimental data from the 
-MatLab workspace and similarly, \textquotesingle SimOut\textquotesingle exports 
-the mathematically damped data; \textquotesingle Scope\textquotesingle displays 
-the input and output data together in the time domain. The triangular blocks 
-multiply the branch by a constant stored in MatLab; \textquotesingle 
-K\textquotesingle is a subsystem modelling the equation for magnetic repulsion 
-force for a given displacement, y. These branches summed together as shown by 
-the circular block will simulate the differential equation and hence the 
-damping from the footers.
-
-The driving force calculated from the experimental data was used as the input 
-for the dynamic model; the value of damping coefficient is constant and the 
-magnetic damping varies as the displacement of the data changes. A Fourier 
-Transform was applied to the output of the model to analyse the spectrum. The 
-\textquotesingle Amp on\textquotesingle data is used as the input for the 
-system and Figure \ref{fig:CoF} displays the output spectra for the values of 
-damping coefficient at the lower and upper bound values of coefficient of 
-friction.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{Images/MatGraph3}
-    \caption{Power Output for Coefficient of Friction Extremes}
-    \label{fig:CoF}
-\end{figure}
-
-In both graphs, the fundamental frequency can no longer be observed; a peak at 
-around 30Hz is apparent however its low power and frequency that differs from 
-50Hz indicate that this is just noise. The noise is effectively identical in 
-both cases and hence it can be concluded that the difference in damping 
-coefficient between the 0.2 range of coefficient of friction is negligible. For 
-further analysis, the median coefficient of friction will be used, 0.5; this 
-returns a damping coefficient of 198.3978Ns/m.
-
-The amp on data is displayed with the mathematically damped spectrum for 
-comparison between the input and output of the dynamic model in 
-Figure~\ref{fig:DampedVUndamped}.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\textwidth]{Images/MatGraph4}
-    \caption{Comparison of Undamped and Damped Response}
-    \label{fig:DampedVUndamped}
-\end{figure}
-
-The red curve shows the mathematically damped data; the fundamental frequency 
-and its harmonics are indistinguishable from the noise. The entire signal has 
-been reduced to below the noise floor of around -140dBV. The noise has been 
-almost completely attenuated.
-The success of the footers is likely to be less significant than that of the 
-model. The primary reason for this discrepancy is the value of damping 
-coefficient used; the damping factor was simply estimated and the damping 
-coefficient calculated mathematically and assumed to be constant. Ideally, this 
-would be found empirically; a series of prototypes would be produced and a 
-similar experiment carried out to find the true damping coefficient. However, 
-it has not been possible to do so and hence a mathematical estimation used 
-instead. 
-If the footers have a fraction of the successs they have been predicted to 
-have, there will be a significant improvement in sound quality. 
-
-%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-% MATERIAL CONSIDERATIONS - LAUREN
-%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\subsection{Casing}
+\subsection{Materials}
 
 \subsection{Materials}
 
@@ -634,36 +431,234 @@ to reduce corrosion and provide a smooth finish. The brittleness of the magnets
 was also compensated for such that it does not undergo shear force during the 
 cyclic loading. 
 
-Tungsten carbide possesses Young?s modulus 530 GPa, more than two times of that for the grade of stainless steel chosen (190 ? 203 GPa) [4] [5]. Due to Hooke?s law, the material does not undergo large deflections which in turn ensured efficient energy transfer between the Hi-Fi components. The bearings do not require any lubrication as they grind down any particulates that may enter the system.
+Tungsten carbide possesses Young?s modulus 530 GPa, more than two times of that 
+for the grade of stainless steel chosen (190 ? 203 GPa) [4] [5]. Due to Hooke?s 
+law, the material does not undergo large deflections which in turn ensured 
+efficient energy transfer between the Hi-Fi components. The bearings do not 
+require any lubrication as they grind down any particulates that may enter the 
+system.
 
-Steel is harder, and therefore more expensive, to machine than softer materials however, its properties make it invaluable to the quality of the product (see Section~\ref{sec:DetailDesign}) and pose no problem for the advanced machining capabilities of today. The product's entire composition out of steel was initially proposed but after receiving a quote from 'Sylatech' (r/c), a machining company in the northeast of England for £---- per piece, it was evident some optimisation was required to quote a retail price for our product that allowed for a 35\% \cite{ProfitMargins} profit margin.For this reason, it was decided that all non-critical parts may be machined from aircraft grade aluminium (6061-T6), an alternative roughly 1.5 times cheaper\cite{AluVSteel} than steel. 'Non-critical' in this context refers to all parts excluding the complex central piece (COR080-0003), the top piece (TOP080-0004) and removable spike (USR080-0001). For these parts, steel is required to contain magnetic flux leakage, remain unaffected by frictional effects of the moving bearings and not yield under concentrated stress. Additionally, aluminium is roughy 5 times easier to machine than stainless steel\cite{AluVSteel} saving significantly on time, and therefore cost.
+Steel is harder, and therefore more expensive, to machine than softer materials 
+however, its properties make it invaluable to the quality of the product (see 
+Section~\ref{sec:DetailDesign}) and pose no problem for the advanced machining 
+capabilities of today. The product's entire composition out of steel was 
+initially proposed but after receiving a quote from 'Sylatech' (r/c), a 
+machining company in the northeast of England for £---- per piece, it was 
+evident some optimisation was required to quote a retail price for our product 
+that allowed for a 35\% \cite{ProfitMargins} profit margin.For this reason, it 
+was decided that all non-critical parts may be machined from aircraft grade 
+aluminium (6061-T6), an alternative roughly 1.5 times cheaper\cite{AluVSteel} 
+than steel. 'Non-critical' in this context refers to all parts excluding the 
+complex central piece (COR080-0003), the top piece (TOP080-0004) and removable 
+spike (USR080-0001). For these parts, steel is required to contain magnetic 
+flux leakage, remain unaffected by frictional effects of the moving bearings 
+and not yield under concentrated stress. Additionally, aluminium is roughy 5 
+times easier to machine than stainless steel\cite{AluVSteel} saving 
+significantly on time, and therefore cost.
 
 \subsubsection{Static Analysis}
+\subsection{Dynamic Analysis}
+\subsubsection{Parametric Model} \label{sec:parametric-model}
+\subsubsection{System Tuning}
+\subsubsection{Experimentation} \label{sec:experimentation}
 
-%dimension selection- bearings driving dimensions, tracks, screws
+To assess the effectiveness of the product, acceleration data from a vibrating 
+amplifier was recorded to determine the frequency content of the signal to be 
+attenuated. The same setup was used to capture acceleration data from the 
+amplifier when mounted on half squash balls, which was later compared to the 
+output of a dynamic model representing the final mount design using the 
+undamped acceleration data captured as the model input. Squash balls were used 
+to isolate Hi-Fi systems before footers entered the market and are an entry 
+level alternative to footers.
 
-%Pre-load system- maths behind pre-load weights, check torque manageable, effect of pre-loading on mass and nat freq & damping factor, magnet dimensions,bearings
+A USB PicoScope\footnote{Pico Technology PicoScope 2204A} was used to capture 
+the output of an accelerometer\footnote{STMicroelectronics LIS344ALH} at a 
+sample rate of 50~\si{\kilo\hertz} for 10~\si{\second}. Human hearing ranges 
+from 20~\si{\hertz}--20~\si{\kilo\hertz}; according to Nyquist, the sample rate 
+had to be at least twice 20~\si{\kilo\hertz} to determine the power of these 
+frequency components. 
 
-%selections of materials- steel durable, contain flux
+The accelerometer was coupled to the top of an amplifier connected to a 
+standard AC mains power supply---nominal voltage of 240~\si{\volt} at a 
+frequency of 50~\si{\hertz}. Data from the accelerometer was captured for three 
+conditions: with the amplifier turned off, on, and the amplifier turned on 
+whilst sitting on half squash balls.
 
+The data captured came in the form of a voltage output. To determine the 
+acceleration from this information it was necessary to form a transfer
+equation. To do so, the technical data sheet for the accelerometer 
+\cite{SensorManual} was found and in it there was clear conversion which lead 
+to the following
+\begin{equation} \label{eq:acceleration}
+    \ddot{y} = 9.81\cdot(0.66\cdot V - 1.65)
+\end{equation}
+where $a$ is the acceleration in \si{\meter\per\square\second} and $V$ is the 
+voltage measured in \si{\volt}. Equation~\ref{eq:acceleration} is linear, so 
+has no affect on the shape of the spectra. The spectra of the measured voltages 
+were analysed instead.
 
-%(Describe the development of the design to
-%determine say the principal dimensions or weights,
-%selection of materials)
+Firstly, the data for the amplifier when off---the control---was compared to 
+the amplifier when on; their spectra up to 1~\si{\kilo\hertz} are shown in 
+Figure~\vref{fig:MatGraphs1}. There were no observable components above the 
+noise floor in the range 1~\si{\kilo\hertz}--25~\si{\kilo\hertz}.
 
-%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-% DETAIL DESIGN - RUSSELL
-%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Images/MatGraphs}
+    \caption{Compared Frequency Responses when Amplifier off and on}
+    \label{fig:MatGraphs1}
+\end{figure}
+
+The spectra for amplifier when off had a fundamental at 50~\si{\hertz}. This is 
+likely due to interference from other mains powered devices in the room---air 
+conditioning, PCs and desktop power supplies for example. Contrasting this 
+control spectra to the spectra for the amplifier when turned on, the 
+fundamental frequency increased in power significantly from $-90$~\si{dBV} to 
+$-40$~\si{dBV}---a factor of $10^5$. The harmonics can be seen at 
+50~\si{\hertz} intervals although the noise floor due to the error of the 
+accelerometer remained at $-140$~\si{dBV}.
+
+Next, the spectra for the amplifier when on was compared to the spectra for the 
+amplifier damped using squash balls. Figure~\vref{fig:MatGraphs2} reveals the 
+effect the squash balls had on the frequency content of observed vibrations. 
+
+The fundamental remains constant in frequency and power. However, from the 
+simple damping the squash balls provide, the noise has been significantly 
+cleared up, along with this success the harmonics have consistently lower 
+peaks. This provides an example of successful damping which can be used as a 
+comparison to the later mathematically damped data using dynamic model. The aim 
+is to further clean up the noise and lower the power of the harmonics as much 
+as possible, preferably below the noise floor which should lead to a reduction 
+in microphonic effects and increase in sound quality.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Images/MatGraphs2}
+    \caption{Compared Frequency Responses with and without Squash Balls}
+    \label{fig:MatGraphs2}
+\end{figure}
+
+\subsubsection{Dynamic Simulation}
+
+It was determined that a dynamic model of the system would be necessary to 
+quantify the potential success of the product. This could visually display the 
+effects of the footers on attenuation of a signal from a Hi-Fi system, and 
+hence inform whether the sound quality would be improved.
+
+The three footers and mounted equipment can be simplified to a spring-mass 
+damper system with non-linear stiffness---a driving force $F_d$ is supplied by 
+the vibration of the Hi-Fi system, and the opposing forces from the magnetic 
+repulsion force $F_m(y)$, damping force $c\dot{y}$ and system inertia 
+$m\ddot{y}$. Considering these components, it was possible to develop a second 
+order differential equation which when solved would characterise the 
+effectiveness of the footers.
+\begin{equation} \label{eq:2ndDiff}
+    F_d = m\ddot{y} + c\dot{y} + F_m(y) 
+\end{equation}
+
+Simulink\textsuperscript{\textregistered} was chosen to drive the dynamic model 
+due to the straight-forward construction of differential equations it provides; 
+it offers a visual representation of the system and works hand-in-hand with 
+MATLAB allowing for simple data processing. Simulink computes an iterative 
+numerical solution and outputs a corresponding time series to the MATLAB 
+workspace which can be transformed into the frequency domain for analysis.
+
+Four components needed to be defined to complete the model:
+\begin{itemize}
+    \item The mass of the supported equipment and top piece $m$. The simulation 
+    was run on the nominal supported mass of 20~\si{\kilogram}.
+    \item Constant $c$, which is dependent on the supported mass and the 
+    frictional coefficient $\mu$ between the tungsten carbide balls, and 
+    stainless steel cones and races for all three footers.
+    \item A transfer function $F_m(y)$ to find the magnetic repulsion force 
+    given the vertical displacement of the equipment.
+    \item $F_d$ which varies with time and the input to the system, found by 
+    applying Newton's second law to the undamped accelerations measured in 
+    Section~\ref{sec:experimentation}.
+\end{itemize}
+
+Section~\ref{sec:parametric-model} details how the magnetic repulsion force can 
+be calculated given the vertical displacement of the equipment using
+Equation~\ref{eq:?}. This was implemented as a subsystem in Simulink, 
+incorporating transformations necessary to determine magnet separation given 
+horizontal displacement; repulsion force acting on a single bearing given 
+magnet separation; and total reaction force given the force acting on a single 
+bearing.
+
+Ideally the damping coefficent for various masses would be determined 
+empirically, however, using the theoretical approach outlined in 
+Section~\ref{sec:parametric-model} the damping coefficient was found for a range
+friction coefficients $\mu$. Typically for these materials $0.4 < \mu < 0.6$. 
+Substituting the limits and nominal mass into Equation~\ref{?}, the damping 
+coefficient was bounded as follows
+\begin{equation*}
+    159~\si{\newton\second\per\meter} < c < 238~\si{\newton\second\per\meter}
+\end{equation*}
+
+Figure~\vref{fig:MatModel} displays the top level model architecture. The 
+topology is typical of spring mass damper systems as detailed in 
+\cite{mass2017matlab}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/MatModel}
+    \caption{Compared Frequency Responses with and without Squash Balls}
+    \label{fig:MatModel}
+\end{figure}
+
+The constant stiffness was replaced with the subsystem used to find the 
+magnetic repulsive force. \emph{SimIn} provided an interface to the MATLAB 
+workspace which was used to input the driving force. Similarly, \emph{SimOut} 
+exported the system output to the workspace; the acceleration of the equipment 
+as a time series. Using the inverse of Equation~\vref{eq:acceleration}, the 
+model output was converted into voltages so its spectra could be compared to 
+the accelerometer output measured for the undamped amplifier.
+
+Figure~\vref{fig:CoF} shows the effect of running the simulation with the 
+damping coefficient at each extreme. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Images/MatGraph3}
+    \caption{Power Output for Coefficient of Friction Extremes}
+    \label{fig:CoF}
+\end{figure}
+
+In both graphs, the fundamental frequency can no longer be observed; a peak at 
+around 30~\si{\hertz} is apparent however its low power and frequency that 
+differs from 50~\si{\hertz} indicate that this is just noise. The noise is 
+effectively identical in both cases and hence it can be concluded that the 
+difference in damping coefficient across its range negligible effect. For 
+further analysis, the median coefficient of friction will be used---0.5---this 
+returns a damping coefficient of 198~\si{\newton\second\per\meter}.
+
+The undamped is displayed with the simulation output damped spectrum for 
+comparison between the input and output of the dynamic model in 
+Figure~\ref{fig:DampedVUndamped}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/MatGraph4}
+    \caption{Comparison of Undamped and Damped Response}
+    \label{fig:DampedVUndamped}
+\end{figure}
+
+The red curve shows the simulation output; the fundamental frequency and its 
+harmonics are indistinguishable from the noise. The entire signal has been 
+reduced to below the noise floor of around $-140$~\si{dBV}. The noise has been 
+almost completely attenuated.
+
+The success of the footers is likely to be less significant than that of the 
+model. The primary reason for this discrepancy is the value of damping 
+coefficient used. Ideally, this would be found empirically; a series of 
+prototypes would be produced and a similar experiment carried out to find the 
+true damping coefficient.
+
+If the footers have a fraction of the successs they have been predicted to 
+have, there will be a significant improvement in sound quality. 
 
 \section{Detail Design} \label{sec:DetailDesign}
 
-%(Describe the minor details, such as nuts and bolts, - RUSSELL
-%details for avoiding stress concentrations suitability of screws,-GEORGE specify any bought-in
-%components.)
-
-%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-% DFM /DFA- ELOISE%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
- 
 \section{Design for Manufacture} 
 
 DFM defines the design/engineering of a product so as to best optimise its quality whilst minimising its cost to manufacture\cite{dfm}. Factors affecting this cost include the number of off-the-shelf and machinable parts, the set-up time of required machinery, the material type, dimensional tolerances as well as secondary processes. Generally, a compromise is reached between the functional quality of a product and the cost of manufacture however, considering the current extortionate pricing of similar existing products, certain design choices have taken precedence over their implications in a manufacturing context, for the example the rails within the complex central piece are undesirable (see drawing COR080-0003).
@@ -714,7 +709,6 @@ DFM defines the design/engineering of a product so as to best optimise its quali
 Due to the complex geometry required from our design, only few components may be bought in, namely (per mount);  six Ø10mm tungsten carbide ball bearings, six \diameter 10 x 1.5 mm neodymium magnets, six M4 by 20 mm AISI A2 steel countersunk Torx security screws and one M4 by 20 mm countersunk hex socket with partial thread. These components are readily available excluding the tungsten carbide ball bearings which must be sourced from a specialist supplier.
 Table~\ref{table:bom} details potential sources for the aforementioned parts and the quantity required per mount.
 
-
 \begin{table}[h]
 	\centering
 	\caption{Costing}
@@ -754,27 +748,37 @@ Cost is substantially driven by time; time to remove material in the machining p
 
 Finally, the volume of production is of great importance; with too small a batch size, set up costs and jig production costs become impractical and with too large a batch, storage costs pose a problem for a product of which the market response is not easily predictable. Considering the high cost and exclusive appeal of this product, low volume batch production in the order of 100 is appropriate so as to eliminate any unnecessary storage costs and allow adequate response to market needs. Specifically a volume of 600 pieces has been defined simply because it is within the correct order of magnitude and is divisible by three; the mounts are expected to be sold in groups of three.
 
-
 \subsection{Secondary Processes}
-A range of finishes best suited to individual parts have been chosen based on its functionality and location. A relatively cheap 2B (basic smooth) finish is to be applied to the stainless steel core so as to prohibit unnecessary expenditure considering the part shall not be seen by the customer whilst ensuring a path of minimal friction exists for the moving ball bearings. Additionally, the standard aluminium mill finish is rough and so all internal aluminium pre-loading pieces are to be brushed in the direction the piece travels so as to limit the amount of wear. Furthermore, the external retainer is to be brushed in concentric circles to give an attractive finish and hide any scratches. A 2J finish is to be applied to all other external stainless steel pieces since it is cheaper to produce than polishing and is practical in that it is resistant to scratches whilst being aesthetically pleasing.\cite{Finishes}
 
-All parts are to be machined at fine linear and angular tolerances of +/-0.1mm and +/-$1\,^{\circ}\mathrm{}$ respectively to ensure the overall quality of the product. However there exists opportunity for optimisation within this section; in the interest of reducing cost, it was concluded that the rails contained in the core piece are the only parts to be machined to a high tolerance since they are to fit plush to the bearings; all other parts may be machined to a coarser, and therefore cheaper, tolerance.
+A range of finishes best suited to individual parts have been chosen based on 
+its functionality and location. A relatively cheap 2B (basic smooth) finish is 
+to be applied to the stainless steel core so as to prohibit unnecessary 
+expenditure considering the part shall not be seen by the customer whilst 
+ensuring a path of minimal friction exists for the moving ball bearings. 
+Additionally, the standard aluminium mill finish is rough and so all internal 
+aluminium pre-loading pieces are to be brushed in the direction the piece 
+travels so as to limit the amount of wear. Furthermore, the external retainer 
+is to be brushed in concentric circles to give an attractive finish and hide 
+any scratches. A 2J finish is to be applied to all other external stainless 
+steel pieces since it is cheaper to produce than polishing and is practical in 
+that it is resistant to scratches whilst being aesthetically 
+pleasing.\cite{Finishes}
 
+All parts are to be machined at fine linear and angular tolerances of +/-0.1mm 
+and +/-$1\,^{\circ}\mathrm{}$ respectively to ensure the overall quality of the 
+product. However there exists opportunity for optimisation within this section; 
+in the interest of reducing cost, it was concluded that the rails contained in 
+the core piece are the only parts to be machined to a high tolerance since they 
+are to fit plush to the bearings; all other parts may be machined to a coarser, 
+and therefore cheaper, tolerance.
 
 \subsection{Manufacture Costs} \label{sec:ManCosts}
-%subtract material cost from quote for maching costs
-Table \ref{table:costs} details the cost of off-the-shelf parts and machining per mount, totalling £y. It is worth noting that the off-the-shelf pricing has been quoted for relatively low volume purchases, specifically within the range 100-200 pieces, and would decrease for larger scale production as to be used for this product; a batch volume 600 of pieces.
+Table \ref{table:costs} details the cost of off-the-shelf parts and machining 
+per mount, totalling £y. It is worth noting that the off-the-shelf pricing has 
+been quoted for relatively low volume purchases, specifically within the range 
+100-200 pieces, and would decrease for larger scale production as to be used 
+for this product; a batch volume 600 of pieces.
 
-
-
-
-%what tools are required - allen (purple engraved) , 
-%can the design be altered slightly to
-%improve convenience and hence cost of
-%construction? - smaller less tracks (although crisitcal size exists), split base solid part into separate parts to join, difficults part from reverse chamfers so have one solid base and join blobs.
-%parts- 1 top, 1 spike, 12 magnets, 1 retianer, 6 M4 by 20mm countersunk torx security screws, 1 M4 by 20mm countersunk hex socket with partial thread, 1 insert, 1 bottom,1 base, 6 adjustables per batch, jig, jig sleeve
-%Can a few common components be used rather than many different varieties?- no, high budget
-%
 \section{Design for Assembly} 
 \subsubsection{Jig Design}
 Due to the small scale of our product, hand assembly is required. Considering the complexity of the design and physical impracticality of overcoming the repulsive magnetic forces during its assembly, a jig has been designed, as shown in drawings JIG080-0001 and JIG080-1001, with full accompanying assembly instructions (see Isofonics Assembly Instructions ISO080-INS).
@@ -791,42 +795,42 @@ Due to the small scale of our product, hand assembly is required. Considering th
 \subsection{Assembly Costs} \label{AssemCosts}
 Considering the assembly jig is to be re-used indefinitely, its cost is negligible within the context of the product's assembly. Assembly costs are then only defined by the time taken to manually assemble the device and the cost of manual labour which can be estimated at 2 minutes and \textsterling8/hr respectively. This equates to a total of \textsterling0.27 per piece.
 
-
-%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-% DESIGN FOR SUSTAINABILITY - MAT
-%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \section{Design for Sustainability} 
-%machined material, scrap of which can be melted purely
-%scrap from machinery is recyclable
-%possibility to carbon offset the production of products given extortionate pricing 
-%longevity of product 
-
-%Have you considered using sustainable materials
-%or processes in your design? Can you make it out
-%of recycled, novel, or plant-based materials? Can
-%it be recycled itself?
-
-%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-% COMMERCIAL CONSIDERATIONS - ELOISE/LAUREN
-%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 \section{Commercial Considerations} 
-%Have you included a full Bill of Materials? (george)
-%What are the major costs of materials and components? labour and tooling need carbide tools for steel (eloise)
-What does it cost to machine parts- (Eloise)
-% What is the life of the product before a new model has to be introduced and how many units can be sold in that
-%period?- tracks and cone, lifetime magnets, on lubricant, pre-loading
 
- \subsection{Brand Development and Competitor Analysis}
- With the intention of establishing the design in the market, a brand identity was essential. Through several brainstorming sessions, the team agreed on the name ?Isofonics.? It was important to review the current market leaders, Stillpoints and Nordost, with their relevant products. Nordost primarily manufactures Hi-Fi audio cables but recently introduced additional products for resonance and power control. Namely, their ?Sort Kone,? acts as a vibration drain with a mechanical diode effect to prevent external vibrations from travelling up through the cone. Similarly, 3 cones are recommended per device but they offer 3 types of cone, each made from different materials. The most expensive is made from titanium and utilises ceramic bearings, retailing at £349.99 per cone. The 3 mounts do not necessarily have to be the same and the user may find it more beneficial to use a mixture. (See Figure 3) [7]
+\subsection{Brand Development and Competitor Analysis}
+With the intention of establishing the design in the market, a brand identity 
+was essential. Through several brainstorming sessions, the team agreed on the 
+name ?Isofonics.? It was important to review the current market leaders, 
+Stillpoints and Nordost, with their relevant products. Nordost primarily 
+manufactures Hi-Fi audio cables but recently introduced additional products for 
+resonance and power control. Namely, their ?Sort Kone,? acts as a vibration 
+drain with a mechanical diode effect to prevent external vibrations from 
+travelling up through the cone. Similarly, 3 cones are recommended per device 
+but they offer 3 types of cone, each made from different materials. The most 
+expensive is made from titanium and utilises ceramic bearings, retailing at 
+£349.99 per cone. The 3 mounts do not necessarily have to be the same and the 
+user may find it more beneficial to use a mixture. (See Figure 3) [7]
  
- \subsection{Stillpoints Patent Check}
+\subsection{Stillpoints Patent Check}
  
- The Stillpoints patent details the design of a \lq{device for the control of vibrations comprising a retainer resting on a base and a plurality of bearings disposed within the retainer}\rq \cite{Stillpoints}within which \lq{the bearings are arranged in at least two layers}\rq \cite{Stillpoints}. It alludes to multiple alternative designs including an \lq{embodiment}\rq in which magnetic fields are employed, however differently to the usage detailed in our design. After studying the official claims made at the end of the patent it is concluded that in not featuring layers of bearings and using opposing magnetic fields as the main damping method, our design differs significantly from the design and alternatives claimed by Stillpoints.\\
- \textbf{It is worth noting this is a US patent and is not filed with the European Patent Office and so only stands to limit sales within the US}
+The Stillpoints patent details the design of a \lq{device for the control of 
+vibrations comprising a retainer resting on a base and a plurality of bearings 
+disposed within the retainer}\rq \cite{Stillpoints}within which \lq{the 
+bearings are arranged in at least two layers}\rq \cite{Stillpoints}. It alludes 
+to multiple alternative designs including an \lq{embodiment}\rq in which 
+magnetic fields are employed, however differently to the usage detailed in our 
+design. After studying the official claims made at the end of the patent it is 
+concluded that in not featuring layers of bearings and using opposing magnetic 
+fields as the main damping method, our design differs significantly from the 
+design and alternatives claimed by Stillpoints.
+
+\textbf{It is worth noting this is a US patent and is not filed with the 
+European Patent Office and so only stands to limit sales within the US}
  
- \subsubsection{Parallels with Stillpoints}
- The following details the main claim made by Stillpoints and highlights areas of concern:
+\subsubsection{Parallels with Stillpoints}
+The following details the main claim made by Stillpoints and highlights areas 
+of concern:
 
 \lq{A device for the control of vibrations comprising:
 \textbf{a retainer}, the retainer constructed and arranged to rest upon a base, at least a \textbf{portion of the base defining a substantially flat surface}; and \textbf{a plurality of bearings disposed within the retainer, the bearings arranged in a first layer and a second layer}, the second layer disposed on the first layer, the first layer
@@ -853,56 +857,61 @@ As can be seen from Figures 1 and 2 , this comment is entirely unrelated to the 
 Figure ~\ref{fig:Patent}
 
 \subsubsection{Points of Originality}
--Use of \textbf{opposing magnetic fields} for lateral damping as opposed to springs\\
-- \textbf{Cone with retaining flange} replacing layers of bearings\\
--\textbf{Pre-loading mechanism} in which a screw in tension moves a fixed magnet decreasing its distance from the bearing magnet thus increasing the strength of the system (adjustable for a variety of masses)
+\begin{itemize}
+    \item Use of \textbf{opposing magnetic fields} for lateral damping as 
+    opposed to springs
+    \item \textbf{Cone with retaining flange} replacing layers of bearings
+    \item \textbf{Pre-loading mechanism} in which a screw in tension moves a 
+    fixed magnet decreasing its distance from the bearing magnet thus 
+    increasing the strength of the system---adjustable for a variety of masses.
+\end{itemize}
 
 \subsection{Marginal Costs}
 With respect to production costs, margins of 100\% for product distribution, 100\% for retail and 35\% for profit are to be met. Given that machining and assembly costs total £x (see section \ref{sec:ManCosts}) and £y (see section \ref{sec:AssemCosts}) per piece respectively, the product's cost of production is £r per piece. The aforementioned product margins then dictate a retail price of £(1.35 * r).
 
-
-%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-% DISCUSSION - LAUREN
-%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \section{Discussion} 
 \subsection{Specification Fulfilment}
 \subsubsection{User Requirement Specification Tree}
 With reference to the URS tree, the final proposal incorporated a cone with a retaining flange which held the magnets in place whose separation was altered in order to accommodate a range of masses. The four degrees of freedom were thus defined by all translational motion and free rotation. As described earlier in the report, the magnet behind the bearing is moved while the other is fixed and the preloading mechanism allowed the user to adjust the position of the fixed magnet. Namely, the crown element moved the back stops for the fixed magnet inward as a single preloading screw was tightened. 
 
-The requirement for a rigid load path was integral to the performance of the damping mechanism. The interaction between the magnets and the spherical bearings in conjunction with the hardness of their material clearly diminished the excess mechanical vibrations generated by microphonic effects as demonstrated by the graphs produced by the dynamic model. However, the data yielded during the experiment which was then inputted to the simulation, did not totally reflect the execution of the design. Employing the squash balls as a method of dampening the noise produced by the amp did validate the concept but this could be supported further by utilising a prototype and later determining the damping coefficient for different loads empirically. If these results demonstrated a fraction of the model?s success, then the mount can still be confidently viewed as a success. 
+The requirement for a rigid load path was integral to the performance of the 
+damping mechanism. The interaction between the magnets and the spherical 
+bearings in conjunction with the hardness of their material clearly diminished 
+the excess mechanical vibrations generated by microphonic effects as 
+demonstrated by the graphs produced by the dynamic model. However, the data 
+yielded during the experiment which was then inputted to the simulation, did 
+not totally reflect the execution of the design. Employing the squash balls as 
+a method of dampening the noise produced by the amplifier did validate the 
+concept but this could be supported further by utilising a prototype and later 
+determining the damping coefficient for different loads empirically. If these 
+results demonstrated a fraction of the model?s success, then the mount can 
+still be confidently viewed as a success. 
 
 The Hi-Fi equipment must only rest on 3 footers to prevent further resonances and heating in the arrangement. If another was used, it would either prove redundant or induce further noise. The cone provided a single point of contact which in turn meant that 3 footers were needed to support one piece of equipment. Partnered with the large base plate, this guaranteed that the mounts would not slip and the system was amply stable. For this reasoning, the footers would be sold in sets of three.
 
-A 2-D finite element analysis software was used to model the magnetic flux distribution within the mount. Although it was concluded that there was no additional interference or damage to the Hi-Fi system, ideally a 3-D finite element analysis software would better determine whether the separation distance or the grade of magnet needed to be amended. 
-%Discuss the advantages of the proposed design in comparison with alternatives. Discuss how well the design meets the original specification. - Lauren, refer to tree
-
-%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-% DEVELOPMENTS - LAUREN
-%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+A 2-D finite element analysis software was used to model the magnetic flux 
+distribution within the mount. Although it was concluded that there was no 
+additional interference or damage to the Hi-Fi system, ideally a 3-D finite 
+element analysis software would better determine whether the separation 
+distance or the grade of magnet needed to be amended.
 
 \subsection{further developments}
-There is great potential for further work and like Nordost, a family of products adapted to support heavier devices such as loudspeakers could also be developed by changing the material for the spherical bearings or by varying the magnetic field strength to yield a new damping factor and related coefficient. A companion phone application which enables the user to adjust the preload for a desired condition could also replace the preloading graphs provided by the parametric model. Machining could be improved by optimising tolerancing for the tracks and will thus increase profit margins and set the product aside from the mentioned competitors. 
-%Discuss potential further developments. -
-%Discuss the impact on the design of new materials - cheaper with aluminium
-%Discuss uncertainties and assumptions in the design process and indicate what practical measurements might be required to give the necessary data to improve the design. - measure damping coefficient, 3d modelling
+There is great potential for further work and like Nordost, a family of 
+products adapted to support heavier devices such as loudspeakers could also be 
+developed by changing the material for the spherical bearings or by varying the 
+magnetic field strength to yield a new damping factor and related coefficient. 
+A companion phone application which enables the user to adjust the preload for 
+a desired condition could also replace the preloading graphs provided by the 
+parametric model. Machining could be improved by optimising tolerancing for the 
+tracks and will thus increase profit margins and set the product aside from the 
+mentioned competitors.
 
-%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-% CONCLUSION - GEORGE
-%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-\section{Conclusion} 
-%The conclusions should be a set of brief
-%statements of the main results of the project.
-%Sometimes bullet points can be used to give
-%emphasis
+\section{Conclusion}
 
-
-%-----------------------------------------------------------------------------------------------------------------------------------
-% REFERENCES
-%-----------------------------------------------------------------------------------------------------------------------------------
 \section{References}
 \printbibliography
-%-----------------------------------------------------------------------------------------------------------------------------------
 
+% Appendicies
 \cleardoublepage
 \appendix
 \section{Project Plan and Members' Contributions} 

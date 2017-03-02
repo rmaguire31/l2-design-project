@@ -7,16 +7,16 @@
 [ ] |   \__ Opposing magnets
 [x] |   |   \__ Magnet Simulation
 [-] |   \__ Preloading Mechanisms
-[ ] |   \__ Containment
-[ ] |   \__ System Analysis
-[-] |   |   \__ Parametric Model
-[ ] |   |   \__ System Tuning
-[-] |   |   \__ Experimentation
-[-] |   |   \__ Dynamic Simulation
+[ ] |   \__ Casing
 [ ] |   \__ Materials
 [G] |       \__ Static Analysis
+[ ] |   \__ System Analysis
+[L] |   |   \__ Parametric Model
+[L] |   |   \__ System Tuning
+[x] |   |   \__ Experimentation
+[x] |   |   \__ Dynamic Simulation
 [ ] \__ Detail Design
-[-] |   \__ Mounting
+[L] |   \__ Mounting
 [ ] |   \__ Rails
 [ ] |   \__ Finishes
 [ ] \__ Design for Manufacture
