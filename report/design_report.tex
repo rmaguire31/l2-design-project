@@ -4,6 +4,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{wasysym}
 \usepackage{cuted}
 \usepackage{pdfpages}
 
@@ -695,6 +696,7 @@ cyclic loading.
 Tungsten carbide possesses Young?s modulus 530 GPa, more than two times of that for the grade of stainless steel chosen (190 ? 203 GPa) [4] [5]. Due to Hooke?s law, the material does not undergo large deflections which in turn ensured efficient energy transfer between the Hi-Fi components. The bearings do not require any lubrication as they grind down any particulates that may enter the system.
 
 \subsubsection{Stainless Steel and Aluminium Framework}
+
 This improved the mount?s damping capability because the material essentially 
 acted as a Faraday cage with high resistance. Stainless steel is totally 
 recyclable and together with its high resistance to corrosion, greatly 
@@ -736,7 +738,7 @@ cost to produce the complex geometries present. [6]
 DFM defines the design/engineering of a product so as to best optimise its quality whilst minimising its cost to manufacture\cite{dfm}. Factors affecting this cost include the number of off-the-shelf and machinable parts, the set-up time of required machinery, the material type, dimensional tolerances as well as secondary processes. Generally, a compromise is reached between the functional quality of a product and the cost of manufacture however, considering the current extortionate pricing of similar existing products, certain design choices have taken precedence over their implications in a manufacturing context, for the example the complex central piece (see drawing COR080-0003).
 
 \subsection{Off-The-Shelf Parts}
-Due to the complex geometry required from our design, only few components may be bought in, namely (per mount);  six Ø10mm tungsten carbide ball bearings, six Ø10 x 1.5 mm neodymium magnets, six M4 by 20 mm AISI A2 steel countersunk Torx security screws and one M4 by 20 mm countersunk hex socket with partial thread. These components are readily available excluding the tungsten carbide ball bearings which must be sourced from a specialist supplier.
+Due to the complex geometry required from our design, only few components may be bought in, namely (per mount);  six Ø10mm tungsten carbide ball bearings, six \diameter 10 x 1.5 mm neodymium magnets, six M4 by 20 mm AISI A2 steel countersunk Torx security screws and one M4 by 20 mm countersunk hex socket with partial thread. These components are readily available excluding the tungsten carbide ball bearings which must be sourced from a specialist supplier.
 Table~\ref{table:BoM} details potential sources for the aforementioned parts and their corresponding cost.
 
 
@@ -783,7 +785,11 @@ Initially all parts were to be machined at fine linear and angular tolerances of
 A 2J finish (brushed finish) has been chosen as it is cheaper to produce than polishing and is practical in that it is resistant to scratches whilst being aesthetically pleasing.
 
 \subsection{Volume}
-Finally, the volume of production is of great importance; with too small a batch size, set up costs and jig production costs become impractical and with too large a batch, storage costs pose a problem. Considering the high cost and exclusive appeal of this product, low volume batch production in the order of 100 is appropriate so as to eliminate any unnecessary storage costs.
+Finally, the volume of production is of great importance; with too small a batch size, set up costs and jig production costs become impractical and with too large a batch, storage costs pose a problem. Considering the high cost and exclusive appeal of this product, low volume batch production in the order of 100 is appropriate so as to eliminate any unnecessary storage costs and allow adequate response to market needs.
+
+\subsection{Manufacture Costs} \label{sec:ManCosts}
+%subtract material cost from quote for maching costs
+Table \ref{table:BoM} details the cost of off-the-shelf parts and machining per mount, totalling £y. It is worth noting that the off-the-shelf pricing has been quoted for relatively low volume purchases, specifically within the range 100-200 pieces, and would decrease for larger scale production as to be used for this product; a batch volume 600 of pieces.
 
 
 \subsection{Optimisation}
@@ -815,6 +821,9 @@ Due to the small scale of our product, hand assembly is required. Considering th
     \caption{Assembly Jig Components}
     \label{fig:JigAssembly}
 \end{figure}
+
+\subsection{Assembly Costs} \label{AssemCosts}
+Considering the assembly jig is to be re-used indefinitely, its cost is negligible within the context of the product's assembly. Assembly costs are then only defined by the time taken to manually assemble the device and the cost of manual labour which can be estimated at 2 minutes and \textsterling8/hr respectively. This equates to a total of \textsterling0.27 per piece.
 
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -881,6 +890,10 @@ Figure ~\ref{fig:Patent}
 -Use of \textbf{opposing magnetic fields} for lateral damping as opposed to springs\\
 - \textbf{Cone with retaining flange} replacing layers of bearings\\
 -\textbf{Pre-loading mechanism} in which a screw in tension moves a fixed magnet decreasing its distance from the bearing magnet thus increasing the strength of the system (adjustable for a variety of masses)
+
+\subsection{Marginal Costs}
+With respect to production costs, margins of 100\% for product distribution, 100\% for retail and 35\% for profit are to be met. Given that machining and assembly costs total £x (see section \ref{sec:ManCosts}) and £y (see section \ref{sec:AssemCosts}) per piece respectively, the product's cost of production is £r per piece. The aforementioned product margins then dictate a retail price of £(1.35 * r).
+
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 % DISCUSSION - LAUREN
