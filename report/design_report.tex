@@ -78,6 +78,9 @@
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 % Main matter.
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+% SUMMARY - ELOISE
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \onecolumn 
 \section{Executive Summary} 
 Microphonic effects exist in hi-fi systems wherein mechanical vibrations are transformed into unwanted electrical signals, termed noise, that consequently reduce sound quality. Isofonics have designed footers of aluminium and steel upon which such systems are to be supported that aim to isolate and attenuate the signals responsible for this aforementioned noise. Three footers are required per system, three being the minimum number of points of contact necessary to support a rigid mass, and are to be sold as a device comprising a contained magnetic damping mechanism with two optional additional pieces; a removable base to use the device as a stand alone mount as opposed to its mounting within existing equipment and a removable spike offering a minimal point of contact. The main device, base and spike are to cost £blah, £blah and £blah respectively, placing Isofonics at the higher end of the existing market due to its premium quality components embodying a design that is both innovative and effective. The device may be altered manually by the user to support a range of different masses, a feature of customisability unique to Isofonics. This process may also be informed by a user friendly phone application. Additionally, within this design lies potential for product families of differing size, catering to an even wider audience, and applications within the field of optics, more specifically in the optimisation of microscopes.
@@ -96,6 +99,10 @@ Microphonic effects exist in hi-fi systems wherein mechanical vibrations are tra
 
 \tableofcontents
 
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+% INTRO - ELOISE
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 \section{Introduction}
 Microphonics describes the phenomenon wherein internal components within an electronic device transform mechanical vibrations into undesired electrical signals\cite{microphonics}. In the context of hi-fi systems, and when these vibrations are within the frequency range audible to the human ear (20 Hz - 20 kHz), they equate to noise that reduces audio quality and therefore threatens the user\textquotesingle s listening experience. This report details the design of vibration isolation and attenuation mounts that minimise this interference as well as that originating from external sources. 
 \\\\The following function analysis tree defines the user requirement specification for the product:
@@ -112,18 +119,31 @@ With such a niche product consisting of high tolerance machined parts and premiu
 Market leaders such as Stillpoints\textsuperscript{\textregistered}, Nordost\textsuperscript{\textregistered} and Isoclear\textsuperscript{\textregistered} offer sleek solutions yet lack the tailorability offered by our design, allowing customers to pre-load their mounts manually for individual amps, potentially with interactivity provided by an instructive technical app (see section blah). After conducting market research via surveys, it was found that potential customers were very much interested in the ability to manually adjust their mount as appropriate and that this offered an invaluable, unique selling point.
 \\This report covers the initial design concepts proposed by Group 25, the development of a chosen design, its design for manufacture and sustainability and, briefly, its commercial considerations. 
 
-
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+% DESIGN CONCEPTS
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \section{Design Concepts} 
 %Describe alternative approaches to a solution and
 %explain how one particular approach was selected.
 
-
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+% DESIGN DEVELOPMENT
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \section{Design Development} 
 
+
+
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+% PARAMETRIC MODEL - BEN
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \subsection{Parametric Model} 
 
 
-\subsection{Dynamic Model}  %MAT
+
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+% DYNAMIC MODEL - MAT
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\subsection{Dynamic Model}  
 \subsubsection{Why use a Dynamic Model?}
 It was determined that a dynamic model of the system would be necessary to quantify the potential success of the product. This could visually display the effects of the footers on attenuation of a signal from a Hi-fi system, and hence establish whether the sound quality had been improved. 
 
@@ -227,14 +247,35 @@ The driving force calculated from the experimental data was used as the input fo
    \includegraphics[width=\textwidth]{images/MatGraph3}
    \caption{Power Output for Coefficient of Friction Extremes}
    \label{fig:CoF}
-\end{figure*}
-
+\end{figure*}
 
+In both graphs, the fundamental frequency can no longer be observed; a peak at around 30Hz is apparent however its low power and frequency that differs from 50Hz indicate that this is just noise. The noise is effectively identical in both cases and hence it can be concluded that the difference in damping coefficient between the 0.2 range of coefficient of friction is negligible. For further analysis, the median coefficient of friction will be used, 0.5; this returns a damping coefficient of 198.3978Ns/m.The amp on data is displayed with the mathematically damped spectrum for comparison between the input and output of the dynamic model in Figure~\ref{fig:DampedVUndamped}.
 
+\begin{figure*}[h]
+   \centering
+   \includegraphics[width=0.8\textwidth]{images/MatGraph4}
+   \caption{Comparison of Undamped and Damped Response}
+   \label{fig:DampedVUndamped}
+\end{figure*}
 
+The red curve shows the mathematically damped data; the fundamental frequency and its harmonics are indistinguishable from the noise. The entire signal has been reduced to below the noise floor of around -140dBV. The noise has been almost completely attenuated.The success of the footers is likely to be less significant than that of the model. The primary reason for this discrepancy is the value of damping coefficient used; the damping factor was simply estimated and the damping coefficient calculated mathematically and assumed to be constant. Ideally, this would be found empirically; a series of prototypes would be produced and a similar experiment carried out to find the true damping coefficient. However, it has not been possible to do so and hence a mathematical estimation used instead. If the footers have a fraction of the successs they have been predicted to have, there will be a significant improvement in sound quality. 
 
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+% MATERIAL CONSIDERATIONS - LAUREN
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-%dimension selection- bearings driving dimensions, tracks, screws
+\subsection{Material Considerations}
+\subsubsection{Neodymium Magnets}
+
+Neodymium magnets are the most widely used type of rare-earth magnet, are the strongest type of permanent magnet commercially available and are of greatest benefit in applications where there is limited space. The magnetic properties termed remanence, coercivity and energy product dictate the performance of neodymium magnets. They measure the strength of the magnetic field, the material?s resistance to becoming demagnetized and the density of magnetic energy respectively. The notable mechanical properties are flexural strength, tensile strength, compressive strength and Vickers hardness.  In comparison with another popular type of rare-earth magnet, Samarium-Cobalt (SmCo), the properties mentioned are significantly higher. Given that there are numerous grades available, an overview of the range of values are outlined in Table 1. [1] The grade chosen for the project was N45SH, coated with three layers (nickel, copper and nickel) to reduce corrosion and provide a smooth finish. The brittleness of the magnets was also compensated for such that it does not undergo shear force during the cyclic loading. Magnetism is fundamentally a quantum property and only atoms with approximately half-filled outer shells can be magnetic because the electrons spin in the same direction. However, a material that is made up of these atoms is not necessarily magnetic. A domain is a collection of atoms whereby each of their magnets fields are aligned. To give rise to a permanent magnet, these domains must also align with one another.  In the pursuit of determining the lifetime of rare-earth permanent magnets, a number of factors must be considered which randomise the orientation of these domains:1)	The Curie temperature.2)	Alternating fields.3)	Mechanical deformation.It is thought that a modern SmCo magnet takes approximately 700 years to lose half its strength. [2] Even with the magnets placed in alternating fields, from Table 1, it is clear that the half-life of neodymium magnets is notably higher due to the difference in coercivity. The Curie temperature for neodymium magnets, the temperature at which the material loses all of its magnetic properties, is relatively low and was of great concern. Fortunately, the maximum temperature the grade can withstand (150C) was more than adequate for the project and therefore did not considerably affect the footer?s lifetime. [3]TABLE 
+
+\subsubsection{Tungsten Carbide Spherical Bearings}
+Tungsten carbide possesses Young?s modulus 530 GPa, more than two times of that for the grade of stainless steel chosen (190 ? 203 GPa). [4] [5] As a result, the bearings do not require any lubrication and are able to ground any particulates present in the system, stopping them from interfering with the magnets and increasing the longevity of the design. The material does not undergo large deflection which in turn ensured efficient energy transfer between the Hi-Fi components.
+
+\subsubsection{Stainless Steel and Aluminium Framework}
+Stainless streel possesses a reasonable electrical conductivity (1.37  106 Siemens/m) and this prevented significant magnetic flux leakage. This improved the mount?s damping capability because the material essentially acted as a Faraday cage with high resistance. Stainless steel is totally recyclable and together with its high resistance to corrosion, greatly increased the lifetime and hence sustainability of the product. However, it was decided that the mount, apart from the top piece, core and spike, should instead be machined with aircraft grade aluminium (6061-T6) due to the steep manufacturing costs associated with stainless steel. These parts were excluded because they were subjected to the greatest stress. Not only is aluminium cheaper to manufacture but is extremely lightweight, a far better conductor (36.9  106 Siemens/m), widely available and recycled and can be easily extruded at low cost to produce the complex geometries present. [6]
+
+%dimension selection- bearings driving dimensions, tracks, screws
 
 %Pre-load system- maths behind pre-load weights, check torque manageable, effect of pre-loading on mass and nat freq & damping factor, magnet dimensions,bearings
 
@@ -245,11 +286,18 @@ The driving force calculated from the experimental data was used as the input fo
 %determine say the principal dimensions or weights,
 %selection of materials)
 
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+% DETAIL DESIGN - RUSSELL
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 \section{Detail Design} \label{sec:DetailDesign}
 
 %(Describe the minor details, such as nuts and bolts, - RUSSELL
 %details for avoiding stress concentrations suitability of screws,-GEORGE specify any bought-in
 %components.)
+
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+% DFM /DFA- ELOISE%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  
 \section{Design for Manufacture} 
 
@@ -270,7 +318,7 @@ Table~\ref{table:BoM} details potential sources for the aforementioned parts and
 		1 & COR080-0003 & Isofonics core & 1 & --- & --- \\
 		2 & PLD080-0003 & Isofonics preloading crown & 1 & --- & --- \\
 		3 & PLD010-1004 & Isofonics preloading backstop & 6 & --- & --- \\
-		4 & F669-N45SH-10 (first4magnets) & 10 x 1.5mm neodymium magnet & 12 & --- & --- \\
+		4 & F669-N45SH-10 (first4magnets) & 10 x 1.5mm neodymium magnet & 12 & 0.30 & 3.6  \\
 		5 & 10MMTUNGSTENB ALLS (VXB Bearings) & 10mm tungsten carbide ball & 6 & --- & --- \\
 		6 & TOP080-0004A & Isofonics top piece & 1 & --- & --- \\
 		7 & RET080-0003 & Isofonics retainer & 1 & --- & --- \\
@@ -337,7 +385,9 @@ Due to the small scale of our product, hand assembly is required. Considering th
 \end{figure}
 
 
-
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+% DESIGN FOR SUSTAINABILITY - MAT
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \section{Design for Sustainability} 
 %machined material, scrap of which can be melted purely
 %scrap from machinery is recyclable
@@ -349,6 +399,10 @@ Due to the small scale of our product, hand assembly is required. Considering th
 %of recycled, novel, or plant-based materials? Can
 %it be recycled itself?
 
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+% COMMERCIAL CONSIDERATIONS - ELOISE/LAUREN
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 \section{Commercial Considerations} 
 %Have you included a full Bill of Materials? (george)
 %What are the major costs of materials and components? labour and tooling need carbide tools for steel (eloise)
@@ -356,6 +410,8 @@ What does it cost to machine parts- (Eloise)
 % What is the life of the product before a new model has to be introduced and how many units can be sold in that
 %period?- tracks and cone, lifetime magnets, on lubricant, pre-loading
 
+ \subsection{Brand Development and Competitor Analysis}
+ With the intention of establishing the design in the market, a brand identity was essential. Through several brainstorming sessions, the team agreed on the name ?Isofonics.? It was important to review the current market leaders, Stillpoints and Nordost, with their relevant products. Nordost primarily manufactures Hi-Fi audio cables but recently introduced additional products for resonance and power control. Namely, their ?Sort Kone,? acts as a vibration drain with a mechanical diode effect to prevent external vibrations from travelling up through the cone. Similarly, 3 cones are recommended per device but they offer 3 types of cone, each made from different materials. The most expensive is made from titanium and utilises ceramic bearings, retailing at £349.99 per cone. The 3 mounts do not necessarily have to be the same and the user may find it more beneficial to use a mixture. (See Figure 3) [7]
  
  \subsection{Stillpoints Patent Check}
  
@@ -394,14 +450,28 @@ Figure ~\ref{fig:Patent}
 - \textbf{Cone with retaining flange} replacing layers of bearings\\
 -\textbf{Pre-loading mechanism} in which a screw in tension moves a fixed magnet decreasing its distance from the bearing magnet thus increasing the strength of the system (adjustable for a variety of masses)
 
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+% DISCUSSION - LAUREN
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \section{Discussion} 
+\subsection{Specification Fulfilment}
+\subsubsection{User Requirement Specification Tree}
+With reference to the URS tree, the final proposal incorporated a cone with a retaining flange which held the magnets in place whose separation was altered in order to accommodate a range of masses. The four degrees of freedom were thus defined by all translational motion and free rotation. As described earlier in the report, the magnet behind the bearing is moved while the other is fixed and the preloading mechanism allowed the user to adjust the position of the fixed magnet. Namely, the crown element moved the back stops for the fixed magnet inward as a single preloading screw was tightened. The requirement for a rigid load path was integral to the performance of the damping mechanism. The interaction between the magnets and the spherical bearings in conjunction with the hardness of their material clearly diminished the excess mechanical vibrations generated by microphonic effects as demonstrated by the graphs produced by the dynamic model. However, the data yielded during the experiment which was then inputted to the simulation, did not totally reflect the execution of the design. Employing the squash balls as a method of dampening the noise produced by the amp did validate the concept but this could be supported further by utilising a prototype and later determining the damping coefficient for different loads empirically. If these results demonstrated a fraction of the model?s success, then the mount can still be confidently viewed as a success. The Hi-Fi equipment must only rest on 3 footers to prevent further resonances and heating in the arrangement. If another was used, it would either prove redundant or induce further noise. The cone provided a single point of contact which in turn meant that 3 footers were needed to support one piece of equipment. Partnered with the large base plate, this guaranteed that the mounts would not slip and the system was amply stable. For this reasoning, the footers would be sold in sets of three.A 2-D finite element analysis software was used to model the magnetic flux distribution within the mount. Although it was concluded that there was no additional interference or damage to the Hi-Fi system, ideally a 3-D finite element analysis software would better determine whether the separation distance or the grade of magnet needed to be amended. 
 %Discuss the advantages of the proposed design in comparison with alternatives. Discuss how well the design meets the original specification. - Lauren, refer to tree
 
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+% DEVELOPMENTS - LAUREN
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 \subsection{further developments}
+There is great potential for further work and like Nordost, a family of products adapted to support heavier devices such as loudspeakers could also be developed by changing the material for the spherical bearings or by varying the magnetic field strength to yield a new damping factor and related coefficient. A companion phone application which enables the user to adjust the preload for a desired condition could also replace the preloading graphs provided by the parametric model. Machining could be improved by optimising tolerancing for the tracks and will thus increase profit margins and set the product aside from the mentioned competitors. 
 %Discuss potential further developments. -
 %Discuss the impact on the design of new materials - cheaper with aluminium
 %Discuss uncertainties and assumptions in the design process and indicate what practical measurements might be required to give the necessary data to improve the design. - measure damping coefficient, 3d modelling
 
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+% CONCLUSION - GEORGE
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \section{Conclusion} 
 %The conclusions should be a set of brief
 %statements of the main results of the project.
