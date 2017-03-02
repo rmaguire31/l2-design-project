@@ -1,39 +1,38 @@
-\__ Executive Summary
-\__ Introduction
-\__ Design Concepts
-|   \__ Damping Mechanisms
-|   \__ Isolation Mechanisms
-\__ Design Development
-|   \__ Opposing magnets
-|   |   \__ MagNet Simulation
-|   \__ Preloading Mechanisms
-|   \__ Containment
-|   \__ Dynamic Analysis
-|   |   \__ Parametric Model
-|   |   \__ Experimentation
-|   |   \__ Dynamic Simulation
-|   \__ Materials
-|       \__ Static Analysis
-\__ Detail Design
-|   \__ Mounting
-|   \__ Rails
-|   \__ Finishes
-\__ Design for Manufacture
-|   \__ Bill of Materials
-|   \__ Off-The-Shelf Parts
-|   \__ Primary Processes
-|   \__ Secondary Processes
-|   \__ Manufacture Costs
-\__ Design for Assembly
-|   \__ Jig Design
-|   \__ Assembly Costs
-\__ Commercial Considerations
-|   \__ Patent Check
-|   \__ Marginal Costs
-\__ Discussion
-|   \__ Specification Fulfilment
-|   \__ Further Developments
-\__ Conclusion
-\__ References
-
-
+[-] \__ Executive Summary
+[x] \__ Introduction
+[x] \__ Design Concepts
+[x] |   \__ Damping Mechanisms
+[x] |   \__ Isolation Mechanisms
+[ ] \__ Design Development
+[ ] |   \__ Opposing magnets
+[ ] |   |   \__ MagNet Simulation
+[-] |   \__ Preloading Mechanisms
+[ ] |   \__ Containment
+[ ] |   \__ Dynamic Analysis
+[-] |   |   \__ Parametric Model
+[ ] |   |   \__ System Tuning
+[-] |   |   \__ Experimentation
+[-] |   |   \__ Dynamic Simulation
+[ ] |   \__ Materials
+[ ] |       \__ Static Analysis
+[ ] \__ Detail Design
+[-] |   \__ Mounting
+[ ] |   \__ Rails
+[ ] |   \__ Finishes
+[ ] \__ Design for Manufacture
+[-] |   \__ Bill of Materials
+[-] |   \__ Off-The-Shelf Parts
+[-] |   \__ Primary Processes
+[-] |   \__ Secondary Processes
+[ ] |   \__ Manufacture Costs
+[ ] \__ Design for Assembly
+[x] |   \__ Jig Design
+[ ] |   \__ Assembly Costs
+[ ] \__ Commercial Considerations
+[-] |   \__ Patent Check
+[ ] |   \__ Marginal Costs
+[ ] \__ Discussion
+[-] |   \__ Specification Fulfilment
+[-] |   \__ Further Developments
+[ ] \__ Conclusion
+[x] \__ References
