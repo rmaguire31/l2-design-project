@@ -677,11 +677,53 @@ cost to produce the complex geometries present. [6]
  
 \section{Design for Manufacture} 
 
-DFM defines the design/engineering of a product so as to best optimise its quality whilst minimising its cost to manufacture\cite{dfm}. Factors affecting this cost include the number of off-the-shelf and machinable parts, the set-up time of required machinery, the material type, dimensional tolerances as well as secondary processes. Generally, a compromise is reached between the functional quality of a product and the cost of manufacture however, considering the current extortionate pricing of similar existing products, certain design choices have taken precedence over their implications in a manufacturing context, for the example the complex central piece (see drawing COR080-0003).
+DFM defines the design/engineering of a product so as to best optimise its quality whilst minimising its cost to manufacture\cite{dfm}. Factors affecting this cost include the number of off-the-shelf and machinable parts, the set-up time of required machinery, the material type, dimensional tolerances as well as secondary processes. Generally, a compromise is reached between the functional quality of a product and the cost of manufacture however, considering the current extortionate pricing of similar existing products, certain design choices have taken precedence over their implications in a manufacturing context, for the example the rails within the complex central piece are undesirable (see drawing COR080-0003).
+
+\subsection{Bill of Materials}
+
+\begin{table}[H]
+    \centering
+    \footnotesize
+    \begin{threeparttable}
+        \caption{Bill of Materials}
+        \label{table:bom}
+        \begin{tabular}{@{}clp{17em}c@{}}
+            \toprule
+            Item No. & Part No. & Description & Qty. \\
+            \midrule
+            1 & COR080-0003 & \raggedright Isofonics core piece & 1 \\
+            2 & TOP080-0004 & \raggedright Isofonics top piece & 1 \\
+            3 & 10MMTUNGSTENBALLS\tnote{1} & \raggedright \diameter 10~mm 
+            tungsten carbide ball & 6 \\
+            4 & F669-N45SH-10\tnote{2} & \raggedright \diameter 10~x~1.5~mm 
+            neodymium 
+            button magnet & 12 \\
+            5 & PLD010-1004 & \raggedright Isofonics preloading back-stop & 1 \\
+            6 & RET080-0003 & \raggedright Isofonics retainer & 1 \\
+            7 & M4X20-CSK-ST\tnote{3} & \raggedright M4~x~20~mm T20 A2 c'sunk 
+            screw with partial thread & 6 \\
+            8 & PLD080-0003 & \raggedright Isofonics preloading crown & 1 \\
+            9 & M4X20-CSK-H\tnote{4} & \raggedright M4~x~20~mm H2.5 A2 c'sunk 
+            screw with partial thread & 1 \\
+            10 & RET080-1002 & \raggedright Isofonics retainer bottom & 1 \\
+            11 & USR080-0001 & \raggedright Isofonics removable spike & 1 \\
+            12 & USR080-1002 & \raggedright Isofonics removable base & 1 \\
+            \bottomrule
+        \end{tabular}
+        \begin{tablenotes}
+            \raggedright
+            \tiny
+            \item[1]\url{http://www.vxb.com/10mm-Tungsten-Carbide-Bearing-Ball-0-3937-inch-Dia-p/10mmtungstenballs.htm}
+            \item[2]\url{http://www.first4magnets.com/circular-disc-rod-magnets-c34/10mm-dia-x-1-5mm-thick-n45sh-neodymium-magnet-1-1kg-pull-p3633}
+            \item[3]\url{http://www.westfieldfasteners.co.uk/A2_ScrewBolt_PinTXCsk_M4.html}
+            \item[4]\url{http://www.westfieldfasteners.co.uk/A2_ScrewBolt_SHCsk_M4.html}
+        \end{tablenotes}
+    \end{threeparttable}
+\end{table}
 
 \subsection{Off-The-Shelf Parts}
 Due to the complex geometry required from our design, only few components may be bought in, namely (per mount);  six Ø10mm tungsten carbide ball bearings, six \diameter 10 x 1.5 mm neodymium magnets, six M4 by 20 mm AISI A2 steel countersunk Torx security screws and one M4 by 20 mm countersunk hex socket with partial thread. These components are readily available excluding the tungsten carbide ball bearings which must be sourced from a specialist supplier.
-Table~\ref{table:BoM} details potential sources for the aforementioned parts and their corresponding cost.
+Table~\ref{table:bom} details potential sources for the aforementioned parts and the quantity required per mount.
 
 
 \begin{table}[h]
@@ -689,45 +731,51 @@ Table~\ref{table:BoM} details potential sources for the aforementioned parts and
 	\caption{Bill of Materials}
 	\begin{tabular}{@{}rp{9em}p{9em}rrr@{}}
 		\toprule
-		Item No. & Part No. & Description & Qty. & £/Piece & £ Total \\
+		Item No. & Part No.  & Qty. & £/Piece & £ Total \\
 		\midrule
-		1 & COR080-0003 & Isofonics core & 1 & --- & --- \\
-		2 & PLD080-0003 & Isofonics preloading crown & 1 & --- & --- \\
-		3 & PLD010-1004 & Isofonics preloading backstop & 6 & --- & --- \\
-		4 & F669-N45SH-10 (first4magnets) & 10 x 1.5mm neodymium magnet & 12 & 0.30 & 3.6  \\
-		5 & 10MMTUNGSTENB ALLS (VXB Bearings) & 10mm tungsten carbide ball & 6 & 20.30 & 243.60 \\
-		6 & TOP080-0004A & Isofonics top piece & 1 & --- & --- \\
-		7 & RET080-0003 & Isofonics retainer & 1 & --- & --- \\
-		8 & M4X20-CSK-ST (westfieldfasteners) & Partially threaded M4 x 20mm c'sunk security screw & 1 & 0.09 & 0.09 \\
-		9 & M4X20-CSK-H (westfieldfasteners) & Partially threaded M4 x 20mm c'sunk hex socket screw & 1 & 0.04 & 0.04 \\
-		10 & USR080-0001 & Isofonics removable spike & 1 & --- & --- \\
-		11 & RET080-1002 & Isofonics retainer bottom & 1 & --- & --- \\
-		12 & USR080-1002 & Isofonics removable base & 1 & --- & --- \\
+		1 & COR080-0003 & 1 & --- & --- \\
+		2 & PLD080-0003  & 1 & --- & --- \\
+		3 & PLD010-1004  & 6 & --- & --- \\
+		4 & F669-N45SH-10 (first4magnets) & 12 & 0.30 & 3.6  \\
+		5 & 10MMTUNGSTENB ALLS (VXB Bearings) & 6 & 20.30 & 243.60 \\
+		6 & TOP080-0004A  & 1 & --- & --- \\
+		7 & RET080-0003 & 1 & --- & --- \\
+		8 & M4X20-CSK-ST (westfieldfasteners) & 1 & 0.09 & 0.09 \\
+		9 & M4X20-CSK-H (westfieldfasteners) & 1 & 0.04 & 0.04 \\
+		10 & USR080-0001 & 1 & --- & --- \\
+		11 & RET080-1002  & 1 & --- & --- \\
+		12 & USR080-1002 & 1 & --- & --- \\
 		\bottomrule
 \end{tabular}
 \label{table:BoM}
 \end{table}
 
+\subsection{Primary Processes}
 
-\subsection{Machined Parts}
-All other parts may be machined using a 3 axis CNC mill excluding the central piece (see drawing COR080-0003), which requires 4 axis machining. 4 axis machining is substantially more expensive but allows for more intricate designs by using a 4th axis to reposition the part between 3 axis operations, a feature required for this design\cite{cnc}.
 
-\subsubsection{Set-up Time}
+All parts are to be machined using a 3 axis CNC mill excluding the central piece (see drawing COR080-0003), which requires 4 axis machining. 4 axis machining is more expensive but allows for more intricate designs by using a 4th axis to reposition the part between 3 axis operations, a feature required for this design\cite{cnc}. Forging was considered as a method of manufacture but was dismissed for the following reasons; the large expenditure involved in machinery, dies, tools and personnel are only justifiable for large scale production and the die accuracy required to forge the most complex pieces is likely unachievable\cite{Forging}.
+
 Cost is substantially driven by time; time to remove material in the machining process as well as set-up time of the machine itself\cite{SetUp}. Conveniently, our design is highly symmetrical meaning time and money is saved through lacking the need of a complex orienting mechanism given that the part's orientation prior to machining is irrelevant.
+
+Finally, the volume of production is of great importance; with too small a batch size, set up costs and jig production costs become impractical and with too large a batch, storage costs pose a problem for a product of which the market response is not easily predictable. Considering the high cost and exclusive appeal of this product, low volume batch production in the order of 100 is appropriate so as to eliminate any unnecessary storage costs and allow adequate response to market needs. Specifically a volume of 600 pieces has been defined simply because it is within the correct order of magnitude and is divisible by three; the mounts are expected to be sold in 
+
+
 
 \subsubsection{Material Type}
 Steel is harder, and therefore more expensive, to machine than softer materials however, its properties make it invaluable to the quality of the product (see Section~\ref{sec:DetailDesign}) and pose no problem for the advanced machining capabilities of today. The product's entire composition out of steel was initially proposed but after receiving a quote from 'Sylatech' (r/c), a machining company in the northeast of England for £---- per piece, it was evident some optimisation was required to quote a retail price for our product that allowed for a 35\% \cite{ProfitMargins} profit margin.For this reason, it was decided that all non-critical parts may be machined from aluminium, an alternative roughly 1.5 times cheaper\cite{AluVSteel} than steel. 'Non-critical' in this context refers to all parts excluding the complex central piece (COR080-0003) for which steel is required to contain magnetic flux leakage and remain unaffected by frictional effects of the moving bearings. Additionally, aluminium is roughy 5 times easier to machine than stainless steel\cite{AluVSteel} saving significantly on time, and therefore cost.
 
-\subsubsection{Tolerances}
-Initially all parts were to be machined at fine linear and angular tolerances of +/-0.1mm and +/-$1\,^{\circ}\mathrm{}$ respectively to ensure the overall quality of the product. However, in the interest of reducing cost, it was concluded that the rails contained in the core piece are the only parts to be machined to a high tolerance since they are to fit plush to the bearings; all other parts may be machined to a lower, and therefore cheaper, tolerance of +/- xmm.
+
 
 \subsection{Secondary Processes}
 \subsubsection{Finishings}
 
 A 2J finish (brushed finish) has been chosen as it is cheaper to produce than polishing and is practical in that it is resistant to scratches whilst being aesthetically pleasing.
 
-\subsection{Volume}
-Finally, the volume of production is of great importance; with too small a batch size, set up costs and jig production costs become impractical and with too large a batch, storage costs pose a problem. Considering the high cost and exclusive appeal of this product, low volume batch production in the order of 100 is appropriate so as to eliminate any unnecessary storage costs and allow adequate response to market needs.
+\subsubsection{Tolerances}
+Initially all parts were to be machined at fine linear and angular tolerances of +/-0.1mm and +/-$1\,^{\circ}\mathrm{}$ respectively to ensure the overall quality of the product. However, in the interest of reducing cost, it was concluded that the rails contained in the core piece are the only parts to be machined to a high tolerance since they are to fit plush to the bearings; all other parts may be machined to a lower, and therefore cheaper, tolerance of +/- xmm.
+
+
+
 
 \subsection{Manufacture Costs} \label{sec:ManCosts}
 %subtract material cost from quote for maching costs
