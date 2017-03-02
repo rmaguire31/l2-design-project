@@ -9,6 +9,7 @@
 \usepackage{mathpazo}
 
 
+
 \usepackage{titling}
 \usepackage{siunitx}
 \usepackage[style=ieee,backend=bibtex]{biblatex}
@@ -87,7 +88,6 @@ Microphonic effects exist in hi-fi systems wherein mechanical vibrations are tra
 \nomenclature[A1]{DFA}{Design for Assembly}
 \nomenclature[A2]{CNC}{Computer Numerical Control}
 \nomenclature[A3]{URS}{User Requirement Specification}
-\nomenclature[A2]{CNC}{Computer Numerical Control}
 
 %Variables
 \nomenclature{test}{This is a test}
@@ -123,19 +123,113 @@ Market leaders such as Stillpoints\textsuperscript{\textregistered}, Nordost\tex
 \subsection{Parametric Model} 
 
 
-\subsection{Dynamic Model}  %Mat
+\subsection{Dynamic Model}  %MAT
 \subsubsection{Why use a Dynamic Model?}
 It was determined that a dynamic model of the system would be necessary to quantify the potential success of the product. This could visually display the effects of the footers on attenuation of a signal from a Hi-fi system, and hence establish whether the sound quality had been improved. 
 
 \subsubsection{Forming the Equation}
-The system can be simplified to a spring mass damper system; a driving force (Fd(y)) is supplied by the vibration of the Hi-fi system and the opposing forces from the magnetic repulsion force (Fm(y)) and damping coefficient (c). Considering these components, it was possible to develop a second order differential equation (see equation \ref{eq:1}) which when solved would characterise the function of the footers.
+The system can be simplified to a spring mass damper system; a driving force (Fd(y)) is supplied by the vibration of the Hi-fi system and the opposing forces from the magnetic repulsion force (Fm(y)) and damping coefficient (c). Considering these components, it was possible to develop a second order differential equation (see equation \ref{eq:2ndDiff}) which when solved would characterise the function of the footers.
 
-\begin{equation} \label{eq:1}
+\begin{equation} \label{eq:2ndDiff}
 Fd(y) -my^{\prime \prime} - cy^\prime - Fm(y) = 0 
 \end{equation}
 as defined in \cite{2DoF}.
 
 Where m is the mass of the system and y is the displacement due to vibrations.
+
+Three components were to be found to complete the model; c, Fd(y), and Fm(y).From the parametric modelling, the damping coefficient was calculated (EQUATION XXX FROM BENEDICT) for an amplifier of 20kg using an estimated value of the coefficient of friction (?) ranging from 0.4 to 0.6. This gives a range for the damping coefficient:c = 158.7182 Ns/m for	? = 0.4c = 238.0773 Ns/m for	? = 0.6							The value of the magnetic repulsion force can be calculated, as outlined in section XXXX using equation XXX. The repulsion force is driven by the horizontal movement of the ball bearings; this motion is directly proportional to the vertical displacement from vibrations.
+Figure~\ref{fig:CrossSection} displays a cross-section of the footer, the separation of the magnets, M12, moves with length z, and z relates to y via equation \ref{eq:z}.
+
+\begin{figure*}[h]
+   \centering
+   \includegraphics[width=0.5\textwidth]{images/Mat1}
+   \caption{Footer Cross-Section}
+   \label{fig:CrossSection}
+\end{figure*}
+
+
+\begin{equation} \label{eq:z}
+z = y (w/h) 	
+\end{equation}
+
+Where w and h are the dimensions shown in figure ?WHAT FIGURE?The final element of the differential equation to consider was the driving force from vibrations; this is simply calculated by Newton?s Second Law of Motion, equation \ref{eq:Newton}.
+
+\begin{equation} \label{eq:Newton}
+Fd = my^{\prime \prime}
+\end{equation}
+
+The mass of the system (m) is easily found, however the acceleration of the vibrations $y^{\prime \prime}$ must be found empirically; sample data was needed.
+
+\subsubsection{Experiment}
+%start experiment section
+\subsubsection{Intro}
+To model the effectiveness of the product, sample data was collected to act as an input for the model; this data was used to simulate the driving force in the characteristic equation previously stated (Equation \ref{eq:2ndDiff}).  In order to obtain this information, an experiment was completed.
+
+\subsubsection{Experimental Method}
+A 5V signal was generated with a PicoScope (pico Technology, PicoScope 2204A) and fed through an accelerometer (STMI electronics LIS344ALH); this accelerometer was coupled to the top of an amplifier connected to a standard AC mains power supply, nominal voltage of 240V at a frequency of 50Hz. Using the pico Technology software, data from the accelerometer was captured for three conditions; the amplifier turned off, the amplifier turned on, and the amplifier turned on sitting on four half squash balls placed under the footers. Squash balls are a rudimental method of noise damping and were tested to compare this known method against the information acquired from the mathematical model.
+
+The data captured came in the form of a voltage output, to determine the acceleration from this information it was necessary to form a transformation equation. To do so, the technical data sheet for the accelerometer was found and in it there was clear conversion data which lead to the following
+
+\begin{equation} \label{eq:acceleration}
+a  =  (0.66 V - 1.65) 9.81
+\end{equation}
+
+as derived from \cite{SensorManual}
+
+Where a is the acceleration $(ms^{-2})$, V is the voltage response from the accelerometer (V).
+
+With the acceleration response and the mass of the amp, the driving force from the vibrations was calculated (Equation \ref{eq:Newton}) for each of the conditions.
+%end experiment section 
+
+\subsubsection{Data Processing - FFT}
+Once the sample data was captured, it needed to be processed to allow for further analysis. A Fast Fourier Transform (FFT) takes a signal, the driving force from vibrations for example, and breaks it up into a combination of simple waves; with this decomposition, it is possible to represent the data in the frequency domain rather than as a time series. To accomplish this an FFT script was written in MatLab, this was applied to the experimental data.
+
+Firstly, the data for the amplifier off, the control, was compared to the amplifier on. Both sets of information were processed and their spectra plotted as shown in Figure \ref{fig:MatGraphs1}
+
+\begin{figure*}[h]
+   \centering
+   \includegraphics[width=\textwidth]{images/MatGraphs}
+   \caption{Compared Frequency Responses when Amplifier off and on}
+   \label{fig:MatGraphs1}
+\end{figure*}
+
+The amp off data has a thin peak at 50Hz; this is due to the UK mains power supply rated at 50Hz. Although the amplifier was turned off it was still connected to the mains and therefore it is not unusual to witness a peak. With the amplifier on the fundamental frequency increases in power significantly up to -40dBV from -130dBV. The harmonics can be seen at 50Hz intervals although the general noise of the signal remains the same. Next, the amplifier on data was compared to the squash ball damped data to show how rudimental damping will affect the spectra and indicates how to determine successful damping for the dynamic model. The graphs are shown in Figure \ref{fig:MatGraphs2}
+
+\begin{figure*}[h]
+   \centering
+   \includegraphics[width=\textwidth]{images/MatGraphs2}
+   \caption{Compared Frequency Responses with and without Squash Balls}
+   \label{fig:MatGraphs2}
+\end{figure*}
+
+From the undamped spectra, it can be observed that the fundamental frequency is 50Hz with a peak at around -50dBV and harmonics at 50Hz intervals. There is heavy noise on the spectrum which will need to be reduced to provide an improved sound quality. From the simple damping the squash balls provide this noise has been significantly attenuated, along with this success the harmonics have consistently lower peaks whilst the fundamental frequency retaining a similar power to the undamped spectrum. This provides an example of successful damping which can be used as a comparison to the later mathematically damped data. The aim is to further reduce the noise and lower the power of the harmonics as much as possible, preferably below the noise floor which can be observed to be around -130dBV.
+
+\subsubsection{Choice of Software- Simulink}
+Simulink was chosen to drive the dynamic model due to the straight-forward construction of differential equations it provides; it offers a visual representation of the system and works hand-in-hand with MatLab allowing for simple data processing. Simulink computes an iterative numerical solution and outputs a corresponding time series to the MatLab workspace.
+
+\subsubsection{Modelling Process and Driving Equations}
+The first step to modelling was to consider each element of the characteristic equation and form a series of blocks to represent them. The output from MatLab represented the acceleration from the accelerometer ($y^{\prime \prime}$) therefore two \textquotesingle integrator\textquotesingle blocks were used in series to provide branches for $y^{\prime}$ and y. Each of these branches were then routed and manipulated to determine their effects on the equation.Figure \ref{fig:MatModel} displays the final form of the model.
+
+\begin{figure*}[h]
+   \centering
+   \includegraphics[width=0.8\textwidth]{images/MatModel}
+   \caption{Compared Frequency Responses with and without Squash Balls}
+   \label{fig:MatModel}
+\end{figure*}
+
+\textquotesingle SimIn\textquotesingle provides the experimental data from the MatLab workspace and similarly, \textquotesingle SimOut\textquotesingle exports the mathematically damped data; \textquotesingle Scope\textquotesingle displays the input and output data together in the time domain. The triangular blocks multiply the branch by a constant stored in MatLab; \textquotesingle K\textquotesingle is a subsystem modelling the equation for magnetic repulsion force for a given displacement, y. These branches summed together as shown by the circular block will simulate the differential equation and hence the damping from the footers.
+
+\subsubsection{Simulating Damping}
+The driving force calculated from the experimental data was used as the input for the dynamic model; the value of damping coefficient is constant and the magnetic damping varies as the displacement of the data changes. A Fourier Transform was applied to the output of the model to analyse the spectrum. The \textquotesingle Amp on\textquotesingle data is used as the input for the system and Figure \ref{fig:CoF} displays the output spectra for the values of damping coefficient at the lower and upper bound values of coefficient of friction.
+
+\begin{figure*}[h]
+   \centering
+   \includegraphics[width=\textwidth]{images/MatGraph3}
+   \caption{Power Output for Coefficient of Friction Extremes}
+   \label{fig:CoF}
+\end{figure*}
+
+
 
 
 
@@ -244,7 +338,7 @@ Due to the small scale of our product, hand assembly is required. Considering th
 
 
 
-\section{Design for Sustainability} Mat
+\section{Design for Sustainability} 
 %machined material, scrap of which can be melted purely
 %scrap from machinery is recyclable
 %possibility to carbon offset the production of products given extortionate pricing 
