@@ -88,7 +88,7 @@ upon which such systems are to be supported that aim to isolate and attenuate
 the signals responsible for this aforementioned noise. Three footers are 
 required per system, three being the minimum number of points of contact 
 necessary to support a rigid mass, and are to be sold as a device comprising a 
-contained magnetic damping mechanism with two optional additional pieces; a 
+contained magnetic damping mechanism with two optional additional pieces: a 
 removable base to use the device as a stand alone mount as opposed to its 
 mounting within existing equipment and a removable spike offering a minimal 
 point of contact. The main device, base and spike are to cost \textsterling 
@@ -101,15 +101,14 @@ user friendly phone application. Additionally, within this design lies
 potential for product families of differing size, catering to an even wider 
 audience, and applications within the field of optics, more specifically in the 
 optimisation of microscopes.
-%Sufficient information to give an appreciation of the problem being addressed, the proposed solution and any relevant information on cost, application or other major aspects that would concern decision maker%
 
-%acronyms
+% Acronyms
 \nomenclature[A0]{DFM}{Design for Manufacture}
 \nomenclature[A1]{DFA}{Design for Assembly}
 \nomenclature[A2]{CNC}{Computer Numerical Control}
 \nomenclature[A3]{URS}{User Requirement Specification}
 
-%Variables
+% Variables
 \nomenclature{test}{This is a test}
 
 \printnomenclature
@@ -149,8 +148,20 @@ principles or affluent younger hobbyists. The current market offers a range of
 mounts at a range of prices within which our product shall lie at the higher 
 end, namely between \textcolor{red}{\textsterling 1500--\textsterling 2000} 
 per mount. 
-Market leaders such as Stillpoints\textsuperscript{\textregistered}, Nordost\textsuperscript{\textregistered} and Isoclear\textsuperscript{\textregistered} offer sleek solutions yet lack the tailorability offered by our design, allowing customers to pre-load their mounts manually for individual amps, potentially with interactivity provided by an instructive technical app (see section blah). After conducting market research via surveys, it was found that potential customers were very much interested in the ability to manually adjust their mount as appropriate and that this offered an invaluable, unique selling point.
-\\This report covers the initial design concepts proposed by Group 25, the development of a chosen design, its design for manufacture and sustainability and, briefly, its commercial considerations. 
+
+Market leaders such as Stillpoints\textsuperscript{\textregistered}, 
+Nordost\textsuperscript{\textregistered} and 
+Isoclear\textsuperscript{\textregistered} offer sleek solutions yet lack the 
+tailorability offered by our design, allowing customers to pre-load their 
+mounts manually for individual amps, potentially with interactivity provided by 
+an instructive technical app. After conducting market research via surveys, it 
+was found that potential customers were very much interested in the ability to 
+manually adjust their mount as appropriate and that this offered an invaluable, 
+unique selling point.
+
+This report covers the initial design concepts proposed by Group 25, the 
+development of a chosen design, its design for manufacture and sustainability 
+and its commercial considerations.
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 % DESIGN CONCEPTS
@@ -375,16 +386,19 @@ design.
 \subsection{Opposing Magnets}
 \subsubsection{Magnet Simulation}
 
-As the footer houses 12 neodymium magnets, considerations have to be made for 
+As the footer houses 12 rare earth magnets, considerations have to be made for 
 the way in which these magnets interact with the surroundings of the footer as 
-they could cause damage \ interfere with to mounted equipment or surrounding 
-equipment i.e a hard disk located within the near vicinity of the footer. Using 
-a software package called MagNet\textsuperscript{\textregistered} produced by 
-infolytica\textsuperscript{\textregistered}, it was possible to 
-perform a 2D finite element analysis of the footers, allowing the effects of 
-these magnets to be modelled. When modelling the effect of these magnets the 
-two extreme cases were considered: at minimum and maximum separation as 
-detailed in Figure~\ref{figure:minsep} and Figure~\ref{figure:maxsep}.
+they could cause damage or interfere with mounted or surrounding 
+equipment footer. Using a software package called 
+MagNet\textsuperscript{\textregistered} produced by 
+infolytica\textsuperscript{\textregistered}, it was possible to perform a 2D 
+finite element analysis of the footers, allowing the effects of these magnets 
+to be modelled. The analysis performed in this section is for the geometry of 
+the final design, but the same procedure was performed following each 
+significant revision during the design process. When modelling the effect of 
+these magnets the two extreme cases were considered: at minimum and maximum 
+separation as detailed in Figure~\ref{figure:minsep} and 
+Figure~\ref{figure:maxsep}.
 
 \begin{figure}[h]
     \centering
@@ -400,11 +414,10 @@ detailed in Figure~\ref{figure:minsep} and Figure~\ref{figure:maxsep}.
     \label{figure:maxsep}
 \end{figure}
 
-Considering figures \ref{figure:minsep} and \ref{figure:maxsep} it can be seen 
-that the flux density outside of the footer is negligible as it has a value of 
-the order $10^-5~\si{\tesla}$ meaning that there would be minimal to no 
-interactions between the footer and its surroundings as nearly all of the 
-magnetic flux is contained within the core of the device.
+It can be seen that the flux density outside of the footer is negligible as it 
+has a value of the order $10^{-5}~\si{\tesla}$ meaning that there would be 
+minimal to no interactions between the footer and its surroundings as nearly 
+all of the magnetic flux is contained within the core of the device.
 
 \subsection{Preloading Mechanisms}
 \subsection{Containment}
@@ -412,11 +425,86 @@ magnetic flux is contained within the core of the device.
 \subsubsection{Parametric Model} \label{sec:parametric-model}
 \subsubsection{System Tuning}
 \subsubsection{Experimentation}
+
+To model the effectiveness of the product, sample data was collected to act as 
+an input for the model; this data was used to simulate the driving force in the 
+characteristic equation previously stated (Equation \ref{eq:2ndDiff}).  In 
+order to obtain this information, an experiment was completed.
+
+A 5V signal was generated with a PicoScope (pico Technology, PicoScope 2204A) 
+and fed through an accelerometer (STMI electronics LIS344ALH); this 
+accelerometer was coupled to the top of an amplifier connected to a standard AC 
+mains power supply, nominal voltage of 240V at a frequency of 50Hz. Using the 
+pico Technology software, data from the accelerometer was captured for three 
+conditions; the amplifier turned off, the amplifier turned on, and the 
+amplifier turned on sitting on four half squash balls placed under the footers. 
+Squash balls are a rudimental method of noise damping and were tested to 
+compare this known method against the information acquired from the 
+mathematical model.
+
+The data captured came in the form of a voltage output, to determine the 
+acceleration from this information it was necessary to form a transformation 
+equation. To do so, the technical data sheet for the accelerometer was found 
+and in it there was clear conversion data which lead to the following
+
+\begin{equation} \label{eq:acceleration}
+a  =  (0.66 V - 1.65) 9.81
+\end{equation}
+
+as derived from \cite{SensorManual}
+
+Where a is the acceleration $(ms^{-2})$, V is the voltage response from the 
+accelerometer (V).
+
+With the acceleration response and the mass of the amp, the driving force from 
+the vibrations was calculated (Equation \ref{eq:Newton}) for each of the 
+conditions.
+
+Firstly, the data for the amplifier off, the control, was compared to the 
+amplifier on. Both sets of information were processed and their spectra plotted 
+as shown in Figure \ref{fig:MatGraphs1}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Images/MatGraphs}
+    \caption{Compared Frequency Responses when Amplifier off and on}
+    \label{fig:MatGraphs1}
+\end{figure}
+
+The amp off data has a thin peak at 50Hz; this is due to the UK mains power 
+supply rated at 50Hz. Although the amplifier was turned off it was still 
+connected to the mains and therefore it is not unusual to witness a peak. With 
+the amplifier on the fundamental frequency increases in power significantly up 
+to -40dBV from -130dBV. The harmonics can be seen at 50Hz intervals although 
+the general noise of the signal remains the same. Next, the amplifier on data 
+was compared to the squash ball damped data to show how rudimental damping will 
+affect the spectra and indicates how to determine successful damping for the 
+dynamic model. The graphs are shown in Figure \ref{fig:MatGraphs2}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Images/MatGraphs2}
+    \caption{Compared Frequency Responses with and without Squash Balls}
+    \label{fig:MatGraphs2}
+\end{figure}
+
+From the undamped spectra, it can be observed that the fundamental frequency is 
+50Hz with a peak at around -50dBV and harmonics at 50Hz intervals. There is 
+heavy noise on the spectrum which will need to be reduced to provide an 
+improved sound quality. From the simple damping the squash balls provide this 
+noise has been significantly attenuated, along with this success the harmonics 
+have consistently lower peaks whilst the fundamental frequency retaining a 
+similar power to the undamped spectrum. This provides an example of successful 
+damping which can be used as a comparison to the later mathematically damped 
+data. The aim is to further reduce the noise and lower the power of the 
+harmonics as much as possible, preferably below the noise floor which can be 
+observed to be around -130dBV.
+
 \subsubsection{Dynamic Simulation}
 
 It was determined that a dynamic model of the system would be necessary to 
 quantify the potential success of the product. This could visually display the 
-effects of the footers on attenuation of a signal from a Hi-fi system, and 
+effects of the footers on attenuation of a signal from a HiFi system, and 
 hence establish whether the sound quality had been improved. 
 
 The system can be simplified to a spring mass damper system---a driving force 
@@ -437,8 +525,8 @@ determined empirically, however, using the theoretical approach outlined in
 Section~\ref{sec:parametric-model} the damping coefficient could be found given 
 the dynamic friction coefficient $\mu$ between the tungsten carbide bearing and 
 the stainless steel race. For these materials $0.4 < \mu < 0.6$. Substituting 
-the limits into Equation~\ref{?}, it can be determined the damping coefficient 
-lies in the range $158.7182~\si{\newton\second\per\meter} < c < 
+the limits into Equation~\ref{?}, the damping coefficient was deduced to lie in 
+the range $158.7182~\si{\newton\second\per\meter} < c < 
 238.0773~\si{\newton\second\per\meter}$.
 
 The value of the magnetic repulsion force can be calculated, as outlined in 
@@ -446,232 +534,86 @@ section XXXX using equation XXX. The repulsion force is driven by the
 horizontal movement of the ball bearings; this motion is directly proportional 
 to the vertical displacement from vibrations.
 
+Simulink was chosen to drive the dynamic model due to the straight-forward 
+construction of differential equations it provides; it offers a visual 
+representation of the system and works hand-in-hand with MatLab allowing for 
+simple data processing. Simulink computes an iterative numerical solution and 
+outputs a corresponding time series to the MatLab workspace.
 
-\subsection{Materials}
-\subsubsection{Static Analysis}
-The design features 7 screws, 6 of which are to be used to attach the retaining 
-wall to the core, with the other being used as a means of preloading the 
-system. All of these screws are to be made of A2 tool Steel which has a yield 
-stress, $\sigma_{y}$, of 205Mpa in compression and therefore through Von Mises 
-yield criterion it is possible to achieve its yield stress in shear,
-\begin{equation}
-k = \frac{\sigma_{y}}{\sqrt{3}}
-\end{equation}
-where, $k$, is the yield stress of the A2 tool steel in shear and is equal to 
-118Mpa.
-
-Due to the nature of the retaining wall used to constrain the pre-loading 
-backstops in their tracks, there is a shear force applied to the 6 retaining 
-wall screws. At the worst possible instance the shearing force on one of these 
-screws will be 1/6th of the total weight resting on the footer. It was decided 
-that a single footer should not structurally fail in the event of an operator 
-stepping on a footer by accident, meaning that these 6 retaining wall screws 
-were specified for a 140kg mass. However, as these screws are to be tightly 
-fastened to 2/3rds of the applied load per screw in order to increase the 
-friction between the core and the screw and therefore increase the screws 
-resistance to loosening. As 2/3rds of the load applied to the screw will come 
-from the pre-loading / tightening, the screw must be not fail under a load of 3 
-x the applied load per screw, so effectively 1/2 the overall applied load. From 
-this an analysis was performed on the screws to find what diameter would be 
-required such that the screws could meet this specification. The screws 
-interaction with the core piece allowed for them to be modelled as a cantilever 
-with a uniformly distributed load across its top edge as can be seen in figure 
-\ref{diagram:screw}. Using this model the maximum shear stress within the screw 
-was considered for various diameters of ISO and DIN metric threads, the results 
-of this can be seen in table \ref{table:stresses retainer}. 
-
-% Diagram of cantilever model 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\linewidth]{Images/retainerscrew.png}
-    \caption{How the retaining wall screws were modelled}
-\end{figure}
-\label{diagram:screw}
-
-% Table of stress analysis for retainer screws 
-\begin{table}[H]
-    \centering
-    \caption{Stress concentration analysis of the retainer screws}
-    \begin{tabular}{llll}
-        \hline
-        Metric thread & D (mm) & $\tau$ (Mpa) & Will failure occur?\\
-        \hline
-        M1.6 & 1.25 & 586.8 & Yes\\
-        M2 & 1.60 & 358.1 & Yes\\
-        M2.5 & 2.05 & 218.1 & Yes\\
-        M3 & 2.50 & 146.7 & Yes\\
-        M3.5 & 2.90 & 109.0 & No\\
-        M4 & 3.30 & 84.2 & No\\
-        \hline
-    \end{tabular}
-    \label{table:stresses retainer}
-\end{table}
-
-When considering the pre-loading screw at the bottom of the piece, the load is 
-applied along its top edge, so it may be modelled as a rectangle with a single 
-point load on top. Again, the worst possible case of applied load to the screw 
-would be the full 140kg mass being supported by it as may be seen in figure 
-\ref{table:stresses pre-load}. Therefore, the maximum stress case within the 
-screw was considered for this applied load and tested for various diameters of 
-ISO and DIN metric threads, as can be seen in table \ref{table:stresses 
-pre-laod}. 
-
-% Figure for pre-load screw
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\linewidth]{Images/preloadscrew.png}
-    \caption{How the pre-loading screw was modelled}
-\end{figure}
-\label{diagram:pre-load screw}
-
-% Table of stress analysis for pre-loading screw 	
-\begin{table}[H]
-    \centering
-    \caption{Stress concentration analysis of the retainer screws}
-    \begin{tabular}{llll}
-        \toprule
-        Metric thread & D (mm) & $\tau$ (Mpa) & Will failure occur?\\
-        \bottomrule
-        M1.6 & 1.25 & 1140.0 & Yes\\
-        M2 & 1.60 & 696.3 & Yes\\
-        M2.5 & 2.05 & 424.4 & Yes\\
-        M3 & 2.50 & 285.2 & Yes\\
-        M3.5 & 2.90 & 212.0 & Yes\\
-        M4 & 3.30 & 163.7 & No\\
-        M5 & 4.20 & 101.1 & No\\ 
-        M6 & 5.00 & 71.3 & No\\
-        \bottomrule
-    \end{tabular}
-\end{table}
-\label{table:stresses pre-load}
-
-As can be seen from Table~\ref{table:stresses retainer} and 
-\ref{table:stresses pre-load} for both cases an M4 thread screw meets the 
-specification and therefore shall be used in the design. By specifying the 
-screws for a 140kg mass per piece, there has been a large factor of safety 
-induced into the pieces as the maximum mass which the design has been specified 
-to work for is a 40kg mass supported by 3 footers (\textbf{ASK BENEDICT WHAT WE 
-CAN PRE-LOAD UP TO}) meaning that the 6 retaining wall screws have a factor of 
-safety of 151 and for the pre-loading screw the factor of safety of 131.
-
-
-%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-% DYNAMIC MODEL - MAT
-%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-\subsection{Dynamic Model}  
-
-
-
-c = 158.7182 Ns/m for	? = 0.4
-c = 238.0773 Ns/m for	? = 0.6							
-
-
-Figure~\ref{fig:CrossSection} displays a cross-section of the footer, the separation of the magnets, M12, moves with length z, and z relates to y via equation \ref{eq:z}.
-
-\begin{figure}[h]
-   \centering
-   \includegraphics[width=0.5\textwidth]{Images/Mat1}
-   \caption{Footer Cross-Section}
-   \label{fig:CrossSection}
-\end{figure}
-
-
-\begin{equation} \label{eq:z}
-z = y (w/h) 	
-\end{equation}
-
-Where w and h are the dimensions shown in figure ?WHAT FIGURE?
-The final element of the differential equation to consider was the driving force from vibrations; this is simply calculated by Newton?s Second Law of Motion, equation \ref{eq:Newton}.
-
-\begin{equation} \label{eq:Newton}
-Fd = my^{\prime \prime}
-\end{equation}
-
-The mass of the system (m) is easily found, however the acceleration of the vibrations $y^{\prime \prime}$ must be found empirically; sample data was needed.
-
-\subsubsection{Experiment}
-\subsubsection{Intro}
-To model the effectiveness of the product, sample data was collected to act as an input for the model; this data was used to simulate the driving force in the characteristic equation previously stated (Equation \ref{eq:2ndDiff}).  In order to obtain this information, an experiment was completed.
-
-\subsubsection{Experimental Method}
-A 5V signal was generated with a PicoScope (pico Technology, PicoScope 2204A) and fed through an accelerometer (STMI electronics LIS344ALH); this accelerometer was coupled to the top of an amplifier connected to a standard AC mains power supply, nominal voltage of 240V at a frequency of 50Hz. Using the pico Technology software, data from the accelerometer was captured for three conditions; the amplifier turned off, the amplifier turned on, and the amplifier turned on sitting on four half squash balls placed under the footers. Squash balls are a rudimental method of noise damping and were tested to compare this known method against the information acquired from the mathematical model.
-
-The data captured came in the form of a voltage output, to determine the acceleration from this information it was necessary to form a transformation equation. To do so, the technical data sheet for the accelerometer was found and in it there was clear conversion data which lead to the following
-
-\begin{equation} \label{eq:acceleration}
-a  =  (0.66 V - 1.65) 9.81
-\end{equation}
-
-as derived from \cite{SensorManual}
-
-Where a is the acceleration $(ms^{-2})$, V is the voltage response from the accelerometer (V).
-
-With the acceleration response and the mass of the amp, the driving force from the vibrations was calculated (Equation \ref{eq:Newton}) for each of the conditions.
-%end experiment section 
-
-\subsubsection{Data Processing - FFT}
-Once the sample data was captured, it needed to be processed to allow for further analysis. A Fast Fourier Transform (FFT) takes a signal, the driving force from vibrations for example, and breaks it up into a combination of simple waves; with this decomposition, it is possible to represent the data in the frequency domain rather than as a time series. To accomplish this an FFT script was written in MatLab, this was applied to the experimental data.
-
-Firstly, the data for the amplifier off, the control, was compared to the amplifier on. Both sets of information were processed and their spectra plotted as shown in Figure \ref{fig:MatGraphs1}
-
-\begin{figure}[h]
-   \centering
-   \includegraphics[width=\textwidth]{Images/MatGraphs}
-   \caption{Compared Frequency Responses when Amplifier off and on}
-   \label{fig:MatGraphs1}
-\end{figure}
-
-The amp off data has a thin peak at 50Hz; this is due to the UK mains power supply rated at 50Hz. Although the amplifier was turned off it was still connected to the mains and therefore it is not unusual to witness a peak. With the amplifier on the fundamental frequency increases in power significantly up to -40dBV from -130dBV. The harmonics can be seen at 50Hz intervals although the general noise of the signal remains the same. Next, the amplifier on data was compared to the squash ball damped data to show how rudimental damping will affect the spectra and indicates how to determine successful damping for the dynamic model. The graphs are shown in Figure \ref{fig:MatGraphs2}
-
-\begin{figure}[h]
-   \centering
-   \includegraphics[width=\textwidth]{Images/MatGraphs2}
-   \caption{Compared Frequency Responses with and without Squash Balls}
-   \label{fig:MatGraphs2}
-\end{figure}
-
-From the undamped spectra, it can be observed that the fundamental frequency is 50Hz with a peak at around -50dBV and harmonics at 50Hz intervals. There is heavy noise on the spectrum which will need to be reduced to provide an improved sound quality. From the simple damping the squash balls provide this noise has been significantly attenuated, along with this success the harmonics have consistently lower peaks whilst the fundamental frequency retaining a similar power to the undamped spectrum. This provides an example of successful damping which can be used as a comparison to the later mathematically damped data. The aim is to further reduce the noise and lower the power of the harmonics as much as possible, preferably below the noise floor which can be observed to be around -130dBV.
-
-\subsubsection{Choice of Software- Simulink}
-Simulink was chosen to drive the dynamic model due to the straight-forward construction of differential equations it provides; it offers a visual representation of the system and works hand-in-hand with MatLab allowing for simple data processing. Simulink computes an iterative numerical solution and outputs a corresponding time series to the MatLab workspace.
-
-\subsubsection{Modelling Process and Driving Equations}
-The first step to modelling was to consider each element of the characteristic equation and form a series of blocks to represent them. The output from MatLab represented the acceleration from the accelerometer ($y^{\prime \prime}$) therefore two \textquotesingle integrator\textquotesingle blocks were used in series to provide branches for $y^{\prime}$ and y. Each of these branches were then routed and manipulated to determine their effects on the equation.
+The first step to modelling was to consider each element of the characteristic 
+equation and form a series of blocks to represent them. The output from MatLab 
+represented the acceleration from the accelerometer ($y^{\prime \prime}$) 
+therefore two \textquotesingle integrator\textquotesingle blocks were used in 
+series to provide branches for $y^{\prime}$ and y. Each of these branches were 
+then routed and manipulated to determine their effects on the equation.
 Figure \ref{fig:MatModel} displays the final form of the model.
 
 \begin{figure}[h]
-   \centering
-   \includegraphics[width=0.8\textwidth]{Images/MatModel}
-   \caption{Compared Frequency Responses with and without Squash Balls}
-   \label{fig:MatModel}
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/MatModel}
+    \caption{Compared Frequency Responses with and without Squash Balls}
+    \label{fig:MatModel}
 \end{figure}
 
-\textquotesingle SimIn\textquotesingle provides the experimental data from the MatLab workspace and similarly, \textquotesingle SimOut\textquotesingle exports the mathematically damped data; \textquotesingle Scope\textquotesingle displays the input and output data together in the time domain. The triangular blocks multiply the branch by a constant stored in MatLab; \textquotesingle K\textquotesingle is a subsystem modelling the equation for magnetic repulsion force for a given displacement, y. These branches summed together as shown by the circular block will simulate the differential equation and hence the damping from the footers.
+\textquotesingle SimIn\textquotesingle provides the experimental data from the 
+MatLab workspace and similarly, \textquotesingle SimOut\textquotesingle exports 
+the mathematically damped data; \textquotesingle Scope\textquotesingle displays 
+the input and output data together in the time domain. The triangular blocks 
+multiply the branch by a constant stored in MatLab; \textquotesingle 
+K\textquotesingle is a subsystem modelling the equation for magnetic repulsion 
+force for a given displacement, y. These branches summed together as shown by 
+the circular block will simulate the differential equation and hence the 
+damping from the footers.
 
-\subsubsection{Simulating Damping}
-The driving force calculated from the experimental data was used as the input for the dynamic model; the value of damping coefficient is constant and the magnetic damping varies as the displacement of the data changes. A Fourier Transform was applied to the output of the model to analyse the spectrum. The \textquotesingle Amp on\textquotesingle data is used as the input for the system and Figure \ref{fig:CoF} displays the output spectra for the values of damping coefficient at the lower and upper bound values of coefficient of friction.
+The driving force calculated from the experimental data was used as the input 
+for the dynamic model; the value of damping coefficient is constant and the 
+magnetic damping varies as the displacement of the data changes. A Fourier 
+Transform was applied to the output of the model to analyse the spectrum. The 
+\textquotesingle Amp on\textquotesingle data is used as the input for the 
+system and Figure \ref{fig:CoF} displays the output spectra for the values of 
+damping coefficient at the lower and upper bound values of coefficient of 
+friction.
 
 \begin{figure}[h]
-   \centering
-   \includegraphics[width=\textwidth]{Images/MatGraph3}
-   \caption{Power Output for Coefficient of Friction Extremes}
-   \label{fig:CoF}
+    \centering
+    \includegraphics[width=\textwidth]{Images/MatGraph3}
+    \caption{Power Output for Coefficient of Friction Extremes}
+    \label{fig:CoF}
 \end{figure}
 
-In both graphs, the fundamental frequency can no longer be observed; a peak at around 30Hz is apparent however its low power and frequency that differs from 50Hz indicate that this is just noise. The noise is effectively identical in both cases and hence it can be concluded that the difference in damping coefficient between the 0.2 range of coefficient of friction is negligible. For further analysis, the median coefficient of friction will be used, 0.5; this returns a damping coefficient of 198.3978Ns/m.
+In both graphs, the fundamental frequency can no longer be observed; a peak at 
+around 30Hz is apparent however its low power and frequency that differs from 
+50Hz indicate that this is just noise. The noise is effectively identical in 
+both cases and hence it can be concluded that the difference in damping 
+coefficient between the 0.2 range of coefficient of friction is negligible. For 
+further analysis, the median coefficient of friction will be used, 0.5; this 
+returns a damping coefficient of 198.3978Ns/m.
 
-The amp on data is displayed with the mathematically damped spectrum for comparison between the input and output of the dynamic model in Figure~\ref{fig:DampedVUndamped}.
+The amp on data is displayed with the mathematically damped spectrum for 
+comparison between the input and output of the dynamic model in 
+Figure~\ref{fig:DampedVUndamped}.
 
 \begin{figure}[h]
-   \centering
-   \includegraphics[width=0.8\textwidth]{Images/MatGraph4}
-   \caption{Comparison of Undamped and Damped Response}
-   \label{fig:DampedVUndamped}
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/MatGraph4}
+    \caption{Comparison of Undamped and Damped Response}
+    \label{fig:DampedVUndamped}
 \end{figure}
 
-The red curve shows the mathematically damped data; the fundamental frequency and its harmonics are indistinguishable from the noise. The entire signal has been reduced to below the noise floor of around -140dBV. The noise has been almost completely attenuated.
-The success of the footers is likely to be less significant than that of the model. The primary reason for this discrepancy is the value of damping coefficient used; the damping factor was simply estimated and the damping coefficient calculated mathematically and assumed to be constant. Ideally, this would be found empirically; a series of prototypes would be produced and a similar experiment carried out to find the true damping coefficient. However, it has not been possible to do so and hence a mathematical estimation used instead. 
-If the footers have a fraction of the successs they have been predicted to have, there will be a significant improvement in sound quality. 
+The red curve shows the mathematically damped data; the fundamental frequency 
+and its harmonics are indistinguishable from the noise. The entire signal has 
+been reduced to below the noise floor of around -140dBV. The noise has been 
+almost completely attenuated.
+The success of the footers is likely to be less significant than that of the 
+model. The primary reason for this discrepancy is the value of damping 
+coefficient used; the damping factor was simply estimated and the damping 
+coefficient calculated mathematically and assumed to be constant. Ideally, this 
+would be found empirically; a series of prototypes would be produced and a 
+similar experiment carried out to find the true damping coefficient. However, 
+it has not been possible to do so and hence a mathematical estimation used 
+instead. 
+If the footers have a fraction of the successs they have been predicted to 
+have, there will be a significant improvement in sound quality. 
 
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 % MATERIAL CONSIDERATIONS - LAUREN
