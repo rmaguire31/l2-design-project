@@ -28,6 +28,7 @@
 [ ] \__ Design for Assembly
 [x] |   \__ Jig Design
 [ ] |   \__ Assembly Costs
+[ ] \__ Design for Sustainability
 [ ] \__ Commercial Considerations
 [-] |   \__ Patent Check
 [ ] |   \__ Marginal Costs
