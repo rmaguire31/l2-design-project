@@ -3,37 +3,37 @@
 [x] \__ Design Concepts
 [x] |   \__ Damping Mechanisms
 [x] |   \__ Isolation Mechanisms
-[ ] \__ Design Development
-[ ] |   \__ Opposing magnets
+[x] \__ Design Development
+[r] |   \__ Opposing magnets
 [x] |   |   \__ Magnet Simulation
-[-] |   \__ Preloading Mechanisms
-[ ] |   \__ Casing
-[ ] |   \__ Materials
-[G] |       \__ Static Analysis
+[b] |   \__ Preloading Mechanisms
+[b] |   \__ Casing
+[l] |   \__ Materials
+[g] |   |   \__ Static Analysis
 [ ] |   \__ System Analysis
-[L] |   |   \__ Parametric Model
-[L] |   |   \__ System Tuning
-[x] |   |   \__ Experimentation
-[x] |   |   \__ Dynamic Simulation
+[L] |       \__ Parametric Model
+[L] |       \__ System Tuning
+[x] |       \__ Experimentation
+[x] |       \__ Dynamic Simulation
 [ ] \__ Detail Design
-[L] |   \__ Mounting
+[b] |   \__ Mounting
 [ ] |   \__ Rails
 [ ] |   \__ Finishes
-[ ] \__ Design for Manufacture
-[-] |   \__ Bill of Materials
-[-] |   \__ Off-The-Shelf Parts
-[-] |   \__ Primary Processes
-[-] |   \__ Secondary Processes
-[W] |   \__ Manufacture Costs
-[ ] \__ Design for Assembly
+[x] \__ Design for Manufacture
+[x] |   \__ Bill of Materials
+[x] |   \__ Off-The-Shelf Parts
+[x] |   \__ Primary Processes
+[x] |   \__ Secondary Processes
+[w] |   \__ Manufacture Costs
+[x] \__ Design for Assembly
 [x] |   \__ Jig Design
-[W] |   \__ Assembly Costs
+[w] |   \__ Assembly Costs
 [ ] \__ Design for Sustainability
-[ ] \__ Commercial Considerations
-[-] |   \__ Patent Check
-[W] |   \__ Marginal Costs
-[ ] \__ Discussion
-[-] |   \__ Specification Fulfilment
-[-] |   \__ Further Developments
+[l] \__ Commercial Considerations
+[l] |   \__ Patent Check
+[w] |   \__ Marginal Costs
+[l] \__ Discussion
+[l] |   \__ Specification Fulfilment
+[g] |   \__ Further Developments
 [ ] \__ Conclusion
 [x] \__ References
