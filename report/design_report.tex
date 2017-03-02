@@ -619,8 +619,8 @@ have, there will be a significant improvement in sound quality.
 % MATERIAL CONSIDERATIONS - LAUREN
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-\subsection{Material Considerations}
-\subsubsection{Neodymium Magnets}
+\subsection{Materials}
+
 Neodymium magnets are the most widely used type of rare-earth magnet, are the 
 strongest type of permanent magnet commercially available and are of greatest 
 benefit in applications where there is limited space. The magnetic properties 
@@ -634,22 +634,11 @@ to reduce corrosion and provide a smooth finish. The brittleness of the magnets
 was also compensated for such that it does not undergo shear force during the 
 cyclic loading. 
 
-\subsubsection{Tungsten Carbide Spherical Bearings}
 Tungsten carbide possesses Young?s modulus 530 GPa, more than two times of that for the grade of stainless steel chosen (190 ? 203 GPa) [4] [5]. Due to Hooke?s law, the material does not undergo large deflections which in turn ensured efficient energy transfer between the Hi-Fi components. The bearings do not require any lubrication as they grind down any particulates that may enter the system.
 
-\subsubsection{Stainless Steel and Aluminium Framework}
+Steel is harder, and therefore more expensive, to machine than softer materials however, its properties make it invaluable to the quality of the product (see Section~\ref{sec:DetailDesign}) and pose no problem for the advanced machining capabilities of today. The product's entire composition out of steel was initially proposed but after receiving a quote from 'Sylatech' (r/c), a machining company in the northeast of England for £---- per piece, it was evident some optimisation was required to quote a retail price for our product that allowed for a 35\% \cite{ProfitMargins} profit margin.For this reason, it was decided that all non-critical parts may be machined from aircraft grade aluminium (6061-T6), an alternative roughly 1.5 times cheaper\cite{AluVSteel} than steel. 'Non-critical' in this context refers to all parts excluding the complex central piece (COR080-0003), the top piece (TOP080-0004) and removable spike (USR080-0001). For these parts, steel is required to contain magnetic flux leakage, remain unaffected by frictional effects of the moving bearings and not yield under concentrated stress. Additionally, aluminium is roughy 5 times easier to machine than stainless steel\cite{AluVSteel} saving significantly on time, and therefore cost.
 
-This improved the mount?s damping capability because the material essentially 
-acted as a Faraday cage with high resistance. Stainless steel is totally 
-recyclable and together with its high resistance to corrosion, greatly 
-increased the lifetime and hence sustainability of the product. However, it was 
-decided that the mount, apart from the top piece, core and spike, should 
-instead be machined with aircraft grade aluminium (6061-T6) due to the steep 
-manufacturing costs associated with stainless steel. These parts were excluded 
-because they were subjected to the greatest stress. Aluminium is cheaper to 
-manufacture but is extremely lightweight, a far better conductor (36.9  106 
-Siemens/m), widely available and recycled and can be easily extruded at low 
-cost to produce the complex geometries present. [6]
+\subsubsection{Static Analysis}
 
 %dimension selection- bearings driving dimensions, tracks, screws
 
@@ -728,7 +717,7 @@ Table~\ref{table:bom} details potential sources for the aforementioned parts and
 
 \begin{table}[h]
 	\centering
-	\caption{Bill of Materials}
+	\caption{Costing}
 	\begin{tabular}{@{}rp{9em}p{9em}rrr@{}}
 		\toprule
 		Item No. & Part No.  & Qty. & £/Piece & £ Total \\
@@ -747,43 +736,12 @@ Table~\ref{table:bom} details potential sources for the aforementioned parts and
 		12 & USR080-1002 & 1 & --- & --- \\
 		\bottomrule
 \end{tabular}
-\label{table:BoM}
+\label{table:costs}
 \end{table}
 
 \subsection{Primary Processes}
 
-
-All parts are to be machined using a 3 axis CNC mill excluding the central piece (see drawing COR080-0003), which requires 4 axis machining. 4 axis machining is more expensive but allows for more intricate designs by using a 4th axis to reposition the part between 3 axis operations, a feature required for this design\cite{cnc}. Forging was considered as a method of manufacture but was dismissed for the following reasons; the large expenditure involved in machinery, dies, tools and personnel are only justifiable for large scale production and the die accuracy required to forge the most complex pieces is likely unachievable\cite{Forging}.
-
-Cost is substantially driven by time; time to remove material in the machining process as well as set-up time of the machine itself\cite{SetUp}. Conveniently, our design is highly symmetrical meaning time and money is saved through lacking the need of a complex orienting mechanism given that the part's orientation prior to machining is irrelevant.
-
-Finally, the volume of production is of great importance; with too small a batch size, set up costs and jig production costs become impractical and with too large a batch, storage costs pose a problem for a product of which the market response is not easily predictable. Considering the high cost and exclusive appeal of this product, low volume batch production in the order of 100 is appropriate so as to eliminate any unnecessary storage costs and allow adequate response to market needs. Specifically a volume of 600 pieces has been defined simply because it is within the correct order of magnitude and is divisible by three; the mounts are expected to be sold in 
-
-
-
-\subsubsection{Material Type}
-Steel is harder, and therefore more expensive, to machine than softer materials however, its properties make it invaluable to the quality of the product (see Section~\ref{sec:DetailDesign}) and pose no problem for the advanced machining capabilities of today. The product's entire composition out of steel was initially proposed but after receiving a quote from 'Sylatech' (r/c), a machining company in the northeast of England for £---- per piece, it was evident some optimisation was required to quote a retail price for our product that allowed for a 35\% \cite{ProfitMargins} profit margin.For this reason, it was decided that all non-critical parts may be machined from aluminium, an alternative roughly 1.5 times cheaper\cite{AluVSteel} than steel. 'Non-critical' in this context refers to all parts excluding the complex central piece (COR080-0003) for which steel is required to contain magnetic flux leakage and remain unaffected by frictional effects of the moving bearings. Additionally, aluminium is roughy 5 times easier to machine than stainless steel\cite{AluVSteel} saving significantly on time, and therefore cost.
-
-
-
-\subsection{Secondary Processes}
-\subsubsection{Finishings}
-
-A 2J finish (brushed finish) has been chosen as it is cheaper to produce than polishing and is practical in that it is resistant to scratches whilst being aesthetically pleasing.
-
-\subsubsection{Tolerances}
-Initially all parts were to be machined at fine linear and angular tolerances of +/-0.1mm and +/-$1\,^{\circ}\mathrm{}$ respectively to ensure the overall quality of the product. However, in the interest of reducing cost, it was concluded that the rails contained in the core piece are the only parts to be machined to a high tolerance since they are to fit plush to the bearings; all other parts may be machined to a lower, and therefore cheaper, tolerance of +/- xmm.
-
-
-
-
-\subsection{Manufacture Costs} \label{sec:ManCosts}
-%subtract material cost from quote for maching costs
-Table \ref{table:BoM} details the cost of off-the-shelf parts and machining per mount, totalling £y. It is worth noting that the off-the-shelf pricing has been quoted for relatively low volume purchases, specifically within the range 100-200 pieces, and would decrease for larger scale production as to be used for this product; a batch volume 600 of pieces.
-
-
-\subsection{Optimisation}
- %the core may be machined in separate parts that are later joined to avoid the complexity of machining the reverse chamfers as shown in Figure~\ref{fig:core}.
+All parts are to be machined using a 3 axis CNC mill excluding the central piece (see drawing COR080-0003), which requires 4 axis machining. 4 axis machining is more expensive but allows for more intricate designs by using a 4th axis to reposition the part between 3 axis operations, a feature required for this design\cite{cnc}. Forging was considered as a method of manufacture but was dismissed for the following reasons; the large expenditure involved in machinery, dies, tools and personnel are only justifiable for large scale production and the die accuracy required to forge the most complex pieces is likely unachievable\cite{Forging}. In the interest of reducing manufacturing cost, for which the complex geometry of the core piece is largely responsible, it is possible that that piece be machined in separate parts that are later joined to avoid the machining of reverse chamfers as shown in Figure~\ref{fig:core}.
 
 \begin{figure}[h]
    \centering
@@ -791,6 +749,23 @@ Table \ref{table:BoM} details the cost of off-the-shelf parts and machining per 
    \caption{Core}
    \label{core}
 \end{figure} 
+
+Cost is substantially driven by time; time to remove material in the machining process as well as set-up time of the machine itself\cite{SetUp}. Conveniently, our design is highly symmetrical meaning time and money is saved through lacking the need of a complex orienting mechanism given that the part's orientation prior to machining is irrelevant.
+
+Finally, the volume of production is of great importance; with too small a batch size, set up costs and jig production costs become impractical and with too large a batch, storage costs pose a problem for a product of which the market response is not easily predictable. Considering the high cost and exclusive appeal of this product, low volume batch production in the order of 100 is appropriate so as to eliminate any unnecessary storage costs and allow adequate response to market needs. Specifically a volume of 600 pieces has been defined simply because it is within the correct order of magnitude and is divisible by three; the mounts are expected to be sold in groups of three.
+
+
+\subsection{Secondary Processes}
+A range of finishes best suited to individual parts have been chosen based on its functionality and location. A relatively cheap 2B (basic smooth) finish is to be applied to the stainless steel core so as to prohibit unnecessary expenditure considering the part shall not be seen by the customer whilst ensuring a path of minimal friction exists for the moving ball bearings. Additionally, the standard aluminium mill finish is rough and so all internal aluminium pre-loading pieces are to be brushed in the direction the piece travels so as to limit the amount of wear. Furthermore, the external retainer is to be brushed in concentric circles to give an attractive finish and hide any scratches. A 2J finish is to be applied to all other external stainless steel pieces since it is cheaper to produce than polishing and is practical in that it is resistant to scratches whilst being aesthetically pleasing.\cite{Finishes}
+
+All parts are to be machined at fine linear and angular tolerances of +/-0.1mm and +/-$1\,^{\circ}\mathrm{}$ respectively to ensure the overall quality of the product. However there exists opportunity for optimisation within this section; in the interest of reducing cost, it was concluded that the rails contained in the core piece are the only parts to be machined to a high tolerance since they are to fit plush to the bearings; all other parts may be machined to a coarser, and therefore cheaper, tolerance.
+
+
+\subsection{Manufacture Costs} \label{sec:ManCosts}
+%subtract material cost from quote for maching costs
+Table \ref{table:costs} details the cost of off-the-shelf parts and machining per mount, totalling £y. It is worth noting that the off-the-shelf pricing has been quoted for relatively low volume purchases, specifically within the range 100-200 pieces, and would decrease for larger scale production as to be used for this product; a batch volume 600 of pieces.
+
+
 
 
 %what tools are required - allen (purple engraved) , 
@@ -801,6 +776,7 @@ Table \ref{table:BoM} details the cost of off-the-shelf parts and machining per 
 %Can a few common components be used rather than many different varieties?- no, high budget
 %
 \section{Design for Assembly} 
+\subsubsection{Jig Design}
 Due to the small scale of our product, hand assembly is required. Considering the complexity of the design and physical impracticality of overcoming the repulsive magnetic forces during its assembly, a jig has been designed, as shown in drawings JIG080-0001 and JIG080-1001, with full accompanying assembly instructions (see Isofonics Assembly Instructions ISO080-INS).
 
 \begin{figure}[h]
