@@ -859,13 +859,13 @@ by:
     B0 = \mu_0 M
 \end{equation}
 
-Where ?B0? is the flux density very close to the magnet surface. However, magnet strength is commonly rated using magnetic pull. This can be converted into flux density using 
+Where \textquotesingle B0\textquotesingle is the flux density very close to the magnet surface. However, magnet strength is commonly rated using magnetic pull. This can be converted into flux density using 
 
 \begin{equation} \label{eq:B02}
 	B0 = \sqrt{\frac{Pull g 2 \mu0}{A}}
 \end{equation}
 
-Where \textquotesingle pull\textquotesingle is magnetic pull in kilograms, g is the acceleration due to gravity, and \textquotesingle A\textquotesingle is the area of the surface being considered.So now for any particular magnet strength and dimensions, as well as magnet separation, the repulsion force can be determined. Since the system is being considered in a steady state the magnetic repulsion must be equal to the horizontal force component on a single bearing due to a mounted mass. These forces can be equated after considering the bearing-top piece integration angle \textquotesingle {\alpha} \textquotesingle.
+Where \textquotesingle pull \textquotesingle is magnetic pull in kilograms, g is the acceleration due to gravity, and \textquotesingle A\textquotesingle is the area of the surface being considered.So now for any particular magnet strength and dimensions, as well as magnet separation, the repulsion force can be determined. Since the system is being considered in a steady state the magnetic repulsion must be equal to the horizontal force component on a single bearing due to a mounted mass. These forces can be equated after considering the bearing-top piece integration angle \textquotesingle $\alpha$ \textquotesingle.
 
 \begin{equation} \label{eq:Fd}
 	Fd=\frac{Pd}{cos(\alpha)}
@@ -875,27 +875,189 @@ With three footers being used, there are eighteen sets of magnets providing a re
 
 \begin{equation} \label{eq:Mass}
 	Fd=(18Fd/9.81) - 0.266
-\end{equation}
+\end{equation}
+
+Where the \textquotesingle mass \textquotesingle is the mass resting on three feet. Note that the mass of the top piece although small is not negligible, so it must be subtracted from the calculated mass as seen in \ref{eq:Mass}.
+
+As described, for each preload value, there exists a different range of masses that could be supported. The interval can be determined by how low the top piece sits on the bearings. In turn this affects the distance from the centre of the core to the outer surface of the inner magnet. A clearance of 2mm was given at each extreme to account for the real system?s oscillations. With these boundary conditions, an envelope representing the range of supported masses was plotted (See Figure \ref{fig:b8}). Note that this plot was produced using the initial dimensions for the footer where: Db = 76mm, Ds = 10mm, t = 2mm, r = 2mm, pull = 1.23kg preload.
 
 
+\begin{figure}[h]
+    \centering
+    \def\svgwidth{\textwidth}
+    \input{Images/b8.pdf_tex}
+    \caption{Graph of preload vs the maximum and minimum supported mass on three footers}
+    \label{fig:b8}
+\end{figure}
+
+\subsubsection*{Modelling Damped Natural Frequency}
+Another incredibly important factor that had to be considered was the damped natural frequency of the system. If the damped natural frequency of the system is too high or low, then the footer could interfere adversely with the mounted equipment. Within Hi-Fi equipment some of the lowest notes are as small as 20Hz. Frequencies below 6Hz can begin to cause an effect called \textquotesingle rumble\textquotesingle where they adversely affect the system. These two conditions provide boundary conditions for our system, and suggest that if the footer has a damped natural frequency of between 6Hz and 20Hz it will have minimal effect on device resting upon it.
+
+To further ensure that a mounted device was unaffected, it was decided to constrain the system\textquotesingle s damped natural frequencies range even further. To do this a neighbouring technology was considered, that being tonearms on record players. Tonearms are another high quality, no expense spared industry. They face a similar problem of needing to limit the damped natural frequency of their system to minimise any effect on the turntable and hi-fi equipment. In the tonearm industry it is very common to have systems with resonance frequencies of 8Hz to 12Hz \cite{nakai1973dynamic}. This range was to be matched in the isolation and attenuation mount. 
+
+Initially it was thought that the stiffness of the system with three footers could be determined using Hooke\textquotesingle s Law: 
+\begin{equation} \label{eq:F}
+	F=ke
+\end{equation}
+
+Where \textquotesingle F\textquotesingle is the force due to stiffness, \textquotesingle k\textquotesingle is the stiffness and \textquotesingle e\textquotesingle is the spring or material extension. However, the force exerted by the magnets is nonlinear and so Hooke?s Law cannot provide an accurate depiction of the footer. As a result a first order differential equation was used to an equivalent stiffness for each extension:
+
+\begin{equation} \label{eq:F}
+	\frac{dF}{de}=k
+\end{equation}
+
+From here, the natural frequency, both undamped and damped, of the system was found from the previous calculations of the resting mass and stiffness: 
+
+\begin{equation} \label{eq:wn}
+	\omega n=18\frac{k}{mass}^0.5
+\end{equation}
+
+\begin{equation} \label{eq:wd}
+	\omega d=\omega n(1-\zeta)^(0.5)
+\end{equation}
+
+Where \textquotesingle $\omega$ n\textquotesingle is the systems natural frequency in radians per second, \textquotesingle $\omega$ d\textquotesingle is the systems damped natural frequency, and \textquotesingle $\zeta$ \textquotesingle is the Damping Factor of the system. The Damping Factor is not constant however and itself needs to be calculated for each specific natural frequency:
+
+\begin{equation} \label{eq:b16}
+	\zeta =c/(2mass\omega n)
+\end{equation}
+
+where \textquotesingle c\textquotesingle is the damping coefficient of the system. This damping coefficient is a physical property and is found by considering energy losses. To determine it accurately it would need to be found empirically by performing experiments on prototype devices. However, it was possible to make a rudimentary evaluation of the problem to estimate a value for the damping coefficient.
+First consider the definition of frictional forces:
+
+\begin{equation} \label{eq:b17}
+	frictional force= \mu N
+\end{equation}Where \textquotesingle $\mu$\textquotesingle is the coefficient of friction between the two surfaces and \textquotesingle N\textquotesingle is the force normal to the point of contact between surfaces. Then consider definition of damping forces:
+
+\begin{equation} \label{eq:b18}
+	damping forces = c(node)v
+\end{equation}
+
+Where \textquotesingle v\textquotesingle is the velocity of the moving part and \textquotesingle c(node)\textquotesingle is the damping coefficient at the point of contact being considered. Now by equating equations \ref{eq:b17} and \ref{eq:b18}  a relationship between the damping coefficient and the coefficient of friction can be developed:
+
+\begin{equation} \label{eq:b19}
+	c(node) = \frac{\mu N}{v}
+\end{equation}
+
+Each bearing has two points of contact. To find an overall damping coefficient for the system, the damping coefficient for each point of contact must first be found.
+
+Firstly, consider the bottom point contact where the bearing meets the core floor. Adding together the vertical force components led to the following:
+
+\begin{equation} \label{eq:N1}
+	N1 = mg + Fdsin(\alpha)
+\end{equation}
+
+Where \textquotesingle N1\textquotesingle is the normal force at the first node considered, \textquotesingle Fd\textquotesingle is the force due to a mounted mass on a single bearing within the footer, and \textquotesingle mg\textquotesingle is the weight of the tungsten carbide 10mm bearing.
+The Normal forces at the second point of contact equal the force due to the mounted mass. However, this interaction needs to be translated into the same plane as the velocity. This yield the following expression for its normal force:
+
+\begin{equation} \label{eq:N2}
+	N2 = Fdsin(56.31)
+\end{equation}
+
+The damping coefficient due to the bottom contact and top contact could then be calculated using equation b.19. Summing these coefficients gives the coefficient of friction for each bearing \textquotesingle c(bearing)\textquotesingle: 
+
+\begin{equation} \label{eq:cbearing}
+	c(bearing) = \frac{\mu N1}{v} + \frac{\mu N2sin(56.31)}{v}s\\
+			=\frac{\mu}{v}(mg + 2Fdsin(56.31))
+\end{equation}
+
+The next step was to scale this value to the whole system and then the damping factor for any particular preload and mass can be calculated using Equation \ref{eq:b16}. The value was thus multiplied by the total number of bearings in three footers.
+
+By applying Equation \ref{eq:b16} and \ref{eq:b17} the system?s damping factor and damped natural frequency can be found. Still using the systems arbitrary dimensions and assuming a constant driven velocity of 0.837 m/s (measured in initial experimentation), a graph of the preload against the maximum and minimum damped natural frequency could be plotted as shown in Figure \ref{fig:b10}.s
 
 
+\begin{figure}[H]
+    \centering
+    \def\svgwidth{\textwidth}
+    \input{Images/b10.pdf_tex}
+    \caption{Graph of pre-load against its corresponding maximum and minimum damped natural frequency (Hz).}
+    \label{fig:b10}
+\end{figure}
+
+Now in Figure \ref{fig:b10} the lines representing the maximum and minimum damped natural frequency act as an envelope. The mount could operate at any value within this envelope. The boundary conditions of 8Hz to 12Hz can be added to the graph (see Figure \ref{fig:b11}) and are represented as black dashed lines.\begin{figure}[H]
+    \centering
+    \def\svgwidth{\textwidth}
+    \input{Images/b11.pdf_tex}
+    \caption{Graph of pre-load against its corresponding maximum and minimum damped natural frequency (Hz), and the 8-12Hz boundary represented.}
+    \label{fig:b11}
+\end{figure}
+
+The limits of 8 to 12 Hz can be translated into our Pre-load vs Mass resting on 3 feet graph (figure \ref{fig:b12}). The Frequency boundaries are again represented by the black dashed lines.
+\begin{figure}[H]
+    \centering
+    \def\svgwidth{\textwidth}
+    \input{Images/b12.pdf_tex}
+    \caption{Graph of pre-load vs the maximum and minimum supported mass on three footers, with the 8-12Hz boundary frequencies represented as boundary mass values.}
+    \label{fig:b12}
+\end{figure}
+
+Finally, these conditions were considered for preload against damping factor. A similar set of envelopes was produced:
+
+\begin{figure}[H]
+    \centering
+    \def\svgwidth{\textwidth}
+    \input{Images/b13.pdf_tex}
+    \caption{Graph of pre-load vs the maximum and minimum damping factors for a system of three footers. The 8-12Hz boundary frequencies are represented as boundary damping factor dashed lines.}
+    \label{fig:b13}
+\end{figure}
+For both Figures \ref{fig:b11}, \ref{fig:b12} and \ref{fig:b13}, the area contained within the two envelopes represents the operating area of the system. 
+
+\subsection{System Tuning}
+With a mathematical model implemented, the values of the parameters can easily be changed, making fine tuning the internal mechanism very straight forward. After testing a range of values for each governing parameter, the ideal mount dimensions and magnet properties were found. With the intention of maximising the operational area contained within the previous enveloped graphs, a final set of preload graphs were plotted.
+
+\begin{figure}[H]
+    \centering
+    \def\svgwidth{\textwidth}
+    \input{Images/b14.pdf_tex}
+    \caption{Preload against optimised mass operational area.}
+    \label{fig:b14}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \def\svgwidth{\textwidth}
+    \input{Images/b15.pdf_tex}
+    \caption{Preload against optimised damped natural frequency operational area.}
+    \label{fig:b15}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \def\svgwidth{\textwidth}
+    \input{Images/b16.pdf_tex}
+    \caption{Preload against optimised damping factor operational area.}
+    \label{fig:b16}
+\end{figure}
+
+The user should be able to select a desired preload for any specific values of mass within the operational area. To do this a technical graph of mass-preload was produced (see figure b17), and will be provided to allow a system pre-load to be easily selected.
+
+\begin{figure}[H]
+    \centering
+    \def\svgwidth{\textwidth}
+    \input{Images/b17.pdf_tex}
+    \caption{Preload vs rated mass of a mounted device on 3 footers}
+    \label{fig:b17}
+\end{figure}
 
 
+Now, for the any particular selected mass the system will have a specific damped natural frequency and damping factor. The user can read off these system details using a further two technical graphs, Figure \ref{fig:b18} and Figure \ref{fig:b19}.\begin{figure}[H]
+    \centering
+    \def\svgwidth{\textwidth}
+    \input{Images/b18.pdf_tex}
+    \caption{Rated mass on 3 footers vs corresponding system damped natural frequency.}
+    \label{fig:b18}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \def\svgwidth{\textwidth}
+    \input{Images/b19.pdf_tex}
+    \caption{Rated mass on 3 footers vs corresponding system damping factor.}    \label{fig:b19}
+\end{figure}
 
 
-
-
-
-
-
-
-
-
-
-
-\subsubsection{System Tuning}
-\subsubsection{Experimentation} \label{sec:experimentation}
+
+\subsubsection{Experimentation} \label{sec:experimentation}
 
 To assess the effectiveness of the product, acceleration data from a vibrating 
 amplifier was recorded to determine the frequency content of the signal to be 
