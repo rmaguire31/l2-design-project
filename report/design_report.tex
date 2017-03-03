@@ -865,7 +865,8 @@ Where \textquotesingle B0\textquotesingle is the flux density very close to the 
 	B0 = \sqrt{\frac{Pull g 2 \mu0}{A}}
 \end{equation}
 
-Where \textquotesingle pull \textquotesingle is magnetic pull in kilograms, g is the acceleration due to gravity, and \textquotesingle A\textquotesingle is the area of the surface being considered.So now for any particular magnet strength and dimensions, as well as magnet separation, the repulsion force can be determined. Since the system is being considered in a steady state the magnetic repulsion must be equal to the horizontal force component on a single bearing due to a mounted mass. These forces can be equated after considering the bearing-top piece integration angle \textquotesingle $\alpha$ \textquotesingle.
+Where \textquotesingle pull \textquotesingle is magnetic pull in kilograms, g is the acceleration due to gravity, and \textquotesingle A\textquotesingle is the area of the surface being considered.
+So now for any particular magnet strength and dimensions, as well as magnet separation, the repulsion force can be determined. Since the system is being considered in a steady state the magnetic repulsion must be equal to the horizontal force component on a single bearing due to a mounted mass. These forces can be equated after considering the bearing-top piece integration angle \textquotesingle $\alpha$ \textquotesingle.
 
 \begin{equation} \label{eq:Fd}
 	Fd=\frac{Pd}{cos(\alpha)}
@@ -895,7 +896,8 @@ Another incredibly important factor that had to be considered was the damped nat
 
 To further ensure that a mounted device was unaffected, it was decided to constrain the system\textquotesingle s damped natural frequencies range even further. To do this a neighbouring technology was considered, that being tonearms on record players. Tonearms are another high quality, no expense spared industry. They face a similar problem of needing to limit the damped natural frequency of their system to minimise any effect on the turntable and hi-fi equipment. In the tonearm industry it is very common to have systems with resonance frequencies of 8Hz to 12Hz \cite{nakai1973dynamic}. This range was to be matched in the isolation and attenuation mount. 
 
-Initially it was thought that the stiffness of the system with three footers could be determined using Hooke\textquotesingle s Law: 
+Initially it was thought that the stiffness of the system with three footers could be determined using Hooke\textquotesingle s Law:
+ 
 \begin{equation} \label{eq:F}
 	F=ke
 \end{equation}
@@ -923,11 +925,14 @@ Where \textquotesingle $\omega$ n\textquotesingle is the systems natural frequen
 \end{equation}
 
 where \textquotesingle c\textquotesingle is the damping coefficient of the system. This damping coefficient is a physical property and is found by considering energy losses. To determine it accurately it would need to be found empirically by performing experiments on prototype devices. However, it was possible to make a rudimentary evaluation of the problem to estimate a value for the damping coefficient.
-First consider the definition of frictional forces:
+
+First consider the definition of frictional forces:
 
 \begin{equation} \label{eq:b17}
 	frictional force= \mu N
-\end{equation}Where \textquotesingle $\mu$\textquotesingle is the coefficient of friction between the two surfaces and \textquotesingle N\textquotesingle is the force normal to the point of contact between surfaces. Then consider definition of damping forces:
+\end{equation}
+
+Where \textquotesingle $\mu$\textquotesingle is the coefficient of friction between the two surfaces and \textquotesingle N\textquotesingle is the force normal to the point of contact between surfaces. Then consider definition of damping forces:
 
 \begin{equation} \label{eq:b18}
 	damping forces = c(node)v
@@ -948,7 +953,8 @@ Firstly, consider the bottom point contact where the bearing meets the core floo
 \end{equation}
 
 Where \textquotesingle N1\textquotesingle is the normal force at the first node considered, \textquotesingle Fd\textquotesingle is the force due to a mounted mass on a single bearing within the footer, and \textquotesingle mg\textquotesingle is the weight of the tungsten carbide 10mm bearing.
-The Normal forces at the second point of contact equal the force due to the mounted mass. However, this interaction needs to be translated into the same plane as the velocity. This yield the following expression for its normal force:
+
+The Normal forces at the second point of contact equal the force due to the mounted mass. However, this interaction needs to be translated into the same plane as the velocity. This yield the following expression for its normal force:
 
 \begin{equation} \label{eq:N2}
 	N2 = Fdsin(56.31)
@@ -974,7 +980,9 @@ By applying Equation \ref{eq:b16} and \ref{eq:b17} the system?s damping factor a
     \label{fig:b10}
 \end{figure}
 
-Now in Figure \ref{fig:b10} the lines representing the maximum and minimum damped natural frequency act as an envelope. The mount could operate at any value within this envelope. The boundary conditions of 8Hz to 12Hz can be added to the graph (see Figure \ref{fig:b11}) and are represented as black dashed lines.\begin{figure}[H]
+Now in Figure \ref{fig:b10} the lines representing the maximum and minimum damped natural frequency act as an envelope. The mount could operate at any value within this envelope. The boundary conditions of 8Hz to 12Hz can be added to the graph (see Figure \ref{fig:b11}) and are represented as black dashed lines.
+
+\begin{figure}[H]
     \centering
     \def\svgwidth{\textwidth}
     \input{Images/b11.pdf_tex}
@@ -982,7 +990,8 @@ Now in Figure \ref{fig:b10} the lines representing the maximum and minimum dampe
     \label{fig:b11}
 \end{figure}
 
-The limits of 8 to 12 Hz can be translated into our Pre-load vs Mass resting on 3 feet graph (figure \ref{fig:b12}). The Frequency boundaries are again represented by the black dashed lines.
+The limits of 8 to 12 Hz can be translated into our Pre-load vs Mass resting on 3 feet graph (figure \ref{fig:b12}). The Frequency boundaries are again represented by the black dashed lines.
+
 \begin{figure}[H]
     \centering
     \def\svgwidth{\textwidth}
@@ -1000,7 +1009,8 @@ Finally, these conditions were considered for preload against damping factor. A 
     \caption{Graph of pre-load vs the maximum and minimum damping factors for a system of three footers. The 8-12Hz boundary frequencies are represented as boundary damping factor dashed lines.}
     \label{fig:b13}
 \end{figure}
-For both Figures \ref{fig:b11}, \ref{fig:b12} and \ref{fig:b13}, the area contained within the two envelopes represents the operating area of the system. 
+
+For both Figures \ref{fig:b11}, \ref{fig:b12} and \ref{fig:b13}, the area contained within the two envelopes represents the operating area of the system. 
 
 \subsection{System Tuning}
 With a mathematical model implemented, the values of the parameters can easily be changed, making fine tuning the internal mechanism very straight forward. After testing a range of values for each governing parameter, the ideal mount dimensions and magnet properties were found. With the intention of maximising the operational area contained within the previous enveloped graphs, a final set of preload graphs were plotted.
@@ -1040,7 +1050,9 @@ The user should be able to select a desired preload for any specific values of m
 \end{figure}
 
 
-Now, for the any particular selected mass the system will have a specific damped natural frequency and damping factor. The user can read off these system details using a further two technical graphs, Figure \ref{fig:b18} and Figure \ref{fig:b19}.\begin{figure}[H]
+Now, for the any particular selected mass the system will have a specific damped natural frequency and damping factor. The user can read off these system details using a further two technical graphs, Figure \ref{fig:b18} and Figure \ref{fig:b19}.
+
+\begin{figure}[H]
     \centering
     \def\svgwidth{\textwidth}
     \input{Images/b18.pdf_tex}
@@ -1052,12 +1064,16 @@ Now, for the any particular selected mass the system will have a specific damped
     \centering
     \def\svgwidth{\textwidth}
     \input{Images/b19.pdf_tex}
-    \caption{Rated mass on 3 footers vs corresponding system damping factor.}    \label{fig:b19}
+    \caption{Rated mass on 3 footers vs corresponding system damping factor.}
+    \label{fig:b19}
 \end{figure}
 
 
-
-\subsubsection{Experimentation} \label{sec:experimentation}
+
+
+
+
+\subsubsection{Experimentation} \label{sec:experimentation}
 
 To assess the effectiveness of the product, acceleration data from a vibrating 
 amplifier was recorded to determine the frequency content of the signal to be 
@@ -1584,15 +1600,18 @@ another was used, it would either prove redundant or induce further noise. The c
 In addition, the aesthetically pleasing finishings ensure that the footer is well integrated with the existing system and is resistant to scratches. On the other hand, it could not be proven that the mount \textquotesingle avoids blemishing\textquotesingle because a prototype was not made and tested over a sufficient amount of time.
 
 \subsection{Further Developments}
-In the interest of expanding the design on the market, a number of proposals have been made;
+In the interest of expanding the design, a number of proposals have been made:
 
 \begin{itemize}
-    \item Product families could be made, of differing size and/or material 
-    composition, to cater for an even wider range of masses to include heavier 
-    systems such as Loudspeakers.
+    \item A product family can be produced.This would consist of a variate of 
+    differently rated footers which would be optimised for different mass 
+    ranges.This could be achieved easily by varying the mount dimensions and 
+    magnet properties. This would allow for the mounts to support a wider range 
+    of heavier equipment such as loudspeakers.
     \item A companion phone application which enables the user to adjust the 
-    preload for a desired condition could also replace the preloading graphs 
-    provided by the parametric model. 
+    preload for a desired mass. This could be a simpler aid then the provided 
+    preloading graphs produced from the parametric model. 
+    
 \end{itemize}
 
 
