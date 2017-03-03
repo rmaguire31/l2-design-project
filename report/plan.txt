@@ -25,6 +25,8 @@
 [x] |   \__ Primary Processes
 [x] |   \__ Secondary Processes
 [w] |   \__ Manufacture Costs
+[ ] |       \__ Optimisations
+[ ] |       \__ Costing
 [x] \__ Design for Assembly
 [x] |   \__ Jig Design
 [w] |   \__ Assembly Costs

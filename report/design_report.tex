@@ -43,6 +43,8 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
+\graphicspath{{Images/}}
+
 \begin{document}
 
 %% Title page.
@@ -121,7 +123,7 @@ per mount.
 Market leaders such as Stillpoints\textsuperscript{\textregistered}, 
 Nordost\textsuperscript{\textregistered} and 
 Isoclear\textsuperscript{\textregistered} offer sleek solutions yet lack the 
-tailorability offered by our design, allowing customers to pre-load their 
+tailorability offered by our design, allowing customers to preload their 
 mounts manually for individual amps, potentially with interactivity provided by 
 an instructive technical app. After conducting market research via surveys, it 
 was found that potential customers were very much interested in the ability to 
@@ -174,14 +176,13 @@ freedom, so the effectiveness of attenuation depends on the vibration
 direction. This makes it difficult to model and specify a single system natural 
 frequency or damping factor.
 
-Figure~\ref{fig:viscoelastic} details how viscoelastic materials can be used 
+Figure~\vref{fig:viscoelastic} details how viscoelastic materials can be used 
 in a system where vibrations have been translated to a single direction. A 
 linear bearing compresses a viscoelastic sleeve on the same shaft.
 
 \begin{figure}[h] 
     \centering
-    \textbf{VISCOELASTIC DAMPING CONCEPT}\\
-     \includegraphics[width=0.5\textwidth]{Images/concepts/ViscoElastic}
+    \includegraphics[width=0.5\textwidth]{Images/concepts/ViscoElastic}
     \caption{D1---Viscoelastic damping mechanism.}
     \label{fig:viscoelastic}
 \end{figure}
@@ -196,7 +197,6 @@ desired dynamic properties of the system.
 
 \begin{figure}[H] 
     \centering
-    \textbf{MAGNETIC DAMPING CONCEPT}\\
     \includegraphics[width=0.5\textwidth]{Images/concepts/Magnetic}
     \caption{D2---Magnetic damping mechanism.}
     \label{fig:magnetic}
@@ -211,8 +211,7 @@ successfully containing the fluid.
 
 \begin{figure}[h] 
     \centering
-    \textbf{FLUIDIC DAMPING CONCEPT}\\
-     \includegraphics[width=0.5\textwidth]{Images/concepts/Fluidic}
+    \includegraphics[width=0.5\textwidth]{Images/concepts/Fluidic}
     \caption{D3---Fluidic damping mechanism.}
     \label{fig:fluidic}
 \end{figure}
@@ -226,7 +225,6 @@ Figure~\vref{fig:concept1} details one such embodiment.
 
 \begin{figure}[h] 
     \centering
-    \textbf{ELOISE'S LINKAGE CONCEPT}\\
     \includegraphics[width=0.5\textwidth]{Images/concepts/Eloise}
     \caption{C1---Simple linkage mechanism.}
     \label{fig:concept1}
@@ -240,10 +238,8 @@ Figure~\vref{fig:concept2}. Each layer damps a fraction of the vertical
 oscillations transmitted downwards by the layer above resulting in more 
 isolation.
 
-
 \begin{figure}[h]
     \centering
-    \textbf{RUSSELL'S LINKAGE CONCEPT}\\
     \includegraphics[width=0.4\textwidth]{Images/concepts/RussellLinkage}
     \caption{C2---Layered linkage mechanism.}
     \label{fig:concept2}
@@ -271,14 +267,16 @@ damping factor and resonant frequency. The isolation mechanism was an anomaly
 in the concept generation phase, as the damping mechanism was not 
 interchangable with those in Section~\vref{sec:damping_mechanisms}.
 
-
 \begin{figure}[h]
     \centering
-    \textbf{GEORGE'S PLATFORM CONCEPT}\\
-    \subfloat[Cross Section]{{\includegraphics[width=0.4\textwidth]{Images/concepts/George1} }}
+    \subfloat[Cross-section]{{
+        \includegraphics[width=0.4\textwidth]{Images/concepts/George1}
+        }}
     \qquad
-    \subfloat[Bird's Eye Cross Section]{{\includegraphics[width=0.4\textwidth]{Images/concepts/George2} }}
-     \caption{C3---Viscoelastic platform concept.}
+    \subfloat[Top view]{{       
+        \includegraphics[width=0.4\textwidth]{Images/concepts/George2}
+        }}
+    \caption{C3---Viscoelastic platform concept.}
     \label{fig:concept3}
 \end{figure}
 
@@ -294,10 +292,8 @@ been incorporated into the post of an isolation cone. The spring in the
 isolation mechanism could have been replaced with one of the damping mechanisms 
 in Figure~\ref{fig:viscoelastic} and Figure~\ref{fig:magnetic}.
 
-
 \begin{figure}[h]
     \centering
-    \textbf{MAT'S CONE CONCEPT}\\
     \includegraphics[width=0.4\textwidth]{Images/concepts/Mat}
     \caption{C4---Damped cone concept.}
     \label{fig:concept4}
@@ -310,13 +306,18 @@ translation.
 
 \begin{figure}[h]
     \centering
-    \textbf{RUSSELL'S POINTY BOTTOM CONCEPT}\\
-    \subfloat[Cross Section- Under Load]{{\includegraphics[width=0.4\textwidth, height=0.3\textwidth]{Images/concepts/PointyBottom1} }}
+    \subfloat[Cross-section---maximum load]{{
+        \includegraphics[width=0.4\textwidth,height=0.3\textwidth]{Images/concepts/PointyBottom1}
+         }}
     \qquad
-    \subfloat[Cross Section- Under No Load]{{\includegraphics[width=0.4\textwidth, height=0.3\textwidth]{Images/concepts/PointyBottom2} }}
-     \qquad
-     \subfloat[3-Dimensional]{{\includegraphics[width=0.35\textwidth]{Images/concepts/PointyBottom3} }}
-     \caption{C5---Cone and bearing concept.}
+    \subfloat[Cross-section---no load]{{
+        \includegraphics[width=0.4\textwidth,height=0.3\textwidth]{Images/concepts/PointyBottom2}
+        }}
+    \qquad
+    \subfloat[Isometric]{{
+        \includegraphics[width=0.35\textwidth]{Images/concepts/PointyBottom3}
+        }}
+    \caption{C5---Cone and bearing concept.}
     \label{fig:concept5}
 \end{figure}
 
@@ -353,13 +354,18 @@ in Figure~\ref{fig:fluidic}.
 
 \begin{figure}[h]
     \centering
-    \textbf{RUSSELL'S POINTY TOP CONCEPT}\\
-    \subfloat[Cross Section- Under Load]{{\includegraphics[width=0.4\textwidth, height=0.3\textwidth]{Images/concepts/PointyTop1} }}
+    \subfloat[Cross-section---maximum load]{{ 
+        \includegraphics[width=0.4\textwidth,height=0.3\textwidth]{Images/concepts/PointyTop1}
+        }}
     \qquad
-    \subfloat[Cross Section- Under No Load]{{\includegraphics[width=0.4\textwidth, height=0.3\textwidth]{Images/concepts/PointyTop2} }}
-     \qquad
-     \subfloat[3-Dimensional]{{\includegraphics[width=0.3\textwidth]{Images/concepts/PointyTop3} }}
-     \caption{C6---Alternative cone and bearing concept.}
+    \subfloat[Cross-section---no load]{{
+        \includegraphics[width=0.4\textwidth,height=0.3\textwidth]{Images/concepts/PointyTop2}
+        }}
+    \qquad
+    \subfloat[Isometric]{{
+        \includegraphics[width=0.3\textwidth]{Images/concepts/PointyTop3}
+        }}
+    \caption{C6---Alternative cone and bearing concept.}
     \label{fig:concept6}
 \end{figure}
 
@@ -378,20 +384,69 @@ a final design. The key milestones in development are as follows:
 
 \begin{itemize}
     \item The transition from curved geometry to opposing pairs of rare earth 
-    magnets to support the load of equipment.
+    magnets to support the equipment's weight.
     \item The addition of a user-adjustable preloading mechanism to increase 
     the range of masses that could be supported to full mass range of 
     amplifiers: 5~\si{\kilogram}--30~\si{\kilogram}~\cite{citation needed}.
-    \item The casing required to contain the isolation mechanism were     
-    considered.
+    \item The casing required to contain the isolation mechanism and dissuade 
+    the user from dismantling the footers.
+    \item The choice of materials used for various parts in the system.
+    \item The development of the models used to tune the design to meet 
+    performance requirements.
 \end{itemize}
 
 \subsection{Opposing Magnets}
-\subsubsection{Magnet Simulation}
 
-As the footer houses 12 rare earth magnets, considerations have to be made for 
-the way in which these magnets interact with the surroundings of the footer as 
-they could cause damage or interfere with mounted or surrounding 
+Early in the development process, it became apparent the curved geometry of 
+concept C6 in Figure~\ref{fig:concept6} would not be able to support a 
+particularly wide range of masses. Initially, a ring magnet mounted on the end 
+of a rod was to be coupled to the bearings to damp oscillations, biased using a 
+compression spring---see Figure~\ref{fig:magnetic}.
+
+To simplify the design and increase the supported mass range, the inclined 
+bearing races in the base and curve in top piece were removed, and replaced 
+with flat bearing races and a cone respectively. The damping mechanism was 
+replaced with six pairs of opposing rare earth button magnets, with the 
+opposing poles of magnets in adjacent races changing from N--N to S--S to N--N 
+etc. The direction of poles alternate to allow the flux to flow in closed 
+loops, and avoid flux leakage out of the system. Hysteresis losses in the base 
+piece and frictional forces provide the damping forces in this system.
+
+Figure~\vref{fig:rev1} shows how the magnets and bearings would be arranged in 
+a mount with opposing magnet pairs. These drawings have six races for a 
+multitude of reasons:
+\begin{itemize}
+    \item The number of opposing pairs had to be an even number to allow the 
+    poles of magnets in adjacent races to point in alternating directions for 
+    \emph{all} races. Otherwise the behaviour of the repulsive forces in some 
+    races would be different the others.
+    \item At least four races were required to allow freedom of movement in 
+    both lateral directions.
+    \item Using more races would require a larger diameter for the same usable 
+    travel distance.
+    \item Finally, because the magnetic repulsion force is not a linear 
+    function of separation distance, oscillations parallel with a race would 
+    experience a greater stiffness than those between races. Mounts with more 
+    races would have less variation in lateral stiffness in different lateral
+    directions.
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \textbf{ISOMETRIC OF INITIAL CAD REVISION}
+    \textbf{CROSS-SECTION OF INITIAL CAD REVISION}
+    \caption{Isometric view and cross-section of inital design revision.}
+    \label{fig:rev1}
+\end{figure}
+
+The choice of six races was a compromise between the size of the mount and 
+having a mount with a more constant stiffness in different lateral directions.
+
+\subsubsection{Flux Path Simulation}
+
+As the footer houses twelve rare earth magnets, considerations have to be made 
+for the way in which these magnets interact with the surroundings of the footer 
+as they could cause damage or interfere with mounted or surrounding 
 equipment footer. Using a software package called 
 MagNet\textsuperscript{\textregistered} produced by 
 infolytica\textsuperscript{\textregistered}, it was possible to perform a 2D 
@@ -422,51 +477,192 @@ has a value of the order $10^{-5}$~\si{\tesla} meaning that there would be
 minimal to no interactions between the footer and its surroundings as nearly 
 all of the magnetic flux is contained within the core of the device.
 
+\subsubsection{Magnetic stresses}
+
+The opposing pole pairs of magnets housed within the core of the design exist 
+in a highly stressed state, meaning that the force applied to each magnet is 
+large and has to be considered. The maximum force acting between the magnets is 
+$p_{m\,max}$ and from this the maximum stress within the magnet could be 
+calculated. This was shown to be 0.175~\si{\mega\pascal} and the yield stress 
+3.96~\si{\mega\pascal} meaning that there is a factor of safety of 23 per 
+magnet. This suggeststhese magnets will not structurally fail during the 
+operation of this product.
+
 \subsection{Preloading Mechanisms}
 \subsection{Casing}
-\subsection{Materials}
 
 \subsection{Materials}
 
-Neodymium magnets are the most widely used type of rare-earth magnet, are the 
-strongest type of permanent magnet commercially available and are of greatest 
-benefit in applications where there is limited space. The magnetic properties 
-termed remanence, coercivity and energy product dictate the performance of 
-neodymium magnets. They measure the strength of the magnetic field, the 
-material?s resistance to becoming demagnetized and the density of magnetic 
-energy respectively. Given that there are numerous grades available, an 
-overview of the range of values are outlined in Table 1. [1] The grade chosen 
-for the project was N45SH, coated with three layers (nickel, copper and nickel) 
-to reduce corrosion and provide a smooth finish. The brittleness of the magnets 
-was also compensated for such that it does not undergo shear force during the 
-cyclic loading. 
+Neodymium magnets are the most widely used type of rare-earth magnet, strongest 
+type of permanent magnet commercially available and of greatest benefit in 
+applications where there is limited space---such as for the opposing magnet 
+pairs in these footers.
 
-Tungsten carbide possesses Young?s modulus 530 GPa, more than two times of that 
-for the grade of stainless steel chosen (190 ? 203 GPa) [4] [5]. Due to Hooke?s 
-law, the material does not undergo large deflections which in turn ensured 
-efficient energy transfer between the Hi-Fi components. The bearings do not 
-require any lubrication as they grind down any particulates that may enter the 
-system.
+Tungsten carbide possesses a Young's modulus of 530~\si{\giga\pascal}, more 
+than two times of that of AISI 316 stainless steel; a material commonly used 
+for spherical bearings. Due to Hooke's law, the material does not undergo large 
+deflections which in turn ensures efficient energy transfer between the Hi-Fi 
+components. The bearings do not require any lubrication as they grind down any 
+particulates that may enter the system. Tungsten carbide was selected for the 
+bearings in this project.
 
-Steel is harder, and therefore more expensive, to machine than softer materials 
-however, its properties make it invaluable to the quality of the product (see 
-Section~\ref{sec:DetailDesign}) and pose no problem for the advanced machining 
-capabilities of today. The product's entire composition out of steel was 
-initially proposed but after receiving a quote from 'Sylatech' (r/c), a 
-machining company in the northeast of England for £---- per piece, it was 
-evident some optimisation was required to quote a retail price for our product 
-that allowed for a 35\% profit margin.For this reason, it 
-was decided that all non-critical parts may be machined from aircraft grade 
-aluminium (6061-T6), an alternative roughly 1.5 times cheaper\cite{AluVSteel} 
-than steel. 'Non-critical' in this context refers to all parts excluding the 
-complex central piece (COR080-0003), the top piece (TOP080-0004) and removable 
-spike (USR080-0001). For these parts, steel is required to contain magnetic 
-flux leakage, remain unaffected by frictional effects of the moving bearings 
-and not yield under concentrated stress. Additionally, aluminium is roughy 5 
-times easier to machine than stainless steel\cite{AluVSteel} saving 
-significantly on time, and therefore cost.
+With regards to the custom machined parts, there are two options: AISI 304 
+stainless steel and 6061-T6 \emph{aircraft-grade} aluminium. Stainless steel is 
+harder so, in a similar way to tungsten carbide, is a more efficient 
+transmitter of vibrations. It is also harder wearing so more suitable for 
+moving parts. Aluminium, being softer, is cheaper to cut. A part machined in 
+stainless steel will cost around 30\% more than the same part machined in 
+aluminium~\cite{citation needed}, given there are no delicately thin features 
+which would benefit from the stronger material.
 
-\subsubsection{Static Analysis}
+Considering this, the aluminium alloy was selected for the purely structural 
+parts, leaving 304 stainless steel for the core part (COR080-0003) which the 
+bearings are contained in and flux must be able to travel through; the top 
+piece (TOP080-0004) which pushes the bearings along the race; and the user 
+replaceable spike (USR080-0001) which the vibrations are conducted through.
+
+\subsection{Screw Specification}
+
+The design features seven screws, six of which are to be used to attach the 
+retaining wall to the core, with the other being used as a means of preloading 
+the system. All of these screws are to be made of A2 tool steel which has a 
+yield stress, $\sigma_{y}$, of 205~\si{\mega\pascal} in compression and 
+therefore through the Von Mises yield criterion it is possible to achieve its 
+yield stress in shear. The yield criterion is as follows:
+\begin{equation}
+    k = \frac{\sigma_{y}}{\sqrt{3}}
+\end{equation}
+where $k$ is the stress at failure. For A2 tool steel this value 
+is 118~\si{\mega\pascal}.
+
+Due to the nature of the retaining wall used to constrain the preloading 
+backstops in their tracks, there is a shear force applied to the six retaining 
+wall screws. At the worst possible instance the shearing force on one of these 
+screws was a sixth of the total weight resting on the footer. It was decided 
+that a single footer should not structurally fail in the event of a person 
+accidentally stepping on it, meaning that these six retaining wall screws were 
+specified to withstand the weight of a 140~\si{\kilogram} mass between them.
+
+Reference~\cite{blake1986every} recommends preloading the screw to twice 
+of the applied load in order to increase the friction between the core and 
+the screw and increase the screw's resistance to loosening. Hence, the total 
+load applied to the screw is the sum of the preload and the applied 
+load---this equates to 700~\si{\newton}.
+
+The stress analysis was performed on the screws to find what diameter would be 
+required such that the screws could meet this specification. The screws' 
+interaction with the core piece allowed for them to be modelled as a cantilever 
+with a uniformly distributed load across its top edge as can be seen in 
+Figure~\vref{fig:screw}. Using this model the maximum shear stress within 
+the screw was considered for various diameters of ISO  metric threads, the 
+results of the analysis can be seen in Table~\vref{table:stresses-retainer}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/retainerscrew.png}
+    \caption{Load applied to retaining wall screws.}
+    \label{fig:screw}
+\end{figure}
+
+\begin{table}[h]
+    \centering
+    \caption{Stress concentration analysis of the retainer screws.}
+    \begin{tabular}{cccc}
+        \toprule
+        Thread & D\,/\,\si{\milli\meter} & $\tau$\,/\,\si{\mega\pascal} & 
+        Suitable\\
+        \midrule
+        M1.6 & 1.25 & 586.8 & No\\
+        M2 & 1.60 & 358.1 & No\\
+        M2.5 & 2.05 & 218.1 & No\\
+        M3 & 2.50 & 146.7 & No\\
+        M3.5 & 2.90 & 109.0 & Yes\\
+        M4 & 3.30 & 84.2 & Yes\\
+        \bottomrule
+    \end{tabular}
+    \label{table:stresses-retainer}
+\end{table}
+
+When considering the preloading screw at the bottom of the footer, the load was
+applied along its top edge, so it was modelled as a strut with a single 
+point load on top. Again, the worst possible case of applied load to the screw 
+was the full 140~\si{\kilogram} mass being supported by it as may be seen in 
+Figure~\vref{fig:preload-screw}. Therefore, the maximum stress case within the 
+screw was considered for this applied load and tested for various diameters 
+of ISO metric threads, as can be seen in Table~\ref{table:stresses-prelaod}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/preloadscrew.png}
+    \caption{Load applied to the preload screw.}
+    \label{fig:preload-screw}
+\end{figure}
+	
+\begin{table}[h]
+    \centering
+    \caption{Stress concentration analysis of the preload screw}
+    \begin{tabular}{cccc}
+        \toprule
+        Thread & D\,/\,\si{\milli\meter} & $\tau$\,/\,\si{\mega\pascal} & 
+        Suitable\\
+        \midrule
+        M1.6 & 1.25 & 1140.0 & No\\
+        M2 & 1.60 & 696.3 & No\\
+        M2.5 & 2.05 & 424.4 & No\\
+        M3 & 2.50 & 285.2 & No\\
+        M3.5 & 2.90 & 212.0 & No\\
+        M4 & 3.30 & 163.7 & Yes\\
+        M5 & 4.20 & 101.1 & Yes\\ 
+        M6 & 5.00 & 71.3 & Yes\\
+        \bottomrule
+    \end{tabular}
+    \label{table:stresses-preload}
+\end{table}
+
+As can be seen from Table~\ref{table:stresses-retainer} and 
+Table~\ref{table:stresses-preload}, for both cases an M4 thread screw meets the 
+specification and therefore shall be used in the design. By specifying the 
+screws for a 140kg mass per piece, there has been a large factor of safety 
+considered for the pieces as the maximum mass which the design has been 
+specified to work for is a 44.6kg mass supported by three footers meaning that 
+the screws have a factor of safety of at least 9.4.
+
+The final design contained a preloading mechanism which relied upon the user 
+being able to operate the preloading screw. To ensure that the torque required 
+to operate this screw was within human capabilities a static analysis was 
+performed. The factors which effect the torque required to preload the system 
+are: the coefficient of friction $\mu$ between the screw and its mating 
+thread; the nominal bold diameter $D$ and the bolt tension $P$. The required 
+torque $T$ is given by the following:
+\begin{equation}
+    T = \mu D P
+    \label{eq:screw-torque}
+\end{equation}  
+    For stainless steel, $\mu$ is 0.8 and for the M4 screw, $D$ is 
+4~\si{\milli\meter}. From Figure~\ref{fig:nomenclature} it can be seen that 
+there is a force $p_m$ applied horizontally through the preloading backstop 
+that causes a resultant force $P/6$ acting on each of the six vertical struts 
+of the crown. These forces were resolved find $P/6$:
+\begin{equation}
+    \frac{P}{6} = p_m tan(\beta)
+    \label{eq:resolve-preload}
+\end{equation}
+where $\beta$ was 60.04\si{\degree}.
+
+To preload the system, the user has to remove all load from the footer, so the 
+bearings will rest at a maximum distance away from the backstop. The magnetic 
+repulsion force $p_m$ reaches a maximum when the magnet separation is at a 
+minimum---at maximum preload. This value $p_{m\,max}$ was 1.23~\si{\newton}. 
+Equation~\ref{eq:resolve-preload} was substituted into 
+Equation~\ref{eq:screw-torque}:
+\begin{equation}
+    T_{max} = 6\,\mu\,D\,p_{m\,max}\,tan(\beta)
+    \label{equation:screw-torque2}
+\end{equation}
+which yielded a $T_{max}$ value of 0.053~\si{\newton\meter}, well within human 
+capabilities given \cite{stokes1976man} quotes the 5th percentile for 
+maximum torque strength as 7.21~\si{\newton\meter}.
+
 \subsection{Dynamic Analysis}
 \subsubsection{Parametric Model} \label{sec:parametric-model}
 \subsubsection{System Tuning}
@@ -669,6 +865,12 @@ have, there will be a significant improvement in sound quality.
 
 \section{Detail Design} \label{sec:DetailDesign}
 
+\subsection{Mounting}
+
+\subsection{Rails}
+
+\subsection{Finishes}
+
 \section{Design for Manufacture} 
 
 DFM defines the design of a product so as to best optimise its quality whilst minimising its cost to manufacture\cite{dfm}. Factors affecting this cost include the number of off-the-shelf and machinable parts, the set-up time of required machinery, the material type, dimensional tolerances as well as secondary processes. Generally, a compromise is reached between the functional quality of a product and the cost of manufacture however, considering the current extortionate pricing of similar existing products, certain design choices have taken precedence over their implications in a manufacturing context, for the example the rails within the complex central piece are undesirable to manufacture(see drawing COR080-0003) yet optimal for the specified mechanism.
@@ -822,14 +1024,25 @@ Table \ref{table:costs} details the final cost of off-the-shelf parts and machin
 per mount, totalling 393.78 per mount.
 
 \section{Design for Assembly} 
+<<<<<<< HEAD
 \subsection{Jig Design}
 Due to the small scale of our product, hand assembly is required. Considering the complexity of the design and physical impracticality of overcoming the repulsive magnetic forces during its assembly, a jig has been designed, as shown in drawings JIG080-0001 and JIG080-1001, with full accompanying assembly instructions (see Isofonics Assembly Instructions ISO080-INS).
+=======
+\subsubsection{Jig Design}
+Due to the small scale of our product, hand assembly is required. Considering 
+the complexity of the design and physical impracticality of overcoming the 
+repulsive magnetic forces during its assembly, a jig has been designed, as 
+shown in drawings JIG080-0001 and JIG080-1001, with full accompanying assembly 
+instructions (see Isofonics Assembly Instructions ISO080-INS).
+>>>>>>> a1ac44af85202a535f76c74f89cf5e7eadb1e4c0
 
 \begin{figure}[h]
     \centering
-    \subfloat[Assembly Jig Base]{{\includegraphics[width=0.4\textwidth]{Images/jigbase} }}%
+    \subfloat[Assembly Jig Base] 
+        {{\includegraphics[width=0.4\textwidth]{Images/jigbase} }}%
     \qquad
-    \subfloat[Assembly Jig Sleeve]{{\includegraphics[width=0.3\textwidth]{Images/jigsleeve} }}%
+    \subfloat[Assembly Jig Sleeve] 
+        {{\includegraphics[width=0.3\textwidth]{Images/jigsleeve} }}%
     \caption{Assembly Jig Components}
     \label{fig:JigAssembly}
 \end{figure}
@@ -881,9 +1094,11 @@ It is clear that the main claim focuses on the use of layers of bearings, in thi
 
 \begin{figure}[H]
     \centering
-    \subfloat[Stillpoints Mechanism Diagram]{{\includegraphics[width=0.4\textwidth]{Images/Stillpoints} }}%
+    \subfloat[Stillpoints Mechanism Diagram]
+        {{\includegraphics[width=0.4\textwidth]{Images/Stillpoints} }}%
     \qquad
-    \subfloat[Group 25 Mechanism Diagram]{{\includegraphics[width=0.4\textwidth]{Images/Group25} }}%
+    \subfloat[Group 25 Mechanism Diagram]
+        {{\includegraphics[width=0.4\textwidth]{Images/Group25} }}%
     \caption{Stillpoints Mechanism Comparison}
     \label{fig:Patent}
 \end{figure}
@@ -956,11 +1171,6 @@ On the other, it could not be proven that the mount ?avoids blemishing? because 
 over a sufficient amount of time. To confidently say that does not mark the floor on which it rests or the device itself,
 customers could provide a review of the product after 2 years for example.
 
-
-
-
-
-
 REDO for SPECIFIC LINKS TO TREE.
 Split into 3 main aims - 
 			-Eliminate microphonic effects - show proof of damping, single point of contacts means coupled to equipment and hard 				materials ensures rigid paths, use of circular bearings has allowed for all four degrees of freedom. 
@@ -986,7 +1196,6 @@ was concluded that there was no additional interference or damage to the HiFi sy
 analysis software would better determine whether the separation distance or the grade of magnet needed to be
 amended. 
 
-
 \section{Conclusion}
 The following statements summarise the main results of the project:
 \begin{itemize}
@@ -995,13 +1204,18 @@ The following statements summarise the main results of the project:
 	\item There were numerous revisions of the initial concept. For example, the addition of the cone, dome and M8 thread on the top piece. 
 	\item The manufacturing considerations were detailed and were modified several times following feedback that some parts were too expensive or complex to machine. 
 	\item A prototype must be made and tested to provide additional proof of concept and hence further justify the larger cost of the footer.
-\end{itemize} In conclusion, it is clear that the final product met the initial design brief through the fulfilment of the greater part of the URS tree constructed in the feasibility report.
+\end{itemize}
+
+ In conclusion, it is clear that the final product met the initial design brief through the fulfilment of the greater part of the URS tree constructed in the feasibility report.
+
+
+
 
 \section{References}
 \printbibliography
 
 % Appendicies
-\cleardoublepage
+\clearpage
 \appendix
 \section{Project Plan and Members' Contributions} 
 \includepdf[pages=-,fitpaper=true]{Images/Drawings/COR080-0003.PDF}
