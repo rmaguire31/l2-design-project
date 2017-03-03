@@ -118,10 +118,10 @@ The following function analysis tree defines the user requirement specification
 for the product:
 
 \begin{figure}[h]
-   \centering
+   \centering 
    \includegraphics[width=\textwidth]{Images/URSTree}
    \caption{User Requirement Specification Diagram}
-   \label{}
+   \label{fig:URS}
 \end{figure}
 
 With such a niche product consisting of high tolerance machined parts and 
@@ -194,7 +194,8 @@ linear bearing compresses a viscoelastic sleeve on the same shaft.
 
 \begin{figure}[h] 
     \centering
-    \textbf{VISCOELASTIC DAMPING CONCEPT}
+    \textbf{VISCOELASTIC DAMPING CONCEPT}\\
+     \includegraphics[width=0.5\textwidth]{Images/concepts/ViscoElastic}
     \caption{D1---Viscoelastic damping mechanism.}
     \label{fig:viscoelastic}
 \end{figure}
@@ -207,9 +208,10 @@ according to Lenz's law. A possible assembly for this system is detailed in
 Figure~\vref{fig:magnetic}. The strength of magnets were to be tuned to the 
 desired dynamic properties of the system.
 
-\begin{figure}[h] 
+\begin{figure}[H] 
     \centering
-    \textbf{MAGNETIC DAMPING CONCEPT}
+    \textbf{MAGNETIC DAMPING CONCEPT}\\
+    \includegraphics[width=0.5\textwidth]{Images/concepts/Magnetic}
     \caption{D2---Magnetic damping mechanism.}
     \label{fig:magnetic}
 \end{figure}
@@ -223,7 +225,8 @@ successfully containing the fluid.
 
 \begin{figure}[h] 
     \centering
-    \textbf{FLUIDIC DAMPING CONCEPT}
+    \textbf{FLUIDIC DAMPING CONCEPT}\\
+     \includegraphics[width=0.5\textwidth]{Images/concepts/Fluidic}
     \caption{D3---Fluidic damping mechanism.}
     \label{fig:fluidic}
 \end{figure}
@@ -237,7 +240,8 @@ Figure~\vref{fig:concept1} details one such embodiment.
 
 \begin{figure}[h] 
     \centering
-    \textbf{ELOISE'S LINKAGE CONCEPT}
+    \textbf{ELOISE'S LINKAGE CONCEPT}\\
+    \includegraphics[width=0.5\textwidth]{Images/concepts/Eloise}
     \caption{C1---Simple linkage mechanism.}
     \label{fig:concept1}
 \end{figure}
@@ -250,9 +254,11 @@ Figure~\vref{fig:concept2}. Each layer damps a fraction of the vertical
 oscillations transmitted downwards by the layer above resulting in more 
 isolation.
 
+
 \begin{figure}[h]
     \centering
-    \textbf{RUSSELL'S LINKAGE CONCEPT}
+    \textbf{RUSSELL'S LINKAGE CONCEPT}\\
+    \includegraphics[width=0.4\textwidth]{Images/concepts/RussellLinkage}
     \caption{C2---Layered linkage mechanism.}
     \label{fig:concept2}
 \end{figure}
@@ -279,10 +285,14 @@ damping factor and resonant frequency. The isolation mechanism was an anomaly
 in the concept generation phase, as the damping mechanism was not 
 interchangable with those in Section~\vref{sec:damping_mechanisms}.
 
+
 \begin{figure}[h]
     \centering
-    \textbf{GEORGE'S PLATFORM CONCEPT}
-    \caption{C3---Viscoelastic platform concept.}
+    \textbf{GEORGE'S PLATFORM CONCEPT}\\
+    \subfloat[Cross Section]{{\includegraphics[width=0.4\textwidth]{Images/concepts/George1} }}
+    \qquad
+    \subfloat[Bird's Eye Cross Section]{{\includegraphics[width=0.4\textwidth]{Images/concepts/George2} }}
+     \caption{C3---Viscoelastic platform concept.}
     \label{fig:concept3}
 \end{figure}
 
@@ -301,7 +311,8 @@ in Figure~\ref{fig:viscoelastic} and Figure~\ref{fig:magnetic}.
 
 \begin{figure}[h]
     \centering
-    \textbf{MAT'S CONE CONCEPT}
+    \textbf{MAT'S CONE CONCEPT}\\
+    \includegraphics[width=0.4\textwidth]{Images/concepts/Mat}
     \caption{C4---Damped cone concept.}
     \label{fig:concept4}
 \end{figure}
@@ -313,10 +324,16 @@ translation.
 
 \begin{figure}[h]
     \centering
-    \textbf{RUSSELL'S POINTY BOTTOM CONCEPT}
-    \caption{C5---Cone and bearing concept.}
+    \textbf{RUSSELL'S POINTY BOTTOM CONCEPT}\\
+    \subfloat[Cross Section- Under Load]{{\includegraphics[width=0.4\textwidth, height=0.3\textwidth]{Images/concepts/PointyBottom1} }}
+    \qquad
+    \subfloat[Cross Section- Under No Load]{{\includegraphics[width=0.4\textwidth, height=0.3\textwidth]{Images/concepts/PointyBottom2} }}
+     \qquad
+     \subfloat[3-Dimensional]{{\includegraphics[width=0.35\textwidth]{Images/concepts/PointyBottom3} }}
+     \caption{C5---Cone and bearing concept.}
     \label{fig:concept5}
 \end{figure}
+
 
 When no force is applied to the top piece, the bearing would travel to the 
 bottom of its race. Increasing the load would cause the bearing to move up the 
@@ -350,8 +367,13 @@ in Figure~\ref{fig:fluidic}.
 
 \begin{figure}[h]
     \centering
-    \textbf{RUSSELL'S POINTY TOP CONCEPT}
-    \caption{C6---Alternative cone and bearing concept.}
+    \textbf{RUSSELL'S POINTY TOP CONCEPT}\\
+    \subfloat[Cross Section- Under Load]{{\includegraphics[width=0.4\textwidth, height=0.3\textwidth]{Images/concepts/PointyTop1} }}
+    \qquad
+    \subfloat[Cross Section- Under No Load]{{\includegraphics[width=0.4\textwidth, height=0.3\textwidth]{Images/concepts/PointyTop2} }}
+     \qquad
+     \subfloat[3-Dimensional]{{\includegraphics[width=0.3\textwidth]{Images/concepts/PointyTop3} }}
+     \caption{C6---Alternative cone and bearing concept.}
     \label{fig:concept6}
 \end{figure}
 
@@ -867,16 +889,7 @@ have, there will be a significant improvement in sound quality.
 
 \section{Design for Manufacture} 
 
-DFM defines the design/engineering of a product so as to best optimise its 
-quality whilst minimising its cost to manufacture\cite{dfm}. Factors affecting 
-this cost include the number of off-the-shelf and machinable parts, the set-up 
-time of required machinery, the material type, dimensional tolerances as well 
-as secondary processes. Generally, a compromise is reached between the 
-functional quality of a product and the cost of manufacture however, 
-considering the current extortionate pricing of similar existing products, 
-certain design choices have taken precedence over their implications in a 
-manufacturing context, for the example the rails within the complex central 
-piece are undesirable (see drawing COR080-0003).
+DFM defines the design of a product so as to best optimise its quality whilst minimising its cost to manufacture\cite{dfm}. Factors affecting this cost include the number of off-the-shelf and machinable parts, the set-up time of required machinery, the material type, dimensional tolerances as well as secondary processes. Generally, a compromise is reached between the functional quality of a product and the cost of manufacture however, considering the current extortionate pricing of similar existing products, certain design choices have taken precedence over their implications in a manufacturing context, for the example the rails within the complex central piece are undesirable to manufacture(see drawing COR080-0003) yet optimal for the specified mechanism.
 
 \subsection{Bill of Materials}
 
@@ -924,56 +937,20 @@ piece are undesirable (see drawing COR080-0003).
 Due to the complex geometry required from our design, only few components may be bought in, namely (per mount);  six Ø10mm tungsten carbide ball bearings, six \diameter 10 x 1.5 mm neodymium magnets, six M4 by 20 mm AISI A2 steel countersunk Torx security screws and one M4 by 20 mm countersunk hex socket with partial thread. These components are readily available excluding the tungsten carbide ball bearings which must be sourced from a specialist supplier.
 Table~\ref{table:bom} details potential sources for the aforementioned parts and the quantity required per mount.
 
-\begin{table}[h]
-	\centering
-	\caption{Costing}
-	\begin{tabular}{@{}rp{9em}p{9em}rrr@{}}
-		\toprule
-		Item No. & Part No.  & Qty. & £/Piece & £ Total \\
-		\midrule
-		1 & COR080-0003 & 1 & --- & --- \\
-		2 & PLD080-0003  & 1 & --- & --- \\
-		3 & PLD010-1004  & 6 & --- & --- \\
-		4 & F669-N45SH-10 (first4magnets) & 12 & 0.30 & 3.6  \\
-		5 & 10MMTUNGSTENB ALLS (VXB Bearings) & 6 & 20.30 & 243.60 \\
-		6 & TOP080-0004A  & 1 & --- & --- \\
-		7 & RET080-0003 & 1 & --- & --- \\
-		8 & M4X20-CSK-ST (westfieldfasteners) & 1 & 0.09 & 0.09 \\
-		9 & M4X20-CSK-H (westfieldfasteners) & 1 & 0.04 & 0.04 \\
-		10 & USR080-0001 & 1 & --- & --- \\
-		11 & RET080-1002  & 1 & --- & --- \\
-		12 & USR080-1002 & 1 & --- & --- \\
-		\bottomrule
-\end{tabular}
-\label{table:costs}
-\end{table}
-
 \subsection{Primary Processes}
 
-All parts are to be machined using a 3 axis CNC mill excluding the central 
-piece (see drawing COR080-0003), which requires 4 axis machining. 4 axis 
-machining is more expensive but allows for more intricate designs by using a 
-4th axis to reposition the part between 3 axis operations, a feature required 
-for this design\cite{cnc}. Forging was considered as a method of manufacture 
-but was dismissed for the following reasons; the large expenditure involved in 
-machinery, dies, tools and personnel are only justifiable for large scale 
-production and the die accuracy required to forge the most complex pieces is 
-likely unachievable\cite{Forging}. In the interest of reducing manufacturing 
-cost, for which the complex geometry of the core piece is largely responsible, 
-it is possible that that piece be machined in separate parts that are later 
-joined to avoid the machining of reverse chamfers as shown in 
-Figure~\ref{fig:core}.
+All parts are to be machined using a 3 axis CNC mill excluding the central piece (see drawing COR080-0003), which also requires wire erosion. Wire erosion is considerably more expensive but allows for the more intricate designs required by this piece. Forging was considered as a method of manufacture but was dismissed for the following reasons; the large expenditure involved in machinery, dies, tools and personnel are only justifiable for large scale production and the die accuracy required to forge the most complex pieces is likely unachievable\cite{Forging}. In the interest of reducing manufacturing cost, for which the complex geometry of the core piece is largely responsible, it was aproposed during discussion with Sylatech Ltd\textregistered that the piece be machined in separate parts that are later joined to avoid the machining of reverse chamfers as shown in Figure~\ref{fig:core}.\\
 
 \begin{figure}[h]
    \centering
    \includegraphics[width=0.3\textwidth]{Images/core}
    \caption{Core}
-   \label{core}
+   \label{fig:core}
 \end{figure} 
 
 Cost is substantially driven by time; time to remove material in the machining process as well as set-up time of the machine itself\cite{SetUp}. Conveniently, our design is highly symmetrical meaning time and money is saved through lacking the need of a complex orienting mechanism given that the part's orientation prior to machining is irrelevant.
 
-Finally, the volume of production is of great importance; with too small a batch size, set up costs and jig production costs become impractical and with too large a batch, storage costs pose a problem for a product of which the market response is not easily predictable. Considering the high cost and exclusive appeal of this product, low volume batch production in the order of 100 is appropriate so as to eliminate any unnecessary storage costs and allow adequate response to market needs. Specifically a volume of 600 pieces has been defined simply because it is within the correct order of magnitude and is divisible by three; the mounts are expected to be sold in groups of three.
+Finally, the volume of production is of great importance; with too small a batch size, set up costs and jig production costs become impractical and with too large a batch, storage costs pose a problem for a product of which the market response is not easily predictable. Considering the high cost and exclusive appeal of this product, low volume batch production in the order of 100 is appropriate so as to eliminate any unnecessary storage costs and allow adequate response to market needs. Specifically a volume of 300 pieces has been defined because it is divisible by three, the mounts are expected to be sold in groups of three, and during correspondence with Sylatech Ltd\textregistered it was discussed that any larger batch volume would pose an infeasible machining time; namely roughly two weeks.
 
 \subsection{Secondary Processes}
 
@@ -987,9 +964,9 @@ aluminium preloading pieces are to be brushed in the direction the piece
 travels so as to limit the amount of wear. Furthermore, the external retainer 
 is to be brushed in concentric circles to give an attractive finish and hide 
 any scratches. A 2J finish is to be applied to all other external stainless 
-steel pieces since it is cheaper to produce than polishing and is practical in 
+steel pieces as it is cheaper to produce than polishing and is practical in 
 that it is resistant to scratches whilst being aesthetically 
-pleasing.
+pleasing\cite{Finishes}.\\
 
 All parts are to be machined at fine linear and angular tolerances of +/-0.1mm 
 and +/-$1\,^{\circ}\mathrm{}$ respectively to ensure the overall quality of the 
@@ -1000,11 +977,46 @@ are to fit plush to the bearings; all other parts may be machined to a coarser,
 and therefore cheaper, tolerance.
 
 \subsection{Manufacture Costs} \label{sec:ManCosts}
+\subsubsection{Optimisation}
+Sylatech Ltd\textregistered was contacted regarding the cost to manufacture the product who proved very informative with regard to the feasibility of our product. Initially a cost of roughly £500 per piece (for a batch volume of 300) was quoted which, allowing margins of in turn dictates a retail price of £1650 allowing for 
+
+
+\subsubsection{Costing}
+
+\begin{table}[H]
+	\centering
+	\footnotesize
+	\begin{threeparttable}
+	\caption{Costing}
+        \label{table:costs}
+	\begin{tabular}{@{}cp{9em}crr@{}}
+		\toprule
+		Item No. & Part No.  & Qty. & £/Piece & £ Total \\
+		\midrule
+		1 & COR080-0003 & 1 & 195.00 & 195.00 \\
+		2 & PLD080-0003  & 1 & 35.00 & 35.00 \\
+		3 & PLD010-1004  & 6 & 2.00 & 12.00 \\
+		4 & F669-N45SH-10 (first4magnets) & 12 & 0.30 & 3.60  \\
+		5 & 10MMTUNGSTENB ALLS (VXB Bearings) & 6 & 20.30 & 121.80 \\
+		6 & TOP080-0004A  & 1 & 32.50 & 32.50 \\
+		7 & RET080-0003 & 1 & 45.00 & 45.00 \\
+		8 & M4X20-CSK-ST (westfieldfasteners) & 6 & 0.09 & 0.54 \\
+		9 & M4X20-CSK-H (westfieldfasteners) & 1 & 0.04 & 0.04 \\
+		10 & USR080-0002 & 1 & 14.30 & 14.30 \\
+		11 & RET080-1002  & 1 & 12.00 & 12.00 \\
+		12 & USR080-1002 & 1 & 30.00 & 30.00 \\
+		\bottomrule
+		& & & & 501.78\tnote{1}
+\end{tabular}
+  \begin{tablenotes}
+            \raggedright
+            \tiny
+            \item[1]{Sylatech Ltd, Kirkdale Road, Kirkbymoorside, North Yorkshire, YO62 6PX, Quote courtesy of Mr R McGill}
+        \end{tablenotes}
+    \end{threeparttable}
+\end{table}
 Table \ref{table:costs} details the cost of off-the-shelf parts and machining 
-per mount, totalling £y. It is worth noting that the off-the-shelf pricing has 
-been quoted for relatively low volume purchases, specifically within the range 
-100-200 pieces, and would decrease for larger scale production as to be used 
-for this product; a batch volume 600 of pieces.
+per mount, totalling £501.78 per mount.
 
 \section{Design for Assembly} 
 \subsubsection{Jig Design}
@@ -1025,72 +1037,55 @@ instructions (see Isofonics Assembly Instructions ISO080-INS).
     \label{fig:JigAssembly}
 \end{figure}
 
-\subsection{Assembly Costs} \label{AssemCosts}
-Considering the assembly jig is to be re-used indefinitely, its cost is 
-negligible within the context of the product's assembly. Assembly costs are 
-then only defined by the time taken to manually assemble the device and the 
-cost of manual labour which can be estimated at 2 minutes and \textsterling8/hr 
-respectively. This equates to a total of \textsterling0.27 per piece.
+\subsection{Assembly Costs} \label{sec:AssemCosts}
+Considering the assembly jig is to be re-used indefinitely, its cost is negligible within the context of the product's assembly. Assembly costs are then only defined by the time taken to manually assemble the device and the cost of manual labour which can be estimated at 2 minutes and \textsterling8/hr respectively. This equates to a total of \textsterling0.27 per piece.
 
 \section{Design for Sustainability} 
+Isofonics recognises the importance of considering the environmental implications of the manufacture as well as disposal of any product.
+
+Isofonics footers are made to last a lifetime. This is achieved by using the highest quality materials possible; quality and endurance were more important than the price of the product considering the high budget of the design. This reduces the harm done to the environment by
+eliminating the need to manufacture replacement footers.Another method of ensuring minimal impact is to reduce the scrap, this is
+achieved by ensuring that the size of the raw material is a similar size to the final product. The main central section of the footer is produced using a CNC machining process as described previously and so the un-refined steel will be cut to within a small tolerance of the final product. The scrap that is inevitably produced will be recycled; this includes both stainless steel and aluminium.\\
+
+Stainless steel contains valuable raw materials, especially chromium, nickel and molybdenum and hence recycling it is economically viable. Like many other metallic materials, stainless steel is recycled through a re-melting process, where the melted steel is re moulded for use. Similarly, aluminium is also recycled with a re-melting process and can be reprocessed and reformed endlessly without losing any of its quality.\\
+
+Packaging often contributes to the waste generated by the product; to avoid this, the footers will be packaged in simplistic cardboard based materials which can be efficiently recycled rather than plastics where the recycling process yields less useful products.
+
+
+
+
+
 \section{Commercial Considerations} 
 
 \subsection{Brand Development and Competitor Analysis}
 With the intention of establishing the design in the market, a brand identity 
 was essential. Through several brainstorming sessions, the team agreed on the 
-name ?Isofonics.? It was important to review the current market leaders, 
+name \textquotesingle Isofonics \textquotesingle.\\
+
+It was important to review the current market leaders, 
 Stillpoints and Nordost, with their relevant products. Nordost primarily 
 manufactures Hi-Fi audio cables but recently introduced additional products for 
-resonance and power control. Namely, their ?Sort Kone,? acts as a vibration 
+resonance and power control. Namely, their \textquotesingle SortKone\textquotesingle acts as a vibration 
 drain with a mechanical diode effect to prevent external vibrations from 
 travelling up through the cone. Similarly, 3 cones are recommended per device 
 but they offer 3 types of cone, each made from different materials. The most 
 expensive is made from titanium and utilises ceramic bearings, retailing at 
-£349.99 per cone. The 3 mounts do not necessarily have to be the same and the 
-user may find it more beneficial to use a mixture. (See Figure 3) [7]
+£349.99 per cone.\cite{Nordostcost} Stillpoints offer an equivalent solution, their most expensive is their ?Ultra 6,? priced at £799.99 per mount and £849.99 with an accompanying base. \cite{StillpointsCost}
  
 \subsection{Stillpoints Patent Check}
  
-The Stillpoints patent details the design of a \lq{device for the control of 
-vibrations comprising a retainer resting on a base and a plurality of bearings 
-disposed within the retainer}\rq~\cite{wakeen2003universal} within which 
-\lq{the bearings are arranged in at least two 
-layers}\rq~\cite{wakeen2003universal}. It alludes to multiple alternative 
-designs including an \lq{embodiment}\rq in which magnetic fields are employed, 
-however differently to the usage detailed in our design. After studying the 
-official claims made at the end of the patent it is concluded that in not 
-featuring layers of bearings and using opposing magnetic fields as the main 
-damping method, our design differs significantly from the design and 
-alternatives claimed by Stillpoints.
-
-\emph{It is worth noting this is a US patent and is not filed with the European 
-Patent Office and so only stands to limit sales within the US.}
+Stillpoints\textquotesingle patent for their \textquotesingle Universal Vibration Damper\textquotesingle was thoroughly studied and the potential risks of infringement were identified. Their patent details the design of a \textquotesingle device for the control of vibrations comprising a retainer resting on a base and a plurality of bearings disposed within the retainer.\textquotesingle  It focuses mainly on the use of layered bearings and springs to diminish the signals through friction with three or more on the first layer and at least a substantially larger one on the second. Each bearing on the first layer is held by the base plate and side of the retainer and supports the bearing above. It also explores other options to replace the springs such as using opposing magnets: \textquotesingle In some embodiments the first base member 119 and second base member 123 may have opposing magnetics fields.\textquotesingle \cite{Stillpoints} However, Isofonics? product is not an embodiment of the mechanism described in the first claim of the patent. A cone with a retaining flange is used rather than the layers of spherical bearings.
  
 \subsubsection{Parallels with Stillpoints}
 The following details the main claim made by Stillpoints and highlights areas 
 of concern:
 
 \lq{A device for the control of vibrations comprising:
-\emph{a retainer}, the retainer constructed and arranged to rest upon a base, 
-at least a \emph{portion of the base defining a substantially flat surface}; 
-and \emph{a plurality of bearings disposed within the retainer, the bearings 
-arranged in a first layer and a second layer}, the second layer disposed on the 
-first layer, the first layer
-comprising three or more bearings, and the second layer comprising at least one bearing, each bearing in
-the first layer constrained on its bottom by only the substantially flat surface of the base, on its side by the
-retainer, the bearings in the first layer supporting the at least one bearing 
-in the second layer, the retainer defining a surface which is in substantially 
-tangential contact with the bearings in the first 
-layer}\rq~\cite{wakeen2003universal}.
+\emph{a retainer}, the retainer constructed and arranged to rest upon a base, at least a \emph{portion of the base defining a substantially flat surface}; and \emph{a plurality of bearings disposed within the retainer, the bearings arranged in a first layer and a second layer}, the second layer disposed on the first layer, the first layer comprising three or more bearings, and the second layer comprising at least one bearing, each bearing in the first layer constrained on its bottom by only the substantially flat surface of the base, on its side by the retainer, the bearings in the first layer supporting the at least one bearing in the second layer, the retainer defining a surface which is in substantially tangential contact with the bearings in the first layer}\rq\cite{Stillpoints}.\\
 
 It is clear that the main claim focuses on the use of layers of bearings, in this way, our design is fundamentally different. Since our design differs from that outlined in the main claim, all further claims based on the first are irrelevant. An element of originality of our design lies in the use of magnets which is not mentioned at all within the official claims section of the patent.
 
-The use of magnetic fields is mentioned during the preamble and is as follows:
-
-\lq{In some embodiments the first base member 119 and second base member 123 
-may have opposing magnetic fields.}\rq~\cite{wakeen2003universal}
-
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \subfloat[Stillpoints Mechanism Diagram]
         {{\includegraphics[width=0.4\textwidth]{Images/Stillpoints} }}%
@@ -1100,41 +1095,28 @@ may have opposing magnetic fields.}\rq~\cite{wakeen2003universal}
     \caption{Stillpoints Mechanism Comparison}
     \label{fig:Patent}
 \end{figure}
-As can be seen from Figures 1 and 2 , this comment is entirely unrelated to the 
-use of opposing magnetic fields to essentially replace the spring mechanism 
-shown above and consequently does not affect our design.
 
-Figure~\ref{fig:Patent}
+To verify that the mounts did not bear a resemblance to Stillpoints\textquotesingle invention, Robin Bartle, a patent lawyer from Bartle Read, a company based in Liverpool which specialise in intellectual property was contacted who was able to confirm that \textquotesingle Because the mount does not feature a second layer of bearings as shown on the cross-section, there are no blatant overlaps between the two products and Stillpoints would not have sufficient grounds to sue\textquotesingle (see Figure \ref{fig:Patent}). Additionally, Mr Bartle noted that this is a US patent and is not filed with the European Patent Office and so only stands to limit sales within the US.
+
 
 \subsubsection{Points of Originality}
 \begin{itemize}
-    \item Use of \textbf{opposing magnetic fields} for lateral damping as 
+    \item Use of \emph{opposing magnetic fields} for lateral damping as 
     opposed to springs
-    \item \textbf{Cone with retaining flange} replacing layers of bearings
-    \item \textbf{Pre-loading mechanism} in which a screw in tension moves a 
+    \item \emph{Cone with retaining flange} replacing layers of bearings
+    \item \emph{Pre-loading mechanism} in which a screw in tension moves a 
     fixed magnet decreasing its distance from the bearing magnet thus 
     increasing the strength of the system---adjustable for a variety of masses.
 \end{itemize}
 
 \subsection{Marginal Costs}
-With respect to production costs, margins of 100\% for product distribution, 
-100\% for retail and 35\% for profit are to be met. Given that machining and 
-assembly costs total £x (see section \ref{sec:ManCosts}) and £y (see section 
-\ref{sec:AssemCosts}) per piece respectively, the product's cost of production 
-is £r per piece. The aforementioned product margins then dictate a retail price 
-of £(1.35 * r).
+With reference to Table \ref{table:costs}, and accounting for assembly costs as discussed in section \ref{sec:AssemCosts}, the main contained mechanism, optional base and spike are to cost \textsterling458 , \textsterling30 and \textsterling14.30 respectively to produce.
+With respect to production costs, margins of 100\% for product distribution, 100\% for retail and 30\% for profit are to be met which consequently dictate the following retail prices. The main device shall retail for \textsterling1,499.00, the optional base for \textsterling99.00 and the removable spike for \textsterling49.00.
 
 \section{Discussion} 
 \subsection{Specification Fulfilment}
 \subsubsection{User Requirement Specification Tree}
-With reference to the URS tree, the final proposal incorporated a cone with a 
-retaining flange which held the magnets in place whose separation was altered 
-in order to accommodate a range of masses. The four degrees of freedom were 
-thus defined by all translational motion and free rotation. As described 
-earlier in the report, the magnet behind the bearing is moved while the other 
-is fixed and the preloading mechanism allowed the user to adjust the position 
-of the fixed magnet. Namely, the crown element moved the back stops for the 
-fixed magnet inward as a single preloading screw was tightened. 
+With reference to the URS tree (see Figure \ref{fig:URS}), the final proposal incorporated a cone with a retaining flange which held the magnets in place whose separation was altered in order to accommodate a range of masses. With reference to the URS tree (see Figure \ref{fig:URS}), the four degrees of freedom were thus defined by all translational motion and free rotation. As described earlier in the report, the magnet behind the bearing is moved while the other is fixed and the preloading mechanism allowed the user to adjust the position of the fixed magnet. Namely, the crown element moved the back stops for the fixed magnet inward as a single preloading screw was tightened. 
 
 The requirement for a rigid load path was integral to the performance of the 
 damping mechanism. The interaction between the magnets and the spherical 
@@ -1163,6 +1145,15 @@ additional interference or damage to the Hi-Fi system, ideally a 3-D finite
 element analysis software would better determine whether the separation 
 distance or the grade of magnet needed to be amended.
 
+REDO for SPECIFIC LINKS TO TREE.
+Split into 3 main aims - 
+			-Eliminate microphonic effects - show proof of damping, single point of contacts means coupled to equipment and hard 				materials ensures rigid paths, use of circular bearings has allowed for all four degrees of freedom. 
+			
+			-Integrate with existing equipment- comment on aesthetics (material finish), 3 points of contact are sufficient for stability, 				define range of masses it can support. Improvements- no proof of not blemishing existing equipment
+			
+			-Budget- basically have no budget, talk about current market price.
+
+
 \subsection{further developments}
 There is great potential for further work and like Nordost, a family of 
 products adapted to support heavier devices such as loudspeakers could also be 
@@ -1173,6 +1164,7 @@ a desired condition could also replace the preloading graphs provided by the
 parametric model. Machining could be improved by optimising tolerancing for the 
 tracks and will thus increase profit margins and set the product aside from the 
 mentioned competitors.
+
 
 \section{Conclusion}
 
