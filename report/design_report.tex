@@ -23,6 +23,7 @@
 \usepackage{threeparttable}
 \usepackage{fancyhdr}
 \usepackage{float}
+\usepackage{placeins}
 
 \usepackage{varioref}
 \usepackage{textcomp}
@@ -42,6 +43,10 @@
 \cfoot{\thepage}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
+
+
+% Setup nomenclature.
+\makenomenclature
 
 \graphicspath{{Images/}}
 
@@ -87,9 +92,6 @@ design lies potential for product families of differing size, catering to an
 even wider audience, and applications within the field of optics, more 
 specifically in the optimisation of microscopes.
 
-% Nomenclature.
-\makenomenclature
-
 % Acronyms
 \nomenclature[A0]{CNC}{Computer Numerical Control}
 \nomenclature[A1]{DFA}{Design for Assembly}
@@ -98,7 +100,27 @@ specifically in the optimisation of microscopes.
 \nomenclature[A4]{URS}{User Requirement Specification}
 
 % Variables
+\nomenclature[B00]{$F_d$}{Vertical applied load exerted on each top piece.}
+\nomenclature[B01]{$F_m$}{Vertical magnetic reaction exerted on each top piece.}
+\nomenclature[B02]{$N_1$}{Core race reaction force.}
+\nomenclature[B03]{$N_2$}{Top cone reaction force.}
+\nomenclature[B04]{$P$}{Vertical preload.}
+\nomenclature[B05]{$c$}{System damping coefficent.}
+\nomenclature[B06]{$k$}{System stiffness.}
+\nomenclature[B07]{$f_d$}{System damped natural frequency in \si{\hertz}.}
+\nomenclature[B08]{$f_n$}{System natural frequency in \si{\hertz}.}
+\nomenclature[B09]{$p_d$}{Horizontal applied load exerted on each bearing.}
+\nomenclature[B10]{$p_m$}{Horizontal magnetic reaction exerted on each bearing.}
+\nomenclature[B11]{$\alpha$}{Top cone slope.}
+\nomenclature[B12]{$\beta$}{Preloading backstop slope.}
+\nomenclature[B13]{$\zeta$}{System damping factor.}
+\nomenclature[B14]{$\mu$}{Frictional coefficient.}
+\nomenclature[B15]{$\omega_d$}{System damped natural frequency in 
+    \si{\radian\per\second}.}
+\nomenclature[B16]{$\omega_n$}{System natural frequency in 
+    \si{\radian\per\second}.}
 
+% Nomenclature.
 \printnomenclature
 
 % Table of contents.
@@ -390,6 +412,7 @@ D2 best matched the customer's expectations and engineering requirements. This
 is the concept which informed the next stage of development and our final 
 design.
 
+\FloatBarrier
 \section{Design Development}
 
 Through an iterative process, the concept highlighted in 
@@ -447,8 +470,13 @@ multitude of reasons:
 
 \begin{figure}[h]
     \centering
-    \textbf{ISOMETRIC OF INITIAL CAD REVISION}
-    \textbf{CROSS-SECTION OF INITIAL CAD REVISION}
+    \subfloat[Isometric view]{{
+        \includegraphics[width=0.4\textwidth]{Images/b2.pdf}
+        }}
+    \qquad
+    \subfloat[Cross-section]{{
+        \includegraphics[width=0.4\textwidth]{Images/b1.pdf}
+        }}
     \caption{Isometric view and cross-section of inital design revision.}
     \label{fig:rev1}
 \end{figure}
@@ -456,9 +484,10 @@ multitude of reasons:
 The choice of six races was a compromise between the size of the mount and 
 having a mount with a more constant stiffness in different lateral directions.
 
+\FloatBarrier
 \subsubsection{Flux Path Simulation}
 
-As the footer houses twelve rare earth magnets, considerations have to be made 
+As the footer houses twelve rare earth magnets, considerations had to be made 
 for the way in which these magnets interact with the surroundings of the footer 
 as they could cause damage or interfere with mounted or surrounding 
 equipment footer. Using a software package called 
@@ -469,21 +498,19 @@ to be modelled. The analysis performed in this section is for the geometry of
 the final design, but the same procedure was performed following each 
 significant revision during the design process. When modelling the effect of 
 these magnets the two extreme cases were considered: at minimum and maximum 
-separation as detailed in Figure~\ref{figure:minsep} and 
-Figure~\ref{figure:maxsep}.
+separation as detailed in Figure~\ref{figure:flux}.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{Images/maxpreload.png}
-    \caption{Flux state with minimum separation of magnets}
-    \label{figure:minsep}
-\end{figure}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{Images/minpreload.png}
-    \caption{Flux state with maximum separation of magnets}
-    \label{figure:maxsep}
+    \subfloat[Maximum separation]{{
+        \includegraphics[height=0.45\textheight]{Images/minpreload.png}
+        }}
+    \qquad
+    \subfloat[Minimum separation]{{
+        \includegraphics[height=0.45\textheight]{Images/maxpreload.png}
+        }}
+    \caption{Flux density due to opposing magnets.}
+    \label{figure:flux}
 \end{figure}
 
 It can be seen that the flux density outside of the footer is negligible as it 
@@ -491,7 +518,7 @@ has a value of the order $10^{-5}$~\si{\tesla} meaning that there would be
 minimal to no interactions between the footer and its surroundings as nearly 
 all of the magnetic flux is contained within the core of the device.
 
-\subsubsection{Magnetic stresses}
+\subsubsection{Magnetic Stresses \emph{where do I live??}}
 
 The opposing pole pairs of magnets housed within the core of the design exist 
 in a highly stressed state, meaning that the force applied to each magnet is 
@@ -499,12 +526,88 @@ large and has to be considered. The maximum force acting between the magnets is
 $p_{m\,max}$ and from this the maximum stress within the magnet could be 
 calculated. This was shown to be 0.175~\si{\mega\pascal} and the yield stress 
 3.96~\si{\mega\pascal} meaning that there is a factor of safety of 23 per 
-magnet. This suggeststhese magnets will not structurally fail during the 
+magnet. This suggests these magnets will not structurally fail during the 
 operation of this product.
 
+\FloatBarrier
 \subsection{Preloading Mechanisms}
+
+Reference~\cite{maguire2016vibration} identified the was opportunity in the 
+market for a footer that the user could tweak to their system. A preloading 
+mechanism was included which changed the range of masses that could be 
+supported by altering the position of outermost ring of magnets.
+
+Figure~\vref{fig:rev1} contained a preloading system which the user tweaked by 
+adjusting six screws---one for each bearing race. Tightening the screws moved 
+the backstop part positioned behind the outermost magnet inwards.
+
+A major issue with this intial design was that in order to preload the 
+mechanism, all six individual backstop neededs to be adjusted individually, 
+proving incredibly tedious for the customer. Figure~\vref{fig:rev2} details the 
+geometry of the preloading crown. The crown slotted into the core of the footer 
+through which the bearing races ran. The backstops contained a slope which 
+matcheed the slope on the tips of the crown.
+
+Also visible in the cross-section in Figure~\ref{fig:rev2} is a hole through 
+the centre of the crown and core piece. By threading the hole through the 
+centre of the core, a single preloading screw was used to adjust the height of 
+the crown relative to the rails. As the crown moved up, the backstops were 
+pushed in. Only one screw was required to set a preload position for every rail.
+
+\begin{figure}[h]
+    \centering
+    \subfloat[Preloading crown]{{
+        \includegraphics[width=0.4\textwidth]{Images/b3.pdf}
+        }}
+    \qquad
+    \subfloat[Cross-section]{{
+        \includegraphics[width=0.4\textwidth]{Images/b4.pdf}
+        }}
+    \caption{Design revision with revised preloading mechanism.}
+    \label{fig:rev2}
+\end{figure}
+
 \subsection{Casing}
 
+A problem with the design so far was that the top piece was not restrained. 
+This means that if no load was applied, the force exerted by the magnets would 
+push the top off and internal components would fall out of the core. A 
+4~\si{\milli\meter} retainer wall component was therefore designed. This was 
+essentially a tube that fitted over the core and top piece which it then 
+retained using an internal flange; this can be seen in Figure~\vref{fig:rev3}. 
+Six screws fastened the retainer to the core of the footer. In this revision 
+the preload crown and core thickness were adjusted to enable the full range of 
+travel for the backstop without the preload screw going all the way through 
+the core.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\textwidth]{Images/b5.pdf}
+    \caption{Design revision with retainer.}
+    \label{fig:rev3}
+\end{figure}
+
+However, the casing also had to dissuade the user from disassembling the 
+footer. It would not be desirable for competitors to easily reverse engineer 
+the mechanism. A threaded insert was created for the bottom piece with a hole 
+for accessing the preloading screw. The hole was designed to be smaller than 
+the head of the screw so it could not be fully removed along with the 
+preloading crown. The hole doubled as a mounting thread.
+
+The threaded insert was designed to be some ISO metric standard. An M80~x~4.0 
+thread was chosen as it was close to the size of existing footers on the 
+market. The required drill hole size for M80~x~4.0 threads is 
+\diameter76~\si{\milli\meter}. This worked well with a 
+\diameter10~\si{\milli\meter} bearing and ring magnet---the magnet pairs just 
+touched at maximum load and preload.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/b6.pdf}
+    \caption{Final design with threaded base and attachments.}
+\end{figure}
+
+\FloatBarrier
 \subsection{Materials}
 
 Neodymium magnets are the most widely used type of rare-earth magnet, strongest 
@@ -603,7 +706,7 @@ point load on top. Again, the worst possible case of applied load to the screw
 was the full 140~\si{\kilogram} mass being supported by it as may be seen in 
 Figure~\vref{fig:preload-screw}. Therefore, the maximum stress case within the 
 screw was considered for this applied load and tested for various diameters 
-of ISO metric threads, as can be seen in Table~\ref{table:stresses-prelaod}.
+of ISO metric threads, as can be seen in Table~\vref{table:stresses-preload}.
 
 \begin{figure}[h]
     \centering
@@ -658,10 +761,10 @@ there is a force $p_m$ applied horizontally through the preloading backstop
 that causes a resultant force $P/6$ acting on each of the six vertical struts 
 of the crown. These forces were resolved find $P/6$:
 \begin{equation}
-    \frac{P}{6} = p_m tan(\beta)
+    \frac{P}{6} = p_m \tan(\beta)
     \label{eq:resolve-preload}
 \end{equation}
-where $\beta$ was 60.04\si{\degree}.
+where $\tan(\beta)$ was 2.25.
 
 To preload the system, the user has to remove all load from the footer, so the 
 bearings will rest at a maximum distance away from the backstop. The magnetic 
@@ -670,15 +773,49 @@ minimum---at maximum preload. This value $p_{m\,max}$ was 1.23~\si{\newton}.
 Equation~\ref{eq:resolve-preload} was substituted into 
 Equation~\ref{eq:screw-torque}:
 \begin{equation}
-    T_{max} = 6\,\mu\,D\,p_{m\,max}\,tan(\beta)
+    T_{max} = 6\,\mu\,D\,p_{m\,max}\,\tan(\beta)
     \label{equation:screw-torque2}
 \end{equation}
 which yielded a $T_{max}$ value of 0.053~\si{\newton\meter}, well within human 
 capabilities given \cite{stokes1976man} quotes the 5th percentile for 
-maximum torque strength as 7.21~\si{\newton\meter}.
+the maximum torque applied due to wrist pronation as 7.21~\si{\newton\meter}.
 
-\subsection{Dynamic Analysis}
+\FloatBarrier
+\subsection{System Analysis}
 \subsubsection{Parametric Model} \label{sec:parametric-model}
+
+Following the finalisation of the geometry of the isolation, attenuation and 
+preload mechanisms, a parametric model was produced. The model considered the 
+following:
+\begin{itemize}
+    \item ??
+\end{itemize}
+
+\subsubsection*{Preload system}
+
+Since the preload screw is what the user changes, it is the independent 
+variable. Before considering how the preload affected the system, the method of 
+preloading was analysed. To preload the system, the preload screw must be 
+tightened with its rotational movement converted into vertical movement. The 
+relationship is determined by the pitch of the thread on the screw and 
+outlined below:
+\begin{equation}
+    y = P * n
+\end{equation}
+where ?y? is the vertical movement of the screw and therefore the crown, ?P? is 
+the pitch of the thread,
+and ?n? is the distance screwed in revolutions.Next, the vertical movement of 
+the crown must be translated into the radial displacement of the back
+stops. Since each rail is independent but identical, they can be considered 
+from a perspective of a 2D
+cross section. The radial displacement can therefore be considered as a 
+horizontal motion along the
+rail. By considering trigonometry and accounting for the mount?s tolerances, 
+the horizontal
+displacement can be written as:
+x = y * tan(23.96)
+where x is the distance a back stop travels along its rail.
+
 \subsubsection{System Tuning}
 \subsubsection{Experimentation} \label{sec:experimentation}
 
@@ -719,7 +856,7 @@ were analysed instead.
 
 Firstly, the data for the amplifier when off---the control---was compared to 
 the amplifier when on; their spectra up to 1~\si{\kilo\hertz} are shown in 
-Figure~\vref{fig:MatGraphs1}. There were no observable components above the 
+Figure~\ref{fig:MatGraphs1}. There were no observable components above the 
 noise floor in the range 1~\si{\kilo\hertz}--25~\si{\kilo\hertz}.
 
 \begin{figure}[h]
@@ -943,12 +1080,29 @@ described in Table~\ref{table:bom}.
 \end{table}
 
 \subsection{Off-The-Shelf Parts}
-Due to the complex geometry required from our design, only few components may be bought in, namely (per mount);  six Ø10mm tungsten carbide ball bearings, six \diameter 10 x 1.5 mm neodymium magnets, six M4 by 20 mm AISI A2 steel countersunk Torx security screws and one M4 by 20 mm countersunk hex socket with partial thread. These components are readily available excluding the tungsten carbide ball bearings which must be sourced from a specialist supplier.
-Table~\ref{table:bom} details potential sources for the aforementioned parts and the quantity required per mount.
+Due to the complex geometry required from our design, only few components may 
+be bought in, namely (per mount);  six Ø10mm tungsten carbide ball bearings, 
+six \diameter 10 x 1.5 mm neodymium magnets, six M4 by 20 mm AISI A2 steel 
+countersunk Torx security screws and one M4 by 20 mm countersunk hex socket 
+with partial thread. These components are readily available excluding the 
+tungsten carbide ball bearings which must be sourced from a specialist supplier.
+Table~\ref{table:bom} details potential sources for the aforementioned parts 
+and the quantity required per mount.
 
 \subsection{Primary Processes}
 
-All parts are to be machined using a 3 axis CNC mill excluding the central piece (see drawing COR080-0003), which also requires wire erosion. Wire erosion is considerably more expensive but allows for the more intricate designs required by this piece. Forging was considered as a method of manufacture but was dismissed for the following reasons; the large expenditure involved in machinery, dies, tools and personnel are only justifiable for large scale production and the die accuracy required to forge the most complex pieces is likely unachievable\cite{Forging}. In the interest of reducing manufacturing cost, for which the complex geometry of the core piece is largely responsible, it was proposed during discussion with Sylatech Ltd\textregistered that the piece be machined in separate parts that are later joined to avoid the machining of reverse chamfers as shown in Figure~\ref{fig:core}.\\
+All parts are to be machined using a 3 axis CNC mill excluding the central 
+piece (see drawing COR080-0003), which also requires wire erosion. Wire erosion 
+is considerably more expensive but allows for the more intricate designs 
+required by this piece. Forging was considered as a method of manufacture but 
+was dismissed for the following reasons; the large expenditure involved in 
+machinery, dies, tools and personnel are only justifiable for large scale 
+production and the die accuracy required to forge the most complex pieces is 
+likely unachievable\cite{Forging}. In the interest of reducing manufacturing 
+cost, for which the complex geometry of the core piece is largely responsible, 
+it was proposed during discussion with Sylatech Ltd\textregistered that the 
+piece be machined in separate parts that are later joined to avoid the 
+machining of reverse chamfers as shown in Figure~\ref{fig:core}.\\
 
 \begin{figure}[h]
    \centering
@@ -957,9 +1111,23 @@ All parts are to be machined using a 3 axis CNC mill excluding the central piece
    \label{fig:core}
 \end{figure} 
 
-Cost is substantially driven by time; time to remove material in the machining process as well as set-up time of the machine itself\cite{SetUp}. Conveniently, our design is highly symmetrical meaning time and money is saved through lacking the need of a complex orienting mechanism given that the part's orientation prior to machining is irrelevant.
+Cost is substantially driven by time; time to remove material in the machining 
+process as well as set-up time of the machine itself\cite{SetUp}. Conveniently, 
+our design is highly symmetrical meaning time and money is saved through 
+lacking the need of a complex orienting mechanism given that the part's 
+orientation prior to machining is irrelevant.
 
-Finally, the volume of production is of great importance; with too small a batch size, set up costs and jig production costs become impractical and with too large a batch, storage costs pose a problem for a product of which the market response is not easily predictable. Considering the high cost and exclusive appeal of this product, low volume batch production in the order of 100 is appropriate so as to eliminate any unnecessary storage costs and allow adequate response to market needs. Specifically a volume of 300 pieces has been defined because it is divisible by three, the mounts are expected to be sold in groups of three, and during correspondence with Sylatech Ltd\textregistered it was discussed that any larger batch volume would pose an infeasible machining time; namely roughly two weeks.
+Finally, the volume of production is of great importance; with too small a 
+batch size, set up costs and jig production costs become impractical and with 
+too large a batch, storage costs pose a problem for a product of which the 
+market response is not easily predictable. Considering the high cost and 
+exclusive appeal of this product, low volume batch production in the order of 
+100 is appropriate so as to eliminate any unnecessary storage costs and allow 
+adequate response to market needs. Specifically a volume of 300 pieces has been 
+defined because it is divisible by three, the mounts are expected to be sold in 
+groups of three, and during correspondence with Sylatech Ltd\textregistered it 
+was discussed that any larger batch volume would pose an infeasible machining 
+time; namely roughly two weeks.
 
 \subsection{Secondary Processes}
 
@@ -975,27 +1143,43 @@ is to be brushed in concentric circles to give an attractive finish and hide
 any scratches. A 2J finish is to be applied to all other external stainless 
 steel pieces as it is cheaper to produce than polishing and is practical in 
 that it is resistant to scratches whilst being aesthetically 
-pleasing\cite{Finishes}.\\
+pleasing\cite{Finishes}.
 
-All parts are to be machined at fine linear and angular tolerances of +/-0.1mm 
-and +/-$1\,^{\circ}\mathrm{}$ respectively to ensure the overall quality of the 
-product. However there exists opportunity for optimisation within this section; 
-in the interest of reducing cost, it was concluded that the rails contained in 
-the core piece are the only parts to be machined to a high tolerance since they 
-are to fit plush to the bearings; all other parts may be machined to a coarser, 
-and therefore cheaper, tolerance.
+All parts are to be machined at fine linear and angular tolerances of 
++/-0.1~\si{\milli\meter} and +/-1\si{\degree} respectively to ensure the 
+overall quality of the product. However there exists opportunity for 
+optimisation within this section; in the interest of reducing cost, it was 
+concluded that the rails contained in the core piece are the only parts to be 
+machined to a high tolerance since they are to fit plush to the bearings; all 
+other parts may be machined to a coarser, and therefore cheaper, tolerance.
 
 \subsection{Manufacture Costs} \label{sec:ManCosts}
 \subsubsection{Optimisation}
-Sylatech Ltd\textregistered, a machining company situated in the North East of England, was contacted regarding the cost to manufacture the product and proved very informative with regard to the feasibility of our product. Initially a cost of roughly \textsterling500 per piece (for a batch volume of 300) was quoted which, allowing for appropriate margins detailed in section \ref{sec:Margins}, dictates a retail price of \textsterling1650. The most expensive existing product of similar concept is priced at \textsterling849.99 and, although our original product features merit a higher retail price, a difference of roughly \textsterling800 is too large when introducing a new product to the market. 
+Sylatech Ltd\textregistered, a machining company situated in the North East of 
+England, was contacted regarding the cost to manufacture the product and proved 
+very informative with regard to the feasibility of our product. Initially a 
+cost of roughly \textsterling500 per piece (for a batch volume of 300) was 
+quoted which, allowing for appropriate margins detailed in section 
+\ref{sec:Margins}, dictates a retail price of \textsterling1650. The most 
+expensive existing product of similar concept is priced at \textsterling849.99 
+and, although our original product features merit a higher retail price, a 
+difference of roughly \textsterling800 is too large when introducing a new 
+product to the market. 
 
 The following suggestions were made to reduce the quoted figure;
 \begin{itemize}
-    \item The rails of the core piece were to be modified such that the radius of the bearing race was continued until tangential with the wall. Simply, the right-angles depicted in Figure \ref{fig:RailCross} were to be removed. This revision was quoted to save roughly \textsterling100 per mount.
-    \item The 0.3mm dimension of the base as shown in Figure \ref{fig:BaseCross} was to be extended to 2mm; the larger dimension is easier to grip and therefore would require less delicate and costly machine handling. This change was quoted to save roughly \textsterling10 per base.
-    \item The retainer was to be machined using a 4 axis CNC machine which is considerably faster because fewer operations are required. This change was quoted to save roughly \textsterling20 per piece.
+    \item The rails of the core piece were to be modified such that the radius 
+    of the bearing race was continued until tangential with the wall. Simply, 
+    the right-angles depicted in Figure \ref{fig:RailCross} were to be removed. 
+    This revision was quoted to save roughly \textsterling100 per mount.
+    \item The 0.3mm dimension of the base as shown in Figure 
+    \ref{fig:BaseCross} was to be extended to 2mm; the larger dimension is 
+    easier to grip and therefore would require less delicate and costly machine 
+    handling. This change was quoted to save roughly \textsterling10 per base.
+    \item The retainer was to be machined using a 4 axis CNC machine which is 
+    considerably faster because fewer operations are required. This change was 
+    quoted to save roughly \textsterling20 per piece.
 \end{itemize}
-
 
 \begin{figure}[h]
    \centering
@@ -1027,7 +1211,7 @@ The following suggestions were made to reduce the quoted figure;
 		2 & PLD080-0003  & 1 & 35.00 & 35.00 \\
 		3 & PLD010-1004  & 6 & 2.00 & 12.00 \\
 		4 & F669-N45SH-10 (first4magnets) & 12 & 0.30 & 3.60  \\
-		5 & 10MMTUNGSTENB ALLS (VXB Bearings) & 6 & 20.30 & 121.80 \\
+		5 & 10MMTUNGSTENBALLS (VXB Bearings) & 6 & 20.30 & 121.80 \\
 		6 & TOP080-0004A  & 1 & 32.50 & 32.50 \\
 		7 & RET080-0003 & 1 & 25.00 & 25.00 \\
 		8 & M4X20-CSK-ST (westfieldfasteners) & 6 & 0.09 & 0.54 \\
@@ -1140,13 +1324,13 @@ With respect to production costs, margins of 100\% for product distribution, 100
 \subsection{Specification Fulfilment}
 \subsubsection{User Requirement Specification Tree}
 
-\emph {Eliminate Microphonic Effects}
+\subsubsection*{Eliminate Microphonic Effects}
 
 The requirement for a rigid load path was integral to the performance of the damping mechanism. The interaction
 between the magnets and the spherical bearings in conjunction with the hardness of their material diminished the excess mechanical vibrations generated by microphonic effects as demonstrated by the graphs produced by the
 dynamic model. However, the data yielded during the experiment which was then inputted to the simulation, did not fully reflect the execution of the design and is therefore a source of uncertainty. Employing the squash balls as a method of dampening the noise produced by the amp did validate the concept but would be of more value if a prototype was used to establish a value empirically.
 
-\emph {Budget Constraints}
+\subsubsection*{Budget Constraints}
 
 With reference to the commercial considerations section and design for manufacture, it is clear that the market for
 isolation devices is not driven by cost, instead by sound engineering science. However, in comparison with the
@@ -1161,7 +1345,7 @@ For example, there is a \textsterling300 difference with Stillpoints Ultra 6 mou
 	\item M8 threads at the top and bottom pieces allow the user to amenably couple their device to the footers. 
 \end{itemize}
 
-\emph {Integrate with existing equipment}
+\subsubsection*{Integrate with existing equipment}
 
 The HiFi equipment must only rest on 3 footers to prevent further resonances and heating in the arrangement. If
 another was used, it would either prove redundant or induce further noise. The cone provided a single point of contact which in turn meant that 3 footers were needed to support one piece of equipment. Partnered with the large base plate, this guaranteed that the mounts would not slip and the system was amply stable.
@@ -1171,8 +1355,12 @@ In addition, the aesthetically pleasing finishings ensure that the footer is wel
 In the interest of expanding the design, a number of proposals have been made;
 
 \begin{itemize}
-\item Product families could be made, of differing size and/or material composition, to cater for an even wider range of masses to include heavier systems such as Loudspeakers.
-\item A companion phone application which enables the user to adjust the preload for a desired condition could also replace the preloading graphs provided by the parametric model. 
+    \item Product families could be made, of differing size and/or material 
+    composition, to cater for an even wider range of masses to include heavier 
+    systems such as Loudspeakers.
+    \item A companion phone application which enables the user to adjust the 
+    preload for a desired condition could also replace the preloading graphs 
+    provided by the parametric model. 
 \end{itemize}
 
 
