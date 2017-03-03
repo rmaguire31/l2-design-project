@@ -3,6 +3,8 @@
 \usepackage{wasysym}
 \usepackage{booktabs}
 \usepackage{xspace}
+\usepackage{threeparttable}
+\usepackage[hidelinks]{hyperref}
 \usepackage[style=ieee,backend=bibtex]{biblatex}
 \usepackage{filecontents}
 
@@ -258,30 +260,41 @@ drawings for Isofonics parts not purchased from third parties.
 \begin{table}[h]
     \centering
     \footnotesize
-    \caption{Bill of Materials}
-    \label{table:bom}
-    \begin{tabular}{@{}clp{17em}c@{}}
-        \toprule
-        Item No. & Part No. & Description & Qty. \\
-        \midrule
-        1 & COR080-0003 & \raggedright Isofonics core piece & 1 \\
-        2 & TOP080-0004 & \raggedright Isofonics top piece & 1 \\
-        3 & 10MMTUNGSTENBALLS & \raggedright \diameter 10mm tungsten carbide 
-        ball (VXB Bearings) & 6 \\
-        4 & F669-N45SH-10 & \raggedright \diameter 10x1.5mm neodymium button 
-        magnet (first4magnets) & 12 \\
-        5 & PLD010-1004 & \raggedright Isofonics preloading back-stop & 1 \\
-        6 & RET080-0003 & \raggedright Isofonics retainer & 1 \\
-        7 & M4X20-CSK-ST & \raggedright M4x20mm T20 c'sunk screw with 
-        partial thread (westfieldfastenings) & 6 \\
-        8 & PLD080-0003 & \raggedright Isofonics preloading crown & 1 \\
-        9 & M4X20-CSK-H & \raggedright M4x20mm H2.5 c'sunk screw with 
-        partial thread (westfieldfastenings) & 1 \\
-        10 & RET080-1002 & \raggedright Isofonics retainer bottom & 1 \\
-        11 & USR080-0001 & \raggedright Isofonics removable spike & 1 \\
-        12 & USR080-1002 & \raggedright Isofonics removable base & 1 \\
-        \bottomrule
-    \end{tabular}
+    \begin{threeparttable}
+        \caption{Bill of Materials}
+        \label{table:bom}
+        \begin{tabular}{@{}clp{17em}c@{}}
+            \toprule
+            Item No. & Part No. & Description & Qty. \\
+            \midrule
+            1 & COR080-0003 & \raggedright Isofonics core piece & 1 \\
+            2 & TOP080-0004 & \raggedright Isofonics top piece & 1 \\
+            3 & 10MMTUNGSTENBALLS\tnote{1} & \raggedright \diameter 10~mm 
+            tungsten carbide ball & 6 \\
+            4 & F669-N45SH-10\tnote{2} & \raggedright \diameter 10~x~1.5~mm 
+            neodymium 
+            button magnet & 12 \\
+            5 & PLD010-1004 & \raggedright Isofonics preloading back-stop & 1 \\
+            6 & RET080-0003 & \raggedright Isofonics retainer & 1 \\
+            7 & M4X20-CSK-ST\tnote{3} & \raggedright M4~x~20~mm T20 A2 c'sunk 
+            screw with partial thread & 6 \\
+            8 & PLD080-0003 & \raggedright Isofonics preloading crown & 1 \\
+            9 & M4X20-CSK-H\tnote{4} & \raggedright M4~x~20~mm H2.5 A2 c'sunk 
+            screw with partial thread & 1 \\
+            10 & RET080-1002 & \raggedright Isofonics retainer bottom & 1 \\
+            11 & USR080-0001 & \raggedright Isofonics removable spike & 1 \\
+            12 & USR080-1002 & \raggedright Isofonics removable base & 1 \\
+            \bottomrule
+        \end{tabular}
+        \begin{tablenotes}
+            \raggedright
+            \tiny
+            \item[1]\url{http://www.vxb.com/10mm-Tungsten-Carbide-Bearing-Ball-0-3937-inch-Dia-p/10mmtungstenballs.htm}
+            \item[2]\url{http://www.first4magnets.com/circular-disc-rod-magnets-c34/10mm-dia-x-1-5mm-thick-n45sh-neodymium-magnet-1-1kg-pull-p3633}
+            \item[3]\url{http://www.westfieldfasteners.co.uk/A2_ScrewBolt_PinTXCsk_M4.html}
+            \item[4]\url{http://www.westfieldfasteners.co.uk/A2_ScrewBolt_SHCsk_M4.html}
+        \end{tablenotes}
+    \end{threeparttable}
 \end{table}
 
 \begin{figure}[h]
@@ -305,8 +318,38 @@ each of which will be described in detail:
 
 \subsection{Isolation and Attenuation Mechanism}
 
-Items 1--4 are used in the isolation and attenuation subsystem of the Isofonics 
-footer. More words
+Items~1--4 are used in the isolation and attenuation subsystem of the Isofonics 
+footer. Of these, Item~3 and Item~4 can be purchased from third parties.
+
+Item~3 is a \diameter 10~mm bearing made of tungsten carbide and sourced from 
+VXB Bearings. Despite its high unit price relative to other 
+materials---\textsterling25 each---tungsten carbide could be justified for its 
+incredible hardness. The hard material avoids resonances of large amplitude and 
+does not require lubrication. Any particulates which enter the system are 
+ground down by the tungsten carbide.
+
+The neodymium magnets labelled Item~4 were sourced from first4magnets, 
+chosen to have the same \diameter 10~mm diameter as the bearings. The 
+parametric model described in section~\vref{sec:parametric-model} was used to 
+determine whether the 1.5~mm thickness and 1.1~kg steel pull of the part was 
+sufficientto support the mass of HiFi amplifiers which range 5--30~kg and 
+deliver a natural frequency of 8--12~Hz. Figure~\vref{fig:final-envelope} 
+suggests this magnet meets those requirements, as the operational area enclosed 
+by the four boundary conditions ranges from 3?--45?~kg.
+
+Item 1 and Item 2 would be machined from 304 stainless steel. This alloy was 
+chosen for its hardness, protecting the parts from wear due to moving parts and 
+efficiently transmitting vibrations from the equipment to the bearing. 
+
+In order to ensure a point contact between the bearing and the 
+are to 
+
+\begin{figure}[h]
+    \centering
+    \textbf{OPERATIONAL AREA ENVELOPE}
+    \caption{Isometric section view with labelled item numbers.}
+    \label{fig:final-envelope}
+\end{figure}
 
 \printbibliography
     
