@@ -840,9 +840,9 @@ mounted mass. Using Gilbert?s model, the repulsion force [1] exerted by two
 identical opposing cylindrical magnets lying upon a common axis can be 
 approximated by:
 \begin{equation} \label{eq:p_m}
-    p_m = \frac{pi ?0 M^2 r^4}{4}
+    p_m = \frac{pi \mu0 M^2 r^4}{4}
     \left(\frac{1}{\delta u} + \frac{1}{(\delta u + 2t)^2} - \frac{2}{(\delta u 
-    + t)^2}}
+    + t)^2}\right)
 \end{equation}
 Where $r$ is the radius of the cylindrical magnet, $?_0$ is the permeability of 
 free space, $M$ is the magnetisation of the magnets, and $\delta u$ is the 
@@ -855,53 +855,46 @@ by considering the dimensions of the rail:
 The magnetisation of the magnets is the second unknown in 
 Equation~\ref{eq:p_m}. With the orientation of magnets in mind, this is given 
 by:
-\begin{equation}
-    B_0 = \mu_0 M
+\begin{equation} \label{eq:B01}
+    B0 = \mu_0 M
 \end{equation}
 
-Where ?B0? is the flux density very close to the magnet surface. 
-However, magnet strength is
-commonly rated using magnetic pull. This can be converted into flux density 
-using
-[http://www.codecogs.com/library/physics/magnetism/magnetic-pull-force.php]:
-Pull ? g ? 2 ? ?0
-B0 = ?
-A
-Where ?pull? is magnetic pull in kilograms, g is the acceleration due to 
-gravity, and ?A? is the area of
-the surface being considered.
-So now for any particular magnet strength and dimensions, as well as magnet 
-separation, the repulsion
-force can be determined. Since the system is being considered in a steady state 
-the magnetic repulsion
-must be equal to the horizontal force component on a single bearing due to a 
-mounted mass. These
-forces can be equated after considering the bearing-top piece integration angle 
-???.
-Fd = Pd/cos(?)
-With three footers being used, there are eighteen sets of magnets providing a 
-repulsive force. So to
-find the mass that could rest for any specified pre-load, the net sum of the 
-forces must be taken from
-all the magnet pairs:
-Mass = (18*Fd/9.81) - 0.266,
-Where the ?mass? is the mass resting on three feet. Note that the mass of the 
-top piece although small
-is not negligible, so it must be subtracted from the calculated mass as seen in 
-b.11.
-As described, for each preload value, there exists a different range of masses 
-that could be supported.
-The interval can be determined by how low the top piece sits on the bearings. 
-In turn this affects the
-distance from the centre of the core to the outer surface of the inner magnet. 
-A clearance of 2mm was
-given at each extreme to account for the real system?s oscillations. With these 
-boundary conditions, an
-envelope representing the range of supported masses was plotted (See Figure 
-b8). Note that this plot
-was produced using the initial dimensions for the footer where: Db = 76mm, Ds = 
-10mm, t = 2mm, r
-= 2mm, pull = 1.23kg preload.
+Where ?B0? is the flux density very close to the magnet surface. However, magnet strength is commonly rated using magnetic pull. This can be converted into flux density using 
+
+\begin{equation} \label{eq:B02}
+	B0 = \sqrt{\frac{Pull g 2 \mu0}{A}}
+\end{equation}
+
+Where \textquotesingle pull\textquotesingle is magnetic pull in kilograms, g is the acceleration due to gravity, and \textquotesingle A\textquotesingle is the area of the surface being considered.
+So now for any particular magnet strength and dimensions, as well as magnet separation, the repulsion force can be determined. Since the system is being considered in a steady state the magnetic repulsion must be equal to the horizontal force component on a single bearing due to a mounted mass. These forces can be equated after considering the bearing-top piece integration angle \textquotesingle {\alpha} \textquotesingle.
+
+\begin{equation} \label{eq:Fd}
+	Fd=\frac{Pd}{cos(\alpha)}
+\end{equation}
+
+With three footers being used, there are eighteen sets of magnets providing a repulsive force. So to find the mass that could rest for any specified pre-load, the net sum of the forces must be taken from all the magnet pairs:
+
+\begin{equation} \label{eq:Mass}
+	Fd=(18Fd/9.81) - 0.266
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \subsubsection{System Tuning}
 \subsubsection{Experimentation} \label{sec:experimentation}
@@ -1448,6 +1441,9 @@ In the interest of expanding the design, a number of proposals have been made:
 
 Additionally, within this project exists great potential for further work to improve the design.
 
+
+The way in which the magnetic flux was modelled within the system could be improved as the parametric model used throughout this report assumed that each opposing pole pair only had internal interactions, whereas in reality there may be interactions between adjacent  opposing pole pairs. This assumption may have lead to forces being unaccounted for in the model. Going forward 3D finite element modelling software would be used to provide a more accurate representation of the state of the flux within the device.
+
 -3D modelling as opposed to 2d
 -A 2-D finite element analysis software was used to model the magnetic flux distribution within the mount a 3-D software would have been preferable to more accurately determine...
 
@@ -1456,15 +1452,11 @@ Additionally, within this project exists great potential for further work to imp
 The following statements summarise the main results of the project:
 \begin{itemize}
 	\item The URS tree provided a sound and comprehensive depiction of the brief.
-	\item Suitable engineering techniques were applied. 2D finite element analysis software was employed to model magnetic flux distribution and confirmed there was no harmful leakage from the system.  The internal mechanism was also statically and dynamically analysed to determine the effect of preoloading the system and consequently, the noise attenuation.
-	\item Numerous progressive iterations of the model were produced. These acted as successively improved revisions of the design to include, for example, the addition of the top piece, spike and  thread on the top piece. 
+	\item Suitable engineering techniques were applied. 2D finite element analysis software was employed to model magnetic flux distribution and confirmed there was no harmful leakage from the system. The internal mechanism was also statically and dynamically analysed to determine the effect of preloading the system and consequently, the noise attenuation.
+	\item Numerous progressive iterations of the model were produced. These acted as successively improved revisions of the design to include, for example, the top piece and threaded spike.
 	\item The manufacturing considerations were researched and processes were modified following professional feedback that some parts were too expensive or too complex to machine. 
-	\item A prototype must be made and tested to provide additional proof of concept. This will ysield a more accurate rating for noise attention and hence further justify the cost of the footer.
+	\item A prototype must be made and tested to provide additional proof of concept. This will yield a more accurate rating for noise attention and hence further justify the cost of the footer.
 \end{itemize}
-
- In conclusion, it is clear that the final product met the initial design brief through the fulfilment of the greater part of the URS tree constructed in the feasibility report.
-
-
 
 
 \section{References}
