@@ -8,9 +8,14 @@
 \usepackage{cuted}
 \usepackage{pdfpages}
 
+
 \usepackage{titling}
 \usepackage{siunitx}
 \usepackage[style=ieee,backend=bibtex]{biblatex}
+\makeatletter
+\def\blx@maxline{77} %fix biblatex bug
+\makeatother
+
 \addbibresource{designbib.bib}
 \usepackage[font={small}]{caption}
 \usepackage{subfig}
@@ -1065,7 +1070,7 @@ drain with a mechanical diode effect to prevent external vibrations from
 travelling up through the cone. Similarly, 3 cones are recommended per device 
 but they offer 3 types of cone, each made from different materials. The most 
 expensive is made from titanium and utilises ceramic bearings, retailing at 
-\textsterling349.99 per cone.\cite{Nordostcost} Stillpoints offer an equivalent solution, their most expensive is their ?Ultra 6,? priced at \textsterling799.99 per mount and \textsterling849.99 with an accompanying base. \cite{StillpointsCost}
+\textsterling349.99 per cone.\cite{Nordostcost} Stillpoints offer an equivalent solution, their most expensive is their \textquotesingle Ultra 6\textquotesingle, priced at \textsterling799.99 per mount and \textsterling849.99 with an accompanying base. \cite{StillpointsCost}
  
 \subsection{Stillpoints Patent Check}
  
