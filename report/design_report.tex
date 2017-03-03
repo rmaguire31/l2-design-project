@@ -782,6 +782,17 @@ the maximum torque applied due to wrist pronation as 7.21~\si{\newton\meter}.
 
 \FloatBarrier
 \subsection{System Analysis}
+
+As denoted by the user requirements specification tree in the feasibility 
+report, the footer must be able to support a sufficiently large range of masses 
+with dynamic properties spanning across a suitable interval. For example, the 
+natural frequency and damping factor what magnets and dimensions need to be 
+chosen. Once determined using the parametric model, these parameters were 
+inputed into a computational simulation of the footer?s behaviour, entailing 
+the driving force (audio from Hi-Fi) and the additional damping caused by the 
+repulsion between the magnets. As such this would provide proof of concept and 
+provide related coefficients for different types of loading and material.
+
 \subsubsection{Parametric Model} \label{sec:parametric-model}
 
 Following the finalisation of the geometry of the isolation, attenuation and 
@@ -791,7 +802,7 @@ following:
     \item ??
 \end{itemize}
 
-\subsubsection*{Preload system}
+\subsubsection*{Preload System}
 
 Since the preload screw is what the user changes, it is the independent 
 variable. Before considering how the preload affected the system, the method of 
@@ -802,19 +813,90 @@ outlined below:
 \begin{equation}
     y = P * n
 \end{equation}
-where ?y? is the vertical movement of the screw and therefore the crown, ?P? is 
-the pitch of the thread,
-and ?n? is the distance screwed in revolutions.Next, the vertical movement of 
-the crown must be translated into the radial displacement of the back
-stops. Since each rail is independent but identical, they can be considered 
-from a perspective of a 2D
-cross section. The radial displacement can therefore be considered as a 
-horizontal motion along the
-rail. By considering trigonometry and accounting for the mount?s tolerances, 
-the horizontal
-displacement can be written as:
-x = y * tan(23.96)
-where x is the distance a back stop travels along its rail.
+where $y$ is the vertical movement of the screw and therefore the crown, $P$ is 
+the pitch of the thread, and $n$ is the number of revolutions. Next, the 
+vertical movement of the crown must be translated into the radial displacement 
+of the back stops. Since each rail is independent but identical, they can be 
+considered from a perspective of a 2D cross section. The radial displacement 
+can therefore be considered as a horizontal motion along the rail. By 
+considering trigonometry and accounting for the mount?s tolerances, the 
+horizontal displacement can be written as:
+\begin{equation}
+    x = y / tan(\beta)
+\end{equation}
+where $x$ is the distance a back stop travels along its rail.
+
+\subsubsection*{Modelling Forces and Masses}
+For any particular preload, a range of masses must be placed on the footer 
+before either of the extreme cases occur (bottom out and top out). If the 
+system is considered to be in a steady state, the repulsive forces due to the 
+magnets are balanced by the horizontal force on the bearings due to the resting
+mounted mass. Using Gilbert?s model, the repulsion force [1] exerted by two 
+identical opposing cylindrical magnets lying upon a common axis can be 
+approximated by:
+\begin{equation} \label{eq:p_m}
+    p_m = \frac{pi ?0 M^2 r^4}{4}
+    \left(\frac{1}{\delta u} + \frac{1}{(\delta u + 2t)^2} - \frac{2}{(\delta u 
+    + t)^2}}
+\end{equation}
+Where $r$ is the radius of the cylindrical magnet, $?_0$ is the permeability of 
+free space, $M$ is the magnetisation of the magnets, and $\delta u$ is the 
+separation between magnet surfaces. To solve this equation, some parameters 
+must be known. Firstly, the resting distance between magnets can be found
+by considering the dimensions of the rail:
+\begin{equation}
+    \delta u = u_2 - u_1
+\end{equation}
+The magnetisation of the magnets is the second unknown in 
+Equation~\ref{eq:p_m}. With the orientation of magnets in mind, this is given 
+by:
+\begin{equation}
+    B_0 = \mu_0 M
+\end{equation}
+
+Where ?B0? is the flux density very close to the magnet surface. 
+However, magnet strength is
+commonly rated using magnetic pull. This can be converted into flux density 
+using
+[http://www.codecogs.com/library/physics/magnetism/magnetic-pull-force.php]:
+Pull ? g ? 2 ? ?0
+B0 = ?
+A
+Where ?pull? is magnetic pull in kilograms, g is the acceleration due to 
+gravity, and ?A? is the area of
+the surface being considered.
+So now for any particular magnet strength and dimensions, as well as magnet 
+separation, the repulsion
+force can be determined. Since the system is being considered in a steady state 
+the magnetic repulsion
+must be equal to the horizontal force component on a single bearing due to a 
+mounted mass. These
+forces can be equated after considering the bearing-top piece integration angle 
+???.
+Fd = Pd/cos(?)
+With three footers being used, there are eighteen sets of magnets providing a 
+repulsive force. So to
+find the mass that could rest for any specified pre-load, the net sum of the 
+forces must be taken from
+all the magnet pairs:
+Mass = (18*Fd/9.81) - 0.266,
+Where the ?mass? is the mass resting on three feet. Note that the mass of the 
+top piece although small
+is not negligible, so it must be subtracted from the calculated mass as seen in 
+b.11.
+As described, for each preload value, there exists a different range of masses 
+that could be supported.
+The interval can be determined by how low the top piece sits on the bearings. 
+In turn this affects the
+distance from the centre of the core to the outer surface of the inner magnet. 
+A clearance of 2mm was
+given at each extreme to account for the real system?s oscillations. With these 
+boundary conditions, an
+envelope representing the range of supported masses was plotted (See Figure 
+b8). Note that this plot
+was produced using the initial dimensions for the footer where: Db = 76mm, Ds = 
+10mm, t = 2mm, r
+= 2mm, pull = 1.23kg preload.
 
 \subsubsection{System Tuning}
 \subsubsection{Experimentation} \label{sec:experimentation}
